@@ -1,0 +1,92 @@
+body {
+    background-image: url(https://tncache1-f1.v3mh.com/image/2024/08/27/63e1eb9508c61c16f3a424dc70f4e04b.png);
+    background-repeat: repeat-y no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #20c207
+}
+
+a:hover {
+    color: #409433;
+    text-decoration: underline;
+}
+
+.gg a {
+    color: #b132ff;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f3f3f3;
+    table-layout: fixed;
+    box-shadow: 2px 2px 5px #888888;
+    opacity: .9;
+    transition: all 0.3s;
+    /* 添加此属性 */
+}
+
+table:hover {
+    box-shadow: 5px 5px 10px #888888;
+    opacity: 1;
+    /* 添加此属性 */
+}
+
+th,
+td {
+    padding: 12px;
+    font-weight: normal;
+    max-width: 200px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    /* 添加此属性和下面一个属性 */
+    word-wrap: break-word;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #409433;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top:hover {
+    background-color: #20c207;
+    text-decoration: none;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
