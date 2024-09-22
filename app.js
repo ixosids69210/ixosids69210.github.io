@@ -23,7 +23,7 @@
 			});
 
 			var text = document.createElement('p');
-			text.innerHTML = '<a href="https://kepayun.live" target="_blank"> <span class="icon-container"><img src="anyi.svg" alt="Icon"></span>Kepa云⚡️ 付费推荐<br>9.9元100G，高速稳定不卡顿！</a><br><br><b>节点失效请联系我：<br>QQ:1287766992';
+			text.innerHTML = '<a href="https://kepayun.live" target="_blank"> <span class="icon-container"><img src="anyi.svg" alt="Icon"></span>Kepa云⚡️ 付费推荐<br>9.9元100G，高速稳定不卡顿！</a><br><br><b>节点失效请联系我：<br>QQ:1287766992<br><br>免费节点服务器被攻击，9月26日起恢复更新！';
 			modal.appendChild(text);
 
 			modal.appendChild(closeButton);
