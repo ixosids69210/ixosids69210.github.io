@@ -1,63 +1,288 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-    <title>群友专享节点</title>
-    <script src="app.js" type="text/javascript"></script>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="1.css">
+    <title>群友专享节点</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
-    <div class="container">
-        <h1
-            style="background-image: linear-gradient(to right, #ff70c4, #4687fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            群友专享节点</h1>
-        <h3 style="color:#d44c47">最后更新时间：</h3>
-        <p class="time">
-            2025年3月2日21:50:29
-            </p>
-        <p style="font-weight:700">如发现所有节点都无法使用，请及时联系我，以便我更新并解决问题。</p>
-        <hr>
-        <p style="font-size: 20px; margin-bottom: 10px;">
-            <strong>🚀小火箭订阅：
-                <br>
-            </strong>
-            <a href="https://yqt.me/base64" target="_blank">https://yqt.me/base64</a>
-        </p>
-        <button onclick="copyToClipboard('https://yqt.me/base64')">复制链接</button>
-        <button class="daoru"
-            onclick="window.location.href='shadowrocket://add/sub://aHR0cHM6Ly95cXQubWUvYmFzZTY0?remark=%5B%E9%AD%94%E6%B3%95%E5%92%96%5D%E7%BE%A4%E5%8F%8B%E4%B8%93%E4%BA%AB'">一键导入</button>
-        <p>
-            <strong>如何使用：</strong>复制上方链接(不是打开)，进入小火箭，点击 右上角 加号，类型选择为“Subscribe”，将链接填写到URL栏 点击完成即可。
-        </p>
-        <hr>
-        <p style="font-size: 20px; margin-bottom: 10px;">
-            <strong>🐱Clash订阅：
-                <br>
-            </strong>
-            <a href="https://yqt.me/clash" target="_blank">https://yqt.me/clash</a>
-        </p>
-        <button onclick="copyToClipboard('https://yqt.me/clash')">复制链接</button>
-        <button class="daoru"
-            onclick="window.location.href='clash://install-config?url=https%3A%2F%2Fyqt.me%2Fclash'">一键导入</button>
-        <p>
-            <strong>如何使用：</strong>复制上方链接(不是打开)，进入Clash，点击 配置 - 右上角 加号 - 从URL导入，将链接填写到URL栏，点击右上角保存即可，保存完成后记得选中配置。
-        </p>
-        <hr>
-        <div style="padding: 10px; background-color: #ffffcc; border-radius: 5px;">
-            <p>⚠️ 节点采用加密协议，这与市面上大部分的低质量一键连接软件有所不同。这种加密协议确保了用户的隐私安全，避免了个人信息被泄露的风险。</p>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><i class="fas fa-network-wired"></i> 群友专享节点</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#subscribe">订阅</a></li>
+                <li><a href="#tutorial">教程</a></li>
+                <li><a href="#download">下载</a></li>
+                <li><a href="#notices">注意事项</a></li>
+            </ul>
         </div>
-        <div style="padding: 10px; background-color: #ccffcc; border-radius: 5px;">
-            <p>🎁 防迷路群：<a
-                    href="https://qm.qq.com/cgi-bin/qm/qr?k=UP4bzwoZNvx1Ztwf5PjAqAbyoV-bZYv-&jump_from=webapi&authKey=ncqJbgXwKl78TeWw4/2rKyWMWZtsW2b4IqIOatHV88mKoVyBmh7HXq34PibN38hZ"
-                    target="_blank">291577638</a>
-            </p>
+    </nav>
+
+    <!-- 首屏Banner -->
+    <section id="home" class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <h1>群友专享节点</h1>
+                <p>最后更新时间：<span class="update-time">2025年3月3日17:54:51</span></p>
+                <div class="notice-container">
+                    <p class="notice-text">如发现所有节点都无法使用，请及时联系我们处理。</p>
+                    <div class="contact-card">
+                        <div class="contact-item">
+                            <i class="fab fa-qq"></i>
+                            <span>站长QQ：1287766992</span>
+                            <button onclick="copyToClipboard('1287766992')" class="copy-btn">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-decoration">
+                <div class="cloud cloud-1"></div>
+                <div class="cloud cloud-2"></div>
+                <div class="cloud cloud-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐区域 -->
+    <section id="recommend" class="recommend-section">
+        <div class="container">
+            <div class="recommend-card">
+                <div class="recommend-badge">
+                    <i class="fas fa-bolt"></i> 付费推荐
+                </div>
+                <div class="recommend-content">
+                    <div class="recommend-header">
+                        <h3>Kepa云 <i class="fas fa-bolt"></i></h3>
+                    </div>
+                    <div class="recommend-features">
+                        <div class="feature-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>高速稳定不卡顿</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>100G大流量</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tag"></i>
+                            <span>低至9.9元</span>
+                        </div>
+                    </div>
+                    <a href="#" class="recommend-btn">
+                        立即体验 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订阅区域 -->
+    <section id="subscribe" class="subscribe-section">
+        <div class="container">
+            <h2>节点订阅</h2>
+            <div class="subscribe-cards">
+                <!-- 小火箭订阅 -->
+                <div class="subscribe-card">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>小火箭订阅</h3>
+                    <div class="subscription-link">
+                        <a href="https://yqt.me/base64" target="_blank">https://yqt.me/base64</a>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="copyToClipboard('https://yqt.me/base64')" class="btn btn-copy">
+                            <i class="fas fa-copy"></i> 复制链接
+                        </button>
+                        <button class="btn btn-import"
+                            onclick="window.location.href='shadowrocket://add/sub://aHR0cHM6Ly95cXQubWUvYmFzZTY0?remark=%5B%E9%AD%94%E6%B3%95%E5%92%96%5D%E7%BE%A4%E5%8F%8B%E4%B8%93%E4%BA%AB'">
+                            <i class="fas fa-download"></i> 一键导入
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Clash订阅 -->
+                <div class="subscribe-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cat"></i>
+                    </div>
+                    <h3>Clash订阅</h3>
+                    <div class="subscription-link">
+                        <a href="https://yqt.me/clash" target="_blank">https://yqt.me/clash</a>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="copyToClipboard('https://yqt.me/clash')" class="btn btn-copy">
+                            <i class="fas fa-copy"></i> 复制链接
+                        </button>
+                        <button class="btn btn-import"
+                            onclick="window.location.href='clash://install-config?url=https%3A%2F%2Fyqt.me%2Fclash'">
+                            <i class="fas fa-download"></i> 一键导入
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用教程 -->
+    <section id="tutorial" class="tutorial-section">
+        <div class="container">
+            <h2>使用教程</h2>
+            <div class="accordion">
+                <div class="accordion-item active">
+                    <div class="accordion-header">
+                        <h3>小火箭使用教程</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="tutorial-content">
+                            <p>1. 复制上方链接(不是打开)</p>
+                            <p>2. 进入小火箭，点击右上角加号</p>
+                            <p>3. 类型选择为"Subscribe"</p>
+                            <p>4. 将链接填写到URL栏</p>
+                            <p>5. 点击完成即可</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Clash使用教程</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="tutorial-content">
+                            <p>1. 复制上方链接(不是打开)</p>
+                            <p>2. 进入Clash，点击配置</p>
+                            <p>3. 点击右上角加号 - 从URL导入</p>
+                            <p>4. 将链接填写到URL栏</p>
+                            <p>5. 点击右上角保存即可</p>
+                            <p>6. 保存完成后记得选中配置</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户端下载区 -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <h2>选择适合您的客户端</h2>
+            <div class="download-cards">
+                <div class="download-card">
+                    <i class="fab fa-windows"></i>
+                    <h3>Windows</h3>
+                    <span class="software-name">Clash Verge</span>
+                    <span class="version">v2.1.2</span>
+                    <span class="size">31.3 MB</span>
+                    <a href="https://qy02-free.urldwz.com/personal/214e8f2b207ed53e/_layouts/15/download.aspx?UniqueId=feca24d0-a375-4d7a-96c0-db6500f1a1e5&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiI2YjBhMTU3NS1iMmM0LTQwNDItYTNhNC0zN2IxMTNjZWVhODEiLCJhcHBfZGlzcGxheW5hbWUiOiJHcmFwaCIsImFwcGlkIjoiM2I3YjE4NmUtOTAwZi00Mzg4LTg1NTEtOTVlOTg5NTg4MWI4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwiZXhwIjoiMTc0MDk4NTg1NiJ9.MrXAtTr6zfBaRrfP53uiI9mprox0GJ7Xh4nLXc3hd4JLDjIihf8kyW4e_YlgbwyYKMUyKduINU8jCvNhPCEuYyd7yHCLhTzd6DFBtvNyevIireaN-srcasy5aiI9kF_xyEa_gi2GDHb2OM0XBmqIXRjGD9GbgpR2juKUJyayzcoIgHP6yLge7V4fM5AfWFfmuRerlecIQ_QPlBC0uy0Z8IbILwmcJs1dHnevkf2e8MtHxJV2nqTa5MK9HnfWQUuN4ZXELRLPSfrptWX83ARPIEpdTLzVx2sHnAiul9WNHtBKQDIs9FwsbMO_5CgA1IsY40V8l9cKlHeuuJ3Bvg5me_JVUfMvMaKmdjCtZRxG42QrVACOZJMAMxgxdo1xUAlgq0MKpEsD8kyL1TD9wLRXk6DZl1LlqBAICDDMvzUpZr1Ib24eOAqRoWaOqoXIrV67.oxSdbcnE3qFZT0nYxhxjTaexK7Jw8Y4zSpyW7B7EoXE&ApiVersion=2.0"
+                        class="btn btn-download">下载</a>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-apple"></i>
+                    <h3>macOS</h3>
+                    <span class="software-name">Clash Verge</span>
+                    <span class="version">v2.1.2</span>
+                    <span class="size">52.0 MB</span>
+                    <a href="https://qy02-free.urldwz.com/personal/214e8f2b207ed53e/_layouts/15/download.aspx?UniqueId=0c6a9fc5-8f4d-441e-b2e5-12c33a315ec8&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiI2YjBhMTU3NS1iMmM0LTQwNDItYTNhNC0zN2IxMTNjZWVhODEiLCJhcHBfZGlzcGxheW5hbWUiOiJHcmFwaCIsImFwcGlkIjoiM2I3YjE4NmUtOTAwZi00Mzg4LTg1NTEtOTVlOTg5NTg4MWI4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwiZXhwIjoiMTc0MDk4NTkwMCJ9.iEUQmnEJwmMnEJV6E2HUXaQjYKb5v12ZqImD353N9iMnEwVUiwbRkr9hLBa0ny_JSTVIdcuiUiTUUPqhp2L4mJjNMrye6aBqbIIFxVYcjYaX6HOg83SZGDzMNWtmgS8Jp9sVOb3G3KqIanoKrGLSK4O-N-29EVbZB3eYXOdJobmKkGp7O41XajDxCt3jBUnXoBc8XQonU5XAANBlEptQJje0sbu9ld97t5mBHDpwDo23io7-BWkGD_xL_9Z5qfL2ts3NMVNZu9e6nwMEdVad2hIQYPhhXJWKbRCySc02eMX_eCYohtRfY_0LSHA9xHhycJPfr34bmhHI2pgkPeydSaQaPfMMAOgTX8D-b8LpNWevbAIVfygOSdbS_JIjXSJnLcuYiwDzrT288qWsMcL74tAnSoQbmZCICuBSVGhoFztsMejjjrZGIYWz1JDeTrXj.JNt8_aej0ifpid1yS-BPBCwGIY75gFGYqzFbkPcJ8Vw&ApiVersion=2.0"
+                        class="btn btn-download">下载</a>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-android"></i>
+                    <h3>Android</h3>
+                    <span class="software-name">Clash Meta</span>
+                    <span class="version">v2.4.2</span>
+                    <span class="size">8.5 MB</span>
+                    <a href="https://qy02-free.urldwz.com/personal/214e8f2b207ed53e/_layouts/15/download.aspx?UniqueId=16dafb29-80ca-46de-b2bd-886870f8ae32&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiI2YjBhMTU3NS1iMmM0LTQwNDItYTNhNC0zN2IxMTNjZWVhODEiLCJhcHBfZGlzcGxheW5hbWUiOiJHcmFwaCIsImFwcGlkIjoiM2I3YjE4NmUtOTAwZi00Mzg4LTg1NTEtOTVlOTg5NTg4MWI4IiwiYXVkIjoiMDAwMDAwMDMtMDAwMC0wZmYxLWNlMDAtMDAwMDAwMDAwMDAwL215Lm1pY3Jvc29mdHBlcnNvbmFsY29udGVudC5jb21AOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkIiwiZXhwIjoiMTc0MDk4NTgxNSJ9.6aXLUWTI3HJGbumV-shXIoendzJ5F-OnqTFdMrle9-gQBWIns5Py3Jbgt0VBJlhJTYQLC79xnvbvvFEhKb-Uoci8Zi-mE_bt4zbP961yagkyxsQM21WZYz2W90MnfO_KU9Pzo_hpl75PVcmdFC0LuvVuJb3K6ckGK1LTxmhBk7Voas935ICevry9ugAXZ3Ynlfs3HjqevCChFRfZh2TpwRfjP2uEjBITBuRL8G_w-rUN2LXrnS2Z8dYQn2klP5T6KK03AAgO6LVL0iQrT2w8Uc8QLnpbBU57rmgu6hWzjZTrxjPlXZPR-DL76JFPHunSDRqw5LwFIMeoje0UoK9HMa6YB_wX2MFGELZbTGEAxD5M80tkQidq81RvL1yfggUcTBjFwyabc2EpUbozS9Jl7D1fWC3eYp-Awc6fyCLr8Bdu0gHGdiMngScBVqDiHo1s.Qa_vN8IhalFvDe91PZ8SNxj5AZID73-tqHxo229lmdM&ApiVersion=2.0"
+                        class="btn btn-download">下载</a>
+                </div>
+                <div class="download-card">
+                    <i class="fab fa-apple"></i>
+                    <h3>iOS</h3>
+                    <span class="software-name">Shadowrocket</span>
+                    <span class="version">v2.2.61</span>
+                    <span class="size">2.99 $</span>
+                    <a href="https://apps.apple.com/us/app/shadowrocket/id932747118" class="btn btn-download">下载</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 注意事项 -->
+    <section id="notices" class="notices-section">
+        <div class="container">
+            <h2>注意事项</h2>
+            <div class="warning-box">
+                <div class="warning-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>使用须知</h3>
+                </div>
+                <div class="warning-content">
+                    <ul>
+                        <li>请勿使用本工具进行<span class="highlight">任何违反当地法律法规的活动</span></li>
+                        <li>定期更新订阅链接以获得最佳性能和安全保障</li>
+                        <li>建议使用<span class="highlight">稳定的网络环境</span>连接</li>
+                        <li>遇到连接问题时，请尝试切换不同节点</li>
+                        <li>使用过程中遇到问题，请通过下方QQ群联系我们</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    <p>🎁 防迷路群：<a
+                            href="https://qm.qq.com/cgi-bin/qm/qr?k=UP4bzwoZNvx1Ztwf5PjAqAbyoV-bZYv-&jump_from=webapi&authKey=ncqJbgXwKl78TeWw4/2rKyWMWZtsW2b4IqIOatHV88mKoVyBmh7HXq34PibN38hZ"
+                            target="_blank">291577638</a></p>
+                </div>
+                <a href="#home" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 添加弹出式公告模态框 -->
+    <div class="announcement-modal" id="announcementModal">
+        <div class="announcement-modal-content">
+            <span class="close-announcement">&times;</span>
+            <div class="announcement-header">
+                <i class="fas fa-bullhorn"></i>
+                <h3>重要公告</h3>
+                <span class="announcement-date">2025年3月3日</span>
+            </div>
+            <div class="announcement-content">
+                <p>本站节点全面升级，请各位及时<span class="highlight">更新客户端</span>，避免无法导入节点。</p>
+                <p class="free-notice">
+                    <i class="fas fa-gift"></i>
+                    <span>我们<span class="highlight">永久免费</span>，如果您是付费购买的，说明您被骗了！</span>
+                </p>
+            </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
