@@ -180,4 +180,29 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 300);
         }
     });
+
+    // 资源加载进度控制
+    const progressBar = document.getElementById('progressBar');
+    const loadingText = document.getElementById('loadingText');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    let progress = 0;
+
+    // 模拟资源加载进度
+    const interval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+
+        progressBar.style.width = progress + '%';
+        loadingText.textContent = `正在加载资源... ${Math.floor(progress)}%`;
+
+        if (progress === 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }, 500);
+        }
+    }, 200);
 }); 
