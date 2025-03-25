@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="content-type" content="txt/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <title>链接精简器 | 一键缩短长链接</title>
+    <link rel="stylesheet" href="https://crazypeace.github.io/Url-Shorten-Worker/styles.css">
+    <!-- 如果使用CDN资源就放开这一句, 把上面那一句注释掉
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crazypeace/Url-Shorten-Worker/styles.css">
+  -->
+    <style>
+        :root {
+            --primary-color: #5D6AF8;
+            --secondary-color: #F2F3FF;
+            --accent-color: #FF7A5C;
+            --text-color: #333444;
+            --light-text: #777888;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            padding-top: 2rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            border-bottom: none;
+            padding: 1.2rem 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .input-group-text {
+            background-color: var(--secondary-color);
+            border: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-control {
+            border: 1px solid #e9ecef;
+            padding: 0.6rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(93, 106, 248, 0.25);
+        }
+
+        .btn {
+            border-radius: 8px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #4a56e2;
+            border-color: #4a56e2;
+        }
+
+        .btn-danger {
+            background-color: #FF5C77;
+            border-color: #FF5C77;
+        }
+
+        .btn-info {
+            background-color: #5CC8FF;
+            border-color: #5CC8FF;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #5CE1E6;
+            border-color: #5CE1E6;
+            color: white;
+        }
+
+        .list-group-item {
+            border-radius: 12px !important;
+            margin-bottom: 10px;
+            border: 1px solid #e9ecef;
+            padding: 0.8rem;
+        }
+
+        .modal-content {
+            border-radius: 16px;
+            border: none;
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                margin: 0.5rem !important;
+                width: 100%;
+            }
+
+            .d-flex {
+                flex-direction: column;
+                align-items: center !important;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            /* 移动端下按钮和表单调整 */
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .input-group-text {
+                font-size: 0.9rem;
+            }
+
+            .form-control {
+                font-size: 0.9rem;
+            }
+
+            /* 移动端下数据块大小调整 */
+            .list-group-item {
+                padding: 0.5rem;
+            }
+
+            .list-group-item .form-control {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .list-group-item .btn {
+                padding: 0.3rem 0.6rem;
+            }
+
+            .icon-container {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* 添加动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* 添加图标样式 */
+        .icon-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .icon-container i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* 加载动画样式 */
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .loader-container.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader-circle:nth-child(2) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-top-color: var(--accent-color);
+            animation-duration: 0.8s;
+            animation-direction: reverse;
+        }
+
+        .loader-circle:nth-child(3) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            border-top-color: #5CE1E6;
+            animation-duration: 0.6s;
+        }
+
+        .loader-text {
+            position: absolute;
+            bottom: -30px;
+            font-size: 14px;
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .loader {
+                width: 50px;
+                height: 50px;
+            }
+
+            .loader-circle {
+                border-width: 3px;
+            }
+
+            .loader-text {
+                font-size: 12px;
+                bottom: -25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .loader {
+                width: 40px;
+                height: 40px;
+            }
+
+            .loader-circle {
+                border-width: 2px;
+            }
+        }
+
+        /* 页面加载动画样式 */
+        #pageLoadingContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+
+        #pageLoadingContainer.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .page-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .page-loader-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid transparent;
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
+
+        .page-loader-circle:nth-child(2) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            border-top-color: var(--accent-color);
+            animation-duration: 0.9s;
+            animation-direction: reverse;
+        }
+
+        .page-loader-text {
+            margin-top: 30px;
+            font-size: 16px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .progress-container {
+            width: 200px;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+
+        @media (max-width: 768px) {
+            .page-loader {
+                width: 60px;
+                height: 60px;
+            }
+
+            .page-loader-circle {
+                border-width: 4px;
+            }
+
+            .progress-container {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-loader {
+                width: 50px;
+                height: 50px;
+            }
+
+            .page-loader-circle {
+                border-width: 3px;
+            }
+
+            .page-loader-text {
+                font-size: 14px;
+            }
+
+            .progress-container {
+                width: 150px;
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面加载动画 -->
+    <div id="pageLoadingContainer">
+        <div class="page-loader">
+            <div class="page-loader-circle"></div>
+            <div class="page-loader-circle"></div>
+        </div>
+        <div class="page-loader-text">页面加载中...</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="pageLoadingProgressBar"></div>
+        </div>
+        <div class="progress-text" id="pageLoadingProgressText">0%</div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="d-flex align-items-start flex-wrap justify-content-center">
+                    <div class="card shadow m-3 flex-grow-1">
+                        <h5 class="card-header">
+                            <i class="fas fa-link me-2"></i>链接精简器
+                        </h5>
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <div class="icon-container">
+                                    <i class="fas fa-cut"></i>
+                                </div>
+                                <p class="text-muted">使用Cloudflare免费服务创建您的短链接</p>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fas fa-globe me-2"></i>长链接
+                                </span>
+                                <input type="text" class="form-control" id="longURL" aria-describedby="basic-addon1"
+                                    placeholder="例如: https://example.com/" oninput="loadUrlList()">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2">
+                                    <i class="fas fa-tag me-2"></i>自定义短链
+                                </span>
+                                <input type="text" class="form-control" id="keyPhrase" aria-describedby="basic-addon2"
+                                    placeholder="可选，留空则自动生成">
+                            </div>
+
+                            <div class="d-grid gap-2 mb-3">
+                                <button class="btn btn-primary" type="button" onclick='shorturl()' id="addBtn">
+                                    <i class="fas fa-bolt me-2"></i>生成短链接
+                                </button>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">
+                                    <i class="fas fa-key me-2"></i>密码
+                                </span>
+                                <input class="form-control" type="text" value="__PASSWORD__" readonly="true"
+                                    id="passwordText" aria-describedby="basic-addon3">
+                            </div>
+                        </div>
+
+                        <div class="card-footer text-center">
+                            <span class="text-muted">链接精简，高效分享</span>
+                        </div>
+                    </div>
+
+                    <div class="card shadow m-3 flex-grow-1">
+                        <h5 class="card-header">
+                            <i class="fas fa-history me-2"></i>我的短链接
+                        </h5>
+                        <div class="card-body">
+                            <div class="input-group mb-4">
+                                <button class="btn btn-success" type="button" onclick='loadUrlList()' id="loadListBtn">
+                                    <i class="fas fa-sync-alt me-2"></i>刷新列表
+                                </button>
+                                <button class="btn btn-danger" type="button" onclick='clearLocalStorage()'
+                                    id="clearlocalStgBtn">
+                                    <i class="fas fa-trash-alt me-2"></i>清空本地存储
+                                </button>
+                                <button class="btn btn-info" type="button" onclick='loadKV()' id="loadKV2localStgBtn">
+                                    <i class="fas fa-cloud-download-alt me-2"></i>从云端加载
+                                </button>
+                            </div>
+
+                            <div class="card-text">
+                                <div class="list-group" id="urlList">
+                                    <div class="mb-3 list-group-item">
+                                        <div class="input-group mb-2">
+                                            <button type="button" class="btn btn-sm btn-danger"
+                                                onclick='deleteShortUrl("4sure")' id="delBtn-4sure">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info"
+                                                onclick='queryVisitCount("4sure")' id="qryCntBtn-4sure">
+                                                <i class="fas fa-chart-bar"></i>
+                                            </button>
+                                            <span class="form-control">https://1way.eu.org/4sure</span>
+                                            <button type="button" class="btn btn-sm btn-outline-primary"
+                                                onclick='copyurl("https://1way.eu.org/4sure")'>
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                        <div class="form-control bg-light text-truncate">
+                                            <small class="text-muted">指向:
+                                            </small>https://en.y2mate.is/s36/youtube-to-mp3.html
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">
+                        <i class="fas fa-check-circle me-2"></i>操作结果
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="result">暂无结果</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick='copyurl("result")' data-bs-toggle="popover"
+                        data-bs-placement="bottom" data-bs-content="已复制!">
+                        <i class="fas fa-copy me-2"></i>复制
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-2"></i>关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-text">正在加载...</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.18.0/dist/jquery-qrcode.min.js"
+        crossorigin="anonymous"></script>
+
+    <script src="https://crazypeace.github.io/Url-Shorten-Worker/main.js" crossorigin="anonymous"></script>
+    <!-- 如果使用CDN资源就放开这一句, 把上面那一句注释掉
+    <script src="https://cdn.jsdelivr.net/gh/crazypeace/Url-Shorten-Worker/main.js" crossorigin="anonymous"></script>
+  -->
+    <script>
+        // 初始化提示框
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
+            trigger: 'click',
+            delay: { "show": 500, "hide": 100 }
+        }))
+
+        // 复制后自动隐藏提示
+        document.querySelectorAll('[data-bs-toggle="popover"]').forEach(button => {
+            button.addEventListener('click', function () {
+                setTimeout(() => {
+                    const popover = bootstrap.Popover.getInstance(button)
+                    if (popover) {
+                        setTimeout(() => popover.hide(), 1000)
+                    }
+                }, 200)
+            })
+        })
+
+        // 加载动画相关函数
+        function showLoader(message = "正在加载...") {
+            document.querySelector('.loader-text').textContent = message;
+            document.getElementById('loaderContainer').classList.add('show');
+        }
+
+        function hideLoader() {
+            document.getElementById('loaderContainer').classList.remove('show');
+        }
+
+        // 修改现有函数，添加加载动画
+        const originalShorturl = window.shorturl;
+        window.shorturl = function () {
+            showLoader("正在生成短链接...");
+            setTimeout(() => {
+                originalShorturl();
+                hideLoader();
+            }, 100);
+        };
+
+        const originalLoadUrlList = window.loadUrlList;
+        window.loadUrlList = function () {
+            showLoader("正在加载链接列表...");
+            setTimeout(() => {
+                originalLoadUrlList();
+                hideLoader();
+            }, 100);
+        };
+
+        const originalLoadKV = window.loadKV;
+        window.loadKV = function () {
+            showLoader("正在从云端加载数据...");
+            setTimeout(() => {
+                originalLoadKV();
+                hideLoader();
+            }, 100);
+        };
+
+        const originalClearLocalStorage = window.clearLocalStorage;
+        window.clearLocalStorage = function () {
+            showLoader("正在清空本地存储...");
+            setTimeout(() => {
+                originalClearLocalStorage();
+                hideLoader();
+            }, 100);
+        };
+
+        const originalDeleteShortUrl = window.deleteShortUrl;
+        window.deleteShortUrl = function (key) {
+            showLoader("正在删除短链接...");
+            setTimeout(() => {
+                originalDeleteShortUrl(key);
+                hideLoader();
+            }, 100);
+        };
+
+        const originalQueryVisitCount = window.queryVisitCount;
+        window.queryVisitCount = function (key) {
+            showLoader("正在查询访问次数...");
+            setTimeout(() => {
+                originalQueryVisitCount(key);
+                hideLoader();
+            }, 100);
+        };
+
+        // 页面加载动画和进度条
+        document.addEventListener('DOMContentLoaded', function () {
+            // 模拟页面加载进度
+            let progress = 0;
+            const progressBar = document.getElementById('pageLoadingProgressBar');
+            const progressText = document.getElementById('pageLoadingProgressText');
+            const pageLoadingContainer = document.getElementById('pageLoadingContainer');
+
+            const interval = setInterval(function () {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+
+                    // 等待一小段时间后隐藏加载动画
+                    setTimeout(function () {
+                        pageLoadingContainer.classList.add('hide');
+                    }, 500);
+                }
+
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+            }, 200);
+        });
+
+        // 确保页面完全加载后隐藏加载动画
+        window.onload = function () {
+            const progressBar = document.getElementById('pageLoadingProgressBar');
+            const progressText = document.getElementById('pageLoadingProgressText');
+            const pageLoadingContainer = document.getElementById('pageLoadingContainer');
+
+            progressBar.style.width = '100%';
+            progressText.textContent = '100%';
+
+            setTimeout(function () {
+                pageLoadingContainer.classList.add('hide');
+            }, 500);
+        };
+    </script>
+</body>
+
+</html>
