@@ -25,48 +25,57 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 复制链接功能
-    window.copyToClipboard = function (text) {
-        navigator.clipboard.writeText(text).then(() => {
+    // 复制到剪贴板功能
+    window.copyToClipboard = function(text) {
+        // 创建临时输入框
+        const input = document.createElement('input');
+        input.style.position = 'fixed';
+        input.style.opacity = 0;
+        input.value = text;
+        document.body.appendChild(input);
+        
+        // 选择文本
+        input.select();
+        input.setSelectionRange(0, 99999);
+        
+        try {
+            // 执行复制命令
+            document.execCommand('copy');
+            // 显示成功提示
             showToast('复制成功！');
-        }).catch(err => {
+        } catch (err) {
             console.error('复制失败:', err);
             showToast('复制失败，请手动复制');
-        });
-    };
-
-    // Toast提示函数
-    function showToast(message, type = 'success') {
-        // 移除现有的toast
-        const existingToast = document.querySelector('.toast');
-        if (existingToast) {
-            existingToast.remove();
         }
+        
+        // 移除临时输入框
+        document.body.removeChild(input);
+    }
 
-        // 创建新的toast
-        const toast = document.createElement('div');
-        toast.className = 'toast';
+    // 显示提示框
+    function showToast(message) {
+        // 检查是否已存在toast
+        let toast = document.querySelector('.toast');
+        
+        // 如果不存在则创建新的toast
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+        }
+        
+        // 设置提示内容
         toast.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <i class="fas fa-check-circle"></i>
             <span>${message}</span>
         `;
-
-        // 添加到页面
-        document.body.appendChild(toast);
-
-        // 触发重排以确保动画生效
-        toast.offsetHeight;
-
-        // 显示toast
+        
+        // 显示提示
         toast.classList.add('show');
-
+        
         // 3秒后隐藏
         setTimeout(() => {
             toast.classList.remove('show');
-            // 等待过渡动画完成后移除元素
-            setTimeout(() => {
-                toast.remove();
-            }, 300);
         }, 3000);
     }
 

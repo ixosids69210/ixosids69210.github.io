@@ -90,8 +90,8 @@
             <ul class="nav-menu">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#subscribe">订阅</a></li>
-                <li><a href="#tutorial">教程</a></li>
                 <li><a href="#download">下载</a></li>
+                <li><a href="#tutorial">教程</a></li>
                 <li><a href="#notices">注意事项</a></li>
             </ul>
         </div>
@@ -162,12 +162,15 @@
     <!-- 订阅区域 -->
     <section id="subscribe" class="subscribe-section">
         <div class="container">
-            <h2>节点订阅</h2>
+            <h2>
+                <span>节点订阅</span>
+                <div class="title-decoration"></div>
+            </h2>
             <div class="subscribe-cards">
                 <!-- 小火箭订阅 -->
                 <div class="subscribe-card">
                     <div class="card-icon">
-                        <i class="fas fa-rocket"></i>
+                        <img src="xhj.svg" alt="小火箭">
                     </div>
                     <h3>小火箭订阅</h3>
                     <div class="subscription-link">
@@ -187,7 +190,7 @@
                 <!-- Clash订阅 -->
                 <div class="subscribe-card">
                     <div class="card-icon">
-                        <i class="fas fa-cat"></i>
+                        <img src="clash.svg" alt="Clash">
                     </div>
                     <h3>Clash订阅</h3>
                     <div class="subscription-link">
@@ -203,6 +206,216 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Hiddify订阅 -->
+                <div class="subscribe-card">
+                    <div class="card-icon">
+                        <img src="Hiddify.svg" alt="Hiddify">
+                    </div>
+                    <h3>Hiddify订阅 <span class="recommend-tag">萌新推荐</span></h3>
+                    <div class="subscription-link">
+                        <a href="https://wuwu.live/hiddify" target="_blank">https://wuwu.live/hiddify</a>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="copyToClipboard('https://wuwu.live/hiddify')" class="btn btn-copy">
+                            <i class="fas fa-copy"></i> 复制链接
+                        </button>
+                        <button class="btn btn-import"
+                            onclick="window.location.href='hiddify://import/https://wuwu.live/hiddify'">
+                            <i class="fas fa-download"></i> 一键导入
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户端下载区 -->
+    <section id="download" class="download-section">
+        <div class="container">
+            <h2>
+                <span>选择适合您的客户端</span>
+                <div class="title-decoration"></div>
+            </h2>
+            <div class="os-sections">
+                <!-- Windows 系统 -->
+                <div class="os-section">
+                    <div class="os-header">
+                        <i class="fab fa-windows"></i>
+                        <h3>Windows 系统</h3>
+                    </div>
+                    <div class="client-cards">
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="clash.svg" alt="Clash">
+                            </div>
+                            <div class="client-content">
+                                <h4>Clash Verge</h4>
+                                <p>推荐使用，界面美观，功能强大</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v2.3.2</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 42.6 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/8DAJUr/Clash.Verge_2.3.2_x64-setup.exe" class="download-btn" target="_blank">
+                                    <span>下载安装包</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Windows Hiddify -->
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="Hiddify.svg" alt="Hiddify">
+                            </div>
+                            <div class="client-content">
+                                <h4>Hiddify <span class="recommend-tag">萌新推荐</span></h4>
+                                <p>界面清爽，支持多种协议</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v1.2.0</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 38.5 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/4R7jiE/Hiddify-Windows-Setup-x64.exe" class="download-btn" target="_blank">
+                                    <span>下载安装包</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- macOS 系统 -->
+                <div class="os-section">
+                    <div class="os-header">
+                        <i class="fab fa-apple"></i>
+                        <h3>macOS 系统</h3>
+                    </div>
+                    <div class="client-cards">
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="clash.svg" alt="Clash">
+                            </div>
+                            <div class="client-content">
+                                <h4>Clash Verge</h4>
+                                <p>推荐使用，界面美观，功能强大</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v2.3.2</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 45.2 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/Rd4BI0/Clash.Verge_2.2.3_x64.dmg" class="download-btn" target="_blank">
+                                    <span>下载安装包</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- macOS Hiddify -->
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="Hiddify.svg" alt="Hiddify">
+                            </div>
+                            <div class="client-content">
+                                <h4>Hiddify <span class="recommend-tag">萌新推荐</span></h4>
+                                <p>界面清爽，支持多种协议</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v1.2.0</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 42.1 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/Lz49cr/Hiddify-MacOS.dmg" class="download-btn" target="_blank">
+                                    <span>下载安装包</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Android 系统 -->
+                <div class="os-section">
+                    <div class="os-header">
+                        <i class="fab fa-android"></i>
+                        <h3>Android 系统</h3>
+                    </div>
+                    <div class="client-cards">
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="clash.svg" alt="Clash">
+                            </div>
+                            <div class="client-content">
+                                <h4>Clash Meta</h4>
+                                <p>推荐使用，功能完整，稳定可靠</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v2.4.2</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 8.5 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/ewLKfn/cmfa-2.11.5-meta-universal-release.apk" class="download-btn" target="_blank">
+                                    <span>下载APK</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Android Hiddify -->
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="Hiddify.svg" alt="Hiddify">
+                            </div>
+                            <div class="client-content">
+                                <h4>Hiddify <span class="recommend-tag">萌新推荐</span></h4>
+                                <p>界面美观，操作简单</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-code-branch"></i> v1.2.0</span>
+                                    <span class="meta-item"><i class="fas fa-file-archive"></i> 15.2 MB</span>
+                                </div>
+                                <a href="https://yun.urldwz.com/f/QzKxfa/Hiddify-Android-universal.apk" class="download-btn" target="_blank">
+                                    <span>下载APK</span>
+                                    <i class="fas fa-download"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- iOS 系统 -->
+                <div class="os-section">
+                    <div class="os-header">
+                        <i class="fab fa-apple"></i>
+                        <h3>iOS 系统</h3>
+                    </div>
+                    <div class="client-cards">
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="xhj.svg" alt="小火箭">
+                            </div>
+                            <div class="client-content">
+                                <h4>Shadowrocket</h4>
+                                <p>iOS推荐使用，简单易用</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-tag"></i> 2.99 $</span>
+                                    <span class="meta-item"><i class="fas fa-info-circle"></i> 需要海外Apple ID</span>
+                                </div>
+                                <a href="https://apps.apple.com/us/app/shadowrocket/id932747118" class="download-btn app-store" target="_blank">
+                                    <span>App Store</span>
+                                    <i class="fab fa-app-store"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="client-card">
+                            <div class="client-icon">
+                                <img src="Hiddify.svg" alt="Hiddify">
+                            </div>
+                            <div class="client-content">
+                                <h4>Hiddify <span class="recommend-tag">萌新推荐</span></h4>
+                                <p>界面美观，操作简单，完全免费</p>
+                                <div class="client-meta">
+                                    <span class="meta-item"><i class="fas fa-tag"></i> 免费</span>
+                                    <span class="meta-item"><i class="fas fa-info-circle"></i> 需要海外Apple ID</span>
+                                </div>
+                                <a href="https://apps.apple.com/us/app/hiddify/id6451357878" class="download-btn app-store" target="_blank">
+                                    <span>App Store</span>
+                                    <i class="fab fa-app-store"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -210,7 +423,10 @@
     <!-- 使用教程 -->
     <section id="tutorial" class="tutorial-section">
         <div class="container">
-            <h2>使用教程</h2>
+            <h2>
+                <span>使用教程</span>
+                <div class="title-decoration"></div>
+            </h2>
             <div class="accordion">
                 <div class="accordion-item active">
                     <div class="accordion-header">
@@ -219,11 +435,29 @@
                     </div>
                     <div class="accordion-content">
                         <div class="tutorial-content">
-                            <p>1. 复制上方链接(不是打开)</p>
-                            <p>2. 进入小火箭，点击右上角加号</p>
-                            <p>3. 类型选择为"Subscribe"</p>
-                            <p>4. 将链接填写到URL栏</p>
-                            <p>5. 点击完成即可</p>
+                            <div class="step-highlight">
+                                <p><strong>第一步：获取订阅链接 🔗</strong></p>
+                                <p>• 在上面找到"小火箭订阅"卡片</p>
+                                <p>• iOS用户直接点"一键导入"就能用啦</p>
+                                <p>• 其他设备点"复制链接"</p>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第二步：打开小火箭 🚀</strong></p>
+                                <p>• 没有小火箭？去App Store搜"Shadowrocket"</p>
+                                <p>• 打开小火箭，点右上角的"+"号</p>
+                                <div class="tutorial-tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>记得允许小火箭的VPN权限哦</span>
+                                </div>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第三步：开始使用 ✨</strong></p>
+                                <p>• 类型选择"Subscribe"</p>
+                                <p>• 把复制的链接粘贴进去</p>
+                                <p>• 点"完成"，等节点更新完就能用啦</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -235,57 +469,65 @@
                     </div>
                     <div class="accordion-content">
                         <div class="tutorial-content">
-                            <p>1. 复制上方链接(不是打开)</p>
-                            <p>2. 进入Clash，点击配置</p>
-                            <p>3. 点击右上角加号 - 从URL导入</p>
-                            <p>4. 将链接填写到URL栏</p>
-                            <p>5. 点击右上角保存即可</p>
-                            <p>6. 保存完成后记得选中配置</p>
+                            <div class="step-highlight">
+                                <p><strong>第一步：获取订阅链接 🔗</strong></p>
+                                <p>• 找到上面"Clash订阅"卡片</p>
+                                <p>• 手机用户点"一键导入"就行</p>
+                                <p>• 电脑用户点"复制链接"</p>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第二步：添加配置 ⚙️</strong></p>
+                                <p>• 打开Clash，找到"配置"选项</p>
+                                <p>• 点右上角"+"号，选"从URL导入"</p>
+                                <div class="tutorial-tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Windows用户记得用管理员身份运行哦</span>
+                                </div>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第三步：开始使用 ✨</strong></p>
+                                <p>• 等配置下载完成</p>
+                                <p>• 切到"代理"标签选择节点</p>
+                                <p>• 点击主界面开关就能用啦</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 客户端下载区 -->
-    <section id="download" class="download-section">
-        <div class="container">
-            <h2>选择适合您的客户端</h2>
-            <div class="download-cards">
-                <div class="download-card">
-                    <i class="fab fa-windows"></i>
-                    <h3>Windows</h3>
-                    <span class="software-name">Clash Verge</span>
-                    <span class="version">v2.2.3</span>
-                    <span class="size">31.3 MB</span>
-                    <a href="https://yun.urldwz.com/f/8DAJUr/Clash.Verge_2.3.2_x64-setup.exe"
-                        class="btn btn-download">下载</a>
-                </div>
-                <div class="download-card">
-                    <i class="fab fa-apple"></i>
-                    <h3>macOS</h3>
-                    <span class="software-name">Clash Verge</span>
-                    <span class="version">v2.2.3</span>
-                    <span class="size">52.0 MB</span>
-                    <a href="https://yun.urldwz.com/f/Rd4BI0/Clash.Verge_2.2.3_x64.dmg" class="btn btn-download">下载</a>
-                </div>
-                <div class="download-card">
-                    <i class="fab fa-android"></i>
-                    <h3>Android</h3>
-                    <span class="software-name">Clash Meta</span>
-                    <span class="version">v2.4.2</span>
-                    <span class="size">8.5 MB</span>
-                    <a href="https://yun.urldwz.com/f/ewLKfn/cmfa-2.11.5-meta-universal-release.apk"
-                        class="btn btn-download">下载</a>
-                </div>
-                <div class="download-card">
-                    <i class="fab fa-apple"></i>
-                    <h3>iOS</h3>
-                    <span class="software-name">Shadowrocket</span>
-                    <span class="version">v2.2.61</span>
-                    <span class="size">2.99 $</span>
-                    <a href="https://apps.apple.com/us/app/shadowrocket/id932747118" class="btn btn-download">下载</a>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Hiddify使用教程</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="tutorial-content">
+                            <div class="step-highlight">
+                                <p><strong>第一步：获取订阅链接 🔗</strong></p>
+                                <p>• 找到上面"Hiddify订阅"卡片</p>
+                                <p>• 手机用户点"一键导入"就行</p>
+                                <p>• 电脑用户点"复制链接"</p>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第二步：导入配置 ⚙️</strong></p>
+                                <p>• 打开Hiddify</p>
+                                <p>• 点右上角菜单，选"导入配置"</p>
+                                <div class="tutorial-tip">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>建议开启"开机自启"，下次开机自动连接</span>
+                                </div>
+                            </div>
+                            
+                            <div class="step-highlight">
+                                <p><strong>第三步：开始使用 ✨</strong></p>
+                                <p>• 等配置加载完成</p>
+                                <p>• 选一个喜欢的节点</p>
+                                <p>• 点连接按钮就能用啦</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -294,7 +536,10 @@
     <!-- 注意事项 -->
     <section id="notices" class="notices-section">
         <div class="container">
-            <h2>注意事项</h2>
+            <h2>
+                <span>注意事项</span>
+                <div class="title-decoration"></div>
+            </h2>
             <div class="warning-box">
                 <div class="warning-header">
                     <i class="fas fa-exclamation-triangle"></i>
