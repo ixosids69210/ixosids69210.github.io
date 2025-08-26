@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>群友专享节点 - 密码访问</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="all.min.css">
+    <link href="css2.css" rel="stylesheet">
+    <style>
+        /* 基本樣式變數，與原網站保持一致 */
+        :root {
+            --primary-color: #ff70c4;
+            --primary-color-rgb: 255, 112, 196;
+            --secondary-color: #4687fa;
+            --dark-color: #333333;
+            --light-color: #FFFFFF;
+            --accent-color: #FF69B4;
+            --border-radius: 20px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease-in-out;
+            --gradient-1: linear-gradient(135deg, #f6f8ff 0%, #f0f3ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #f6f8ff, #f0f3ff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+
+        /* 登入卡片樣式 */
+        .login-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius);
+            padding: 35px 25px;
+            width: 90%;
+            max-width: 520px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .login-card::before,
+        .login-card::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        .login-card::before {
+            top: -100px;
+            right: -100px;
+        }
+
+        .login-card::after {
+            bottom: -100px;
+            left: -100px;
+        }
+
+        /* 標題樣式 */
+        .login-title {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 表單樣式 */
+        .login-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(70, 135, 250, 0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 群組二維碼區域 */
+        .qrcode-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .qrcode-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .qrcode-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            display: block;
+            position: relative;
+            margin: 15px auto 0;
+            max-width: 340px;
+            width: 100%;
+        }
+
+        .qrcode-img {
+            max-width: 300px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 複製到抖音按鈕 */
+        .douyin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #000000;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin-top: 15px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .douyin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .douyin-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* 提示信息 */
+        .hint {
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* 錯誤提示樣式 */
+        .error-message {
+            color: #f44336;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        /* 動畫效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Toast提示樣式 */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: -300px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .toast.show {
+            right: 20px;
+        }
+
+        .toast i {
+            color: #4CAF50;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .login-card {
+                padding: 30px 15px;
+            }
+
+            .login-title {
+                font-size: 1.8rem;
+            }
+            
+            .qrcode-container {
+                max-width: 300px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h1 class="login-title">群友专享节点</h1>
+        <p class="hint">密码在<span class="highlight">群公告</span>中，加入后查看</p>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group" style="margin-top: 0;">
+                <input type="password" id="password" placeholder="请输入密码" required>
+                <div class="error-message" id="errorMessage">密码不正确，请重新输入</div>
+            </div>
+            <button type="submit" class="login-btn">
+                <i class="fas fa-unlock-alt"></i> 立即访问
+            </button>
+        </form>
+
+        <div class="qrcode-section">
+            <p class="qrcode-title">扫描下方二维码加入抖音群获取密码</p>
+            <div class="qrcode-container">
+                <img src="dy.jpg" alt="抖音群二维码" class="qrcode-img">
+            </div>
+            <button class="douyin-btn" id="douyinBtn">
+                <i class="fab fa-tiktok"></i> 点击复制抖音群链接
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // 密碼驗證
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+            // 密碼設定為 123456，您可以根據需要修改
+            const correctPassword = '1871';
+
+            if (password === correctPassword) {
+                // 將登錄狀態存入 localStorage
+                localStorage.setItem('isLoggedIn', 'true');
+                // 登錄時間戳，24小時內有效
+                localStorage.setItem('loginTimestamp', Date.now());
+                // 跳轉到主頁
+                window.location.href = 'main.html';
+            } else {
+                // 顯示錯誤信息
+                const errorMessage = document.getElementById('errorMessage');
+                errorMessage.style.display = 'block';
+                
+                // 清空密碼輸入框
+                document.getElementById('password').value = '';
+                
+                // 3秒後隱藏錯誤信息
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // 複製抖音群邀請碼
+        document.getElementById('douyinBtn').addEventListener('click', function() {
+            // 這裡設置您的抖音群邀請碼
+            const inviteCode = '7.41 https://v.douyin.com/group/470342670392 n@q.Eu seB:/ 08/18 ';
+            
+            // 複製到剪貼簿
+            copyToClipboard(inviteCode);
+            
+            // 嘗試打開抖音App
+            setTimeout(() => {
+                window.location.href = 'snssdk1128://';
+            }, 100);
+        });
+
+        // 複製到剪貼簿函數
+        function copyToClipboard(text) {
+            // 創建臨時輸入框
+            const input = document.createElement('input');
+            input.style.position = 'fixed';
+            input.style.opacity = 0;
+            input.value = text;
+            document.body.appendChild(input);
+            
+            // 選擇文本
+            input.select();
+            input.setSelectionRange(0, 99999);
+            
+            try {
+                // 執行複製命令
+                document.execCommand('copy');
+                // 显示成功提示
+                showToast('复制成功！请打开抖音App');
+            } catch (err) {
+                console.error('复制失败:', err);
+                showToast('复制失败，请手动复制');
+            }
+            
+            // 移除臨時輸入框
+            document.body.removeChild(input);
+        }
+
+        // 顯示提示框
+        function showToast(message) {
+            // 檢查是否已存在toast
+            let toast = document.querySelector('.toast');
+            
+            // 如果不存在則創建新的toast
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.className = 'toast';
+                document.body.appendChild(toast);
+            }
+            
+            // 設置提示內容
+            toast.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <span>${message}</span>
+            `;
+            
+            // 顯示提示
+            toast.classList.add('show');
+            
+            // 3秒後隱藏
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
