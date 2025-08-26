@@ -22,6 +22,63 @@
             --transition: all 0.3s ease-in-out;
             --gradient-1: linear-gradient(135deg, #f6f8ff 0%, #f0f3ff 100%);
         }
+        
+        /* 加载动画样式 */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-progress {
+            margin-top: 20px;
+            width: 200px;
+            height: 4px;
+            background: #f3f3f3;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s ease;
+        }
+
+        .loading-text {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
         * {
             margin: 0;
@@ -181,31 +238,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
-        /* 複製到抖音按鈕 */
-        .douyin-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #000000;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 30px;
-            margin-top: 15px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
 
-        .douyin-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .douyin-btn i {
-            font-size: 1.2rem;
-        }
 
         /* 提示信息 */
         .hint {
@@ -286,6 +319,15 @@
 </head>
 
 <body>
+    <!-- 加载动画 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="loading-text" id="loadingText">正在加载资源...</div>
+    </div>
+
     <div class="login-card">
         <h1 class="login-title">群友专享节点</h1>
         <p class="hint">密码在<span class="highlight">群公告</span>中，加入后查看</p>
@@ -305,14 +347,36 @@
             <div class="qrcode-container">
                 <img src="dy.jpg" alt="抖音群二维码" class="qrcode-img">
             </div>
-            <button class="douyin-btn" id="douyinBtn">
-                <i class="fab fa-tiktok"></i> 点击复制抖音群链接
-            </button>
         </div>
 
     </div>
 
     <script>
+        // 资源加载进度控制
+        const progressBar = document.getElementById('progressBar');
+        const loadingText = document.getElementById('loadingText');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        let progress = 0;
+
+        // 模拟资源加载进度
+        const interval = setInterval(() => {
+            progress += Math.random() * 30;
+            if (progress > 100) progress = 100;
+
+            progressBar.style.width = progress + '%';
+            loadingText.textContent = `正在加载资源... ${Math.floor(progress)}%`;
+
+            if (progress === 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loadingOverlay.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 300);
+                }, 500);
+            }
+        }, 200);
+        
         // 密碼驗證
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -342,19 +406,7 @@
             }
         });
 
-        // 複製抖音群邀請碼
-        document.getElementById('douyinBtn').addEventListener('click', function() {
-            // 這裡設置您的抖音群邀請碼
-            const inviteCode = '7.41 https://v.douyin.com/group/470342670392 n@q.Eu seB:/ 08/18 ';
-            
-            // 複製到剪貼簿
-            copyToClipboard(inviteCode);
-            
-            // 嘗試打開抖音App
-            setTimeout(() => {
-                window.location.href = 'snssdk1128://';
-            }, 100);
-        });
+
 
         // 複製到剪貼簿函數
         function copyToClipboard(text) {
