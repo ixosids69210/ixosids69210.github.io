@@ -90,13 +90,13 @@ proxies:
     name: 香港|备用节点
     server: 154.12.85.102
     port: 31011
-    uuid: eecbc29b-7f01-441b-a43e-f2bffad83ba3
+    uuid: 040cd881-b903-4243-b42f-91e456d4fe96
     network: tcp
     servername: www.tesla.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: t-f_GM3-WWYk4zVI69tL2MC3Ii21FjfRNnrIzbNCQw0
+      public-key: kczjnZXMwFscES7jf9AVAS-NmdroUOiT0mDMr7__AWo
       short-id: 0123456789abcdef
     flow: xtls-rprx-vision
   - type: ss
