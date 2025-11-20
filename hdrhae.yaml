@@ -1,0 +1,1185 @@
+# ;不要随意改变关键字，否则会导致出错
+# ;acl4SSR规则
+# ;去广告：支持
+# ;自动测速：支持
+# ;微软分流：不支持
+# ;苹果分流：不支持
+# ;增强中国IP段：不支持
+# ;增强国外GFW：不支持
+# ;ruleset=🎯 全球直连,[]GEOIP,LAN
+
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vless
+    name: 剩余流量：9.76 TB
+    server: pq.vmjp.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: ybBxu1pW3O9Me954LCDfXgHW6lIYepAbnla82yaZ5HE
+      short-id: 6a1faecb
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 套餐到期：长期有效
+    server: pq.vmjp.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: ybBxu1pW3O9Me954LCDfXgHW6lIYepAbnla82yaZ5HE
+      short-id: 6a1faecb
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京 | 移动联通推荐
+    server: pq.vmjp.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: ybBxu1pW3O9Me954LCDfXgHW6lIYepAbnla82yaZ5HE
+      short-id: 6a1faecb
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京2 | 移动联通推荐
+    server: pq.vmjp2.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: asLJREsp9L0JbURQPIhFxc6bZIgpunEOjOJeHv3YcEs
+      short-id: b0fbe0f0
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京3 | 移动联通推荐
+    server: pq.vmjp.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: ybBxu1pW3O9Me954LCDfXgHW6lIYepAbnla82yaZ5HE
+      short-id: 6a1faecb
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京4 | 移动联通推荐
+    server: pq.vmjp2.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: asLJREsp9L0JbURQPIhFxc6bZIgpunEOjOJeHv3YcEs
+      short-id: b0fbe0f0
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京5-0.1倍 | 电信联通推荐
+    server: pq.vmjp3.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: pR8CV43xvSgvzSXPVLCVomjw-yZvNyqU32kietO2pEc
+      short-id: a6115a2c
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京6-0.1倍 | 电信联通推荐
+    server: pq.vmjp4.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: FrLhPuCVfzdM5rppzxHXQ5BZSGf1YHrXgo-cCtecGSo
+      short-id: f3b38af2
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京7-0.1倍 | 电信联通推荐
+    server: pq.vmjp3.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: pR8CV43xvSgvzSXPVLCVomjw-yZvNyqU32kietO2pEc
+      short-id: a6115a2c
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本东京8-0.1倍 | 电信联通推荐
+    server: pq.vmjp4.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: cdn-dynmedia-1.microsoft.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: FrLhPuCVfzdM5rppzxHXQ5BZSGf1YHrXgo-cCtecGSo
+      short-id: f3b38af2
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇸🇬AWS新加坡02 | 移动联通推荐
+    server: pq.aws59.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: mnshlVo5tkzYbmEB9xrgmUHwYETnXLAjjlGAssqaDGI
+      short-id: 436299c6
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇸🇬AWS新加坡03 | 移动联通推荐
+    server: pq.aws60.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: xjWkdgeetCnB1-kHqwVnAaSUqg4qK9TFWQlamW8FSRI
+      short-id: e2e15173
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇸🇬AWS新加坡04 | 移动联通推荐
+    server: pq.aws61.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: iosapps.itunes.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: 9076EbD5vM8kATc_08QvDiqZF5KHTM_LaSrMOvcwfHw
+      short-id: 57b7989c
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: hysteria2
+    name: 🇺🇸美国01-0.1倍 | 电信联通移动推荐
+    server: pq.us1.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国02-0.1倍 | 电信联通移动推荐
+    server: pq.us2.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国03-0.1倍 | 电信联通移动推荐
+    server: pq.us3.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: tv.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国04-0.1倍 | 电信联通移动推荐
+    server: pq.us4.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国05-0.1倍 | 电信联通移动推荐
+    server: pq.us5.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国06-0.1倍 | 电信联通移动推荐
+    server: pq.us6.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国07-0.1倍 | 电信联通移动推荐
+    server: pq.us7.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国08-0.1倍 | 电信联通移动推荐
+    server: pq.us8.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国09-0.1倍 | 电信联通移动推荐
+    server: pq.us9.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国10-0.1倍 | 电信移动推荐
+    server: pq.us10.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国11-0.1倍 | 电信移动推荐
+    server: pq.us10.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇺🇸美国12-0.1倍 | 电信移动推荐
+    server: pq.us10.globals-download.com
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港01 | 移动联通推荐
+    server: 103.197.71.112
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港02 | 移动联通推荐
+    server: 103.197.71.113
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港03 | 移动联通推荐
+    server: 103.197.71.114
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港04 | 移动联通推荐
+    server: 103.197.71.115
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港05 | 移动联通推荐
+    server: 103.197.71.116
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: tv.apple.com
+  - type: hysteria2
+    name: 🇭🇰香港06 | 移动联通推荐
+    server: 103.197.71.117
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇰🇷韩国3 | 高速专线-hy2
+    server: 146.56.164.36
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇦🇪迪拜 | 高速专线-hy2
+    server: 193.123.76.84
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇨🇭瑞士苏黎世 | 高速专线-hy2
+    server: 152.67.95.183
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇦🇺澳大利亚 | 高速专线-hy2
+    server: 152.69.180.226
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇦🇺澳大利亚2 | 高速专线-hy2
+    server: 158.179.18.251
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇦🇺澳大利亚3 | 高速专线-hy2
+    server: 159.13.35.245
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇸🇬新加坡 | 高速专线-hy2
+    server: 152.69.220.212
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇸🇬新加坡2 | 高速专线-hy2
+    server: 158.178.236.104
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: api.push.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京 | 电信联通推荐-hy2
+    server: pq.hy.jp.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京2 | 电信联通推荐-hy2
+    server: pq.hy.jp.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京3 | 电信联通推荐-hy2
+    server: pq.hy.jp2.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京4 | 电信联通推荐-hy2
+    server: pq.hy.jp2.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京5 | 移动联通推荐-hy2
+    server: pq.hy.jp3.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京6 | 移动联通推荐-hy2
+    server: pq.hy.jp3.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京7 | 移动联通推荐-hy2
+    server: pq.hy.jp4.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇯🇵日本东京8 | 移动联通推荐-hy2
+    server: pq.hy.jp4.yydjc.top
+    port: 60000
+    ports: 60000-65530
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: hysteria2
+    name: 🇬🇧英国-0.1倍 | 高速专线-hy2
+    server: 85.159.92.99
+    port: 35000
+    ports: 35000-39000
+    password: 90-b27a-4309-9a23-51b5b5bcbb91
+    skip-cert-verify: true
+    sni: www.apple.com
+  - type: vless
+    name: 🇺🇸美国阿什本01-0.1倍
+    server: 69.84.182.108
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: pq-us4.globals-download.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us4
+      headers:
+        Host: pq-us4.globals-download.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国阿什本02-0.1倍
+    server: 69.84.182.108
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: pq-us5.globals-download.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us5
+      headers:
+        Host: pq-us5.globals-download.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国阿什本03-0.1倍
+    server: 69.84.182.108
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: pq-us6.globals-download.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us6
+      headers:
+        Host: pq-us6.globals-download.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇰🇷韩国首尔01
+    server: 131.186.22.238
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: buylite.music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: P--AseuV7sGvgy7YJ8iX58GxeP5-M2oq0Mq2YxPAXRs
+      short-id: f00d40f38482
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇹🇼台湾 | 避免晚高峰使用
+    server: pq.hinet.tw1.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: download.yydjc.top
+    tls: true
+    encryption: none
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇹🇼台湾2 | 避免晚高峰使用
+    server: pq.hinet.tw2.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: download.yydjc.top
+    tls: true
+    encryption: none
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇹🇼台湾3 | 避免晚高峰使用
+    server: pq.hinet.tw3.yydjc.top
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: tcp
+    servername: download.yydjc.top
+    tls: true
+    encryption: none
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇯🇵日本高速01-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: jpa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: jpa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇮🇳印度01-0.1倍
+    server: 104.18.20.69
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: in1s-s.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/in1
+      headers:
+        Host: in1s-s.pqvip.top
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国洛杉矶01-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: usa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: usa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国洛杉矶02-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: usa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: usa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国洛杉矶03-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: usa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: usa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国洛杉矶04-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: usa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: usa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国洛杉矶05-0.1倍
+    server: 69.84.182.18
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: usa1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: usa1.xn--ghqu5fm27b67w.com
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国01 | 合适下载使用-0.01倍
+    server: 104.18.46.50
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: us1p.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us1
+      headers:
+        Host: us1p.pqvip.top
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国02 | 合适下载使用-0.01倍
+    server: 104.18.46.50
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: us2p.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us2
+      headers:
+        Host: us2p.pqvip.top
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国03 | 合适下载使用-0.01倍
+    server: 104.18.46.50
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: us3p.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us3
+      headers:
+        Host: us3p.pqvip.top
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国04 | 合适下载使用-0.01倍
+    server: 104.18.46.50
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: us4p.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us4
+      headers:
+        Host: us4p.pqvip.top
+    client-fingerprint: chrome
+  - type: vless
+    name: 🇺🇸美国05 | 合适下载使用-0.01倍
+    server: 104.18.46.50
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: us5p.pqvip.top
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/us5
+      headers:
+        Host: us5p.pqvip.top
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京01 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京02 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京03 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京04 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京05 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: ios
+  - type: vless
+    name: 🇯🇵日本东京06 | 高速专线推荐
+    server: unamecf.xn--ghqu5fm27b67w.com
+    port: 443
+    uuid: 3e37c290-b27a-4309-9a23-51b5b5bcbb91
+    network: ws
+    servername: ujp1.xn--ghqu5fm27b67w.com
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /pq/jp1
+      headers:
+        Host: ujp1.xn--ghqu5fm27b67w.com
+    client-fingerprint: safari
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 剩余流量：9.76 TB
+      - 套餐到期：长期有效
+      - 🇯🇵日本东京 | 移动联通推荐
+      - 🇯🇵日本东京2 | 移动联通推荐
+      - 🇯🇵日本东京3 | 移动联通推荐
+      - 🇯🇵日本东京4 | 移动联通推荐
+      - 🇯🇵日本东京5-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京6-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京7-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京8-0.1倍 | 电信联通推荐
+      - 🇸🇬AWS新加坡02 | 移动联通推荐
+      - 🇸🇬AWS新加坡03 | 移动联通推荐
+      - 🇸🇬AWS新加坡04 | 移动联通推荐
+      - 🇺🇸美国01-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国02-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国03-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国04-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国05-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国06-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国07-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国08-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国09-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国10-0.1倍 | 电信移动推荐
+      - 🇺🇸美国11-0.1倍 | 电信移动推荐
+      - 🇺🇸美国12-0.1倍 | 电信移动推荐
+      - 🇭🇰香港01 | 移动联通推荐
+      - 🇭🇰香港02 | 移动联通推荐
+      - 🇭🇰香港03 | 移动联通推荐
+      - 🇭🇰香港04 | 移动联通推荐
+      - 🇭🇰香港05 | 移动联通推荐
+      - 🇭🇰香港06 | 移动联通推荐
+      - 🇰🇷韩国3 | 高速专线-hy2
+      - 🇦🇪迪拜 | 高速专线-hy2
+      - 🇨🇭瑞士苏黎世 | 高速专线-hy2
+      - 🇦🇺澳大利亚 | 高速专线-hy2
+      - 🇦🇺澳大利亚2 | 高速专线-hy2
+      - 🇦🇺澳大利亚3 | 高速专线-hy2
+      - 🇸🇬新加坡 | 高速专线-hy2
+      - 🇸🇬新加坡2 | 高速专线-hy2
+      - 🇯🇵日本东京 | 电信联通推荐-hy2
+      - 🇯🇵日本东京2 | 电信联通推荐-hy2
+      - 🇯🇵日本东京3 | 电信联通推荐-hy2
+      - 🇯🇵日本东京4 | 电信联通推荐-hy2
+      - 🇯🇵日本东京5 | 移动联通推荐-hy2
+      - 🇯🇵日本东京6 | 移动联通推荐-hy2
+      - 🇯🇵日本东京7 | 移动联通推荐-hy2
+      - 🇯🇵日本东京8 | 移动联通推荐-hy2
+      - 🇬🇧英国-0.1倍 | 高速专线-hy2
+      - 🇺🇸美国阿什本01-0.1倍
+      - 🇺🇸美国阿什本02-0.1倍
+      - 🇺🇸美国阿什本03-0.1倍
+      - 🇰🇷韩国首尔01
+      - 🇹🇼台湾 | 避免晚高峰使用
+      - 🇹🇼台湾2 | 避免晚高峰使用
+      - 🇹🇼台湾3 | 避免晚高峰使用
+      - 🇯🇵日本高速01-0.1倍
+      - 🇮🇳印度01-0.1倍
+      - 🇺🇸美国洛杉矶01-0.1倍
+      - 🇺🇸美国洛杉矶02-0.1倍
+      - 🇺🇸美国洛杉矶03-0.1倍
+      - 🇺🇸美国洛杉矶04-0.1倍
+      - 🇺🇸美国洛杉矶05-0.1倍
+      - 🇺🇸美国01 | 合适下载使用-0.01倍
+      - 🇺🇸美国02 | 合适下载使用-0.01倍
+      - 🇺🇸美国03 | 合适下载使用-0.01倍
+      - 🇺🇸美国04 | 合适下载使用-0.01倍
+      - 🇺🇸美国05 | 合适下载使用-0.01倍
+      - 🇯🇵日本东京01 | 高速专线推荐
+      - 🇯🇵日本东京02 | 高速专线推荐
+      - 🇯🇵日本东京03 | 高速专线推荐
+      - 🇯🇵日本东京04 | 高速专线推荐
+      - 🇯🇵日本东京05 | 高速专线推荐
+      - 🇯🇵日本东京06 | 高速专线推荐
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 剩余流量：9.76 TB
+      - 套餐到期：长期有效
+      - 🇯🇵日本东京 | 移动联通推荐
+      - 🇯🇵日本东京2 | 移动联通推荐
+      - 🇯🇵日本东京3 | 移动联通推荐
+      - 🇯🇵日本东京4 | 移动联通推荐
+      - 🇯🇵日本东京5-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京6-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京7-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京8-0.1倍 | 电信联通推荐
+      - 🇸🇬AWS新加坡02 | 移动联通推荐
+      - 🇸🇬AWS新加坡03 | 移动联通推荐
+      - 🇸🇬AWS新加坡04 | 移动联通推荐
+      - 🇺🇸美国01-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国02-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国03-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国04-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国05-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国06-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国07-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国08-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国09-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国10-0.1倍 | 电信移动推荐
+      - 🇺🇸美国11-0.1倍 | 电信移动推荐
+      - 🇺🇸美国12-0.1倍 | 电信移动推荐
+      - 🇭🇰香港01 | 移动联通推荐
+      - 🇭🇰香港02 | 移动联通推荐
+      - 🇭🇰香港03 | 移动联通推荐
+      - 🇭🇰香港04 | 移动联通推荐
+      - 🇭🇰香港05 | 移动联通推荐
+      - 🇭🇰香港06 | 移动联通推荐
+      - 🇰🇷韩国3 | 高速专线-hy2
+      - 🇦🇪迪拜 | 高速专线-hy2
+      - 🇨🇭瑞士苏黎世 | 高速专线-hy2
+      - 🇦🇺澳大利亚 | 高速专线-hy2
+      - 🇦🇺澳大利亚2 | 高速专线-hy2
+      - 🇦🇺澳大利亚3 | 高速专线-hy2
+      - 🇸🇬新加坡 | 高速专线-hy2
+      - 🇸🇬新加坡2 | 高速专线-hy2
+      - 🇯🇵日本东京 | 电信联通推荐-hy2
+      - 🇯🇵日本东京2 | 电信联通推荐-hy2
+      - 🇯🇵日本东京3 | 电信联通推荐-hy2
+      - 🇯🇵日本东京4 | 电信联通推荐-hy2
+      - 🇯🇵日本东京5 | 移动联通推荐-hy2
+      - 🇯🇵日本东京6 | 移动联通推荐-hy2
+      - 🇯🇵日本东京7 | 移动联通推荐-hy2
+      - 🇯🇵日本东京8 | 移动联通推荐-hy2
+      - 🇬🇧英国-0.1倍 | 高速专线-hy2
+      - 🇺🇸美国阿什本01-0.1倍
+      - 🇺🇸美国阿什本02-0.1倍
+      - 🇺🇸美国阿什本03-0.1倍
+      - 🇰🇷韩国首尔01
+      - 🇹🇼台湾 | 避免晚高峰使用
+      - 🇹🇼台湾2 | 避免晚高峰使用
+      - 🇹🇼台湾3 | 避免晚高峰使用
+      - 🇯🇵日本高速01-0.1倍
+      - 🇮🇳印度01-0.1倍
+      - 🇺🇸美国洛杉矶01-0.1倍
+      - 🇺🇸美国洛杉矶02-0.1倍
+      - 🇺🇸美国洛杉矶03-0.1倍
+      - 🇺🇸美国洛杉矶04-0.1倍
+      - 🇺🇸美国洛杉矶05-0.1倍
+      - 🇺🇸美国01 | 合适下载使用-0.01倍
+      - 🇺🇸美国02 | 合适下载使用-0.01倍
+      - 🇺🇸美国03 | 合适下载使用-0.01倍
+      - 🇺🇸美国04 | 合适下载使用-0.01倍
+      - 🇺🇸美国05 | 合适下载使用-0.01倍
+      - 🇯🇵日本东京01 | 高速专线推荐
+      - 🇯🇵日本东京02 | 高速专线推荐
+      - 🇯🇵日本东京03 | 高速专线推荐
+      - 🇯🇵日本东京04 | 高速专线推荐
+      - 🇯🇵日本东京05 | 高速专线推荐
+      - 🇯🇵日本东京06 | 高速专线推荐
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 剩余流量：9.76 TB
+      - 套餐到期：长期有效
+      - 🇯🇵日本东京 | 移动联通推荐
+      - 🇯🇵日本东京2 | 移动联通推荐
+      - 🇯🇵日本东京3 | 移动联通推荐
+      - 🇯🇵日本东京4 | 移动联通推荐
+      - 🇯🇵日本东京5-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京6-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京7-0.1倍 | 电信联通推荐
+      - 🇯🇵日本东京8-0.1倍 | 电信联通推荐
+      - 🇸🇬AWS新加坡02 | 移动联通推荐
+      - 🇸🇬AWS新加坡03 | 移动联通推荐
+      - 🇸🇬AWS新加坡04 | 移动联通推荐
+      - 🇺🇸美国01-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国02-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国03-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国04-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国05-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国06-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国07-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国08-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国09-0.1倍 | 电信联通移动推荐
+      - 🇺🇸美国10-0.1倍 | 电信移动推荐
+      - 🇺🇸美国11-0.1倍 | 电信移动推荐
+      - 🇺🇸美国12-0.1倍 | 电信移动推荐
+      - 🇭🇰香港01 | 移动联通推荐
+      - 🇭🇰香港02 | 移动联通推荐
+      - 🇭🇰香港03 | 移动联通推荐
+      - 🇭🇰香港04 | 移动联通推荐
+      - 🇭🇰香港05 | 移动联通推荐
+      - 🇭🇰香港06 | 移动联通推荐
+      - 🇰🇷韩国3 | 高速专线-hy2
+      - 🇦🇪迪拜 | 高速专线-hy2
+      - 🇨🇭瑞士苏黎世 | 高速专线-hy2
+      - 🇦🇺澳大利亚 | 高速专线-hy2
+      - 🇦🇺澳大利亚2 | 高速专线-hy2
+      - 🇦🇺澳大利亚3 | 高速专线-hy2
+      - 🇸🇬新加坡 | 高速专线-hy2
+      - 🇸🇬新加坡2 | 高速专线-hy2
+      - 🇯🇵日本东京 | 电信联通推荐-hy2
+      - 🇯🇵日本东京2 | 电信联通推荐-hy2
+      - 🇯🇵日本东京3 | 电信联通推荐-hy2
+      - 🇯🇵日本东京4 | 电信联通推荐-hy2
+      - 🇯🇵日本东京5 | 移动联通推荐-hy2
+      - 🇯🇵日本东京6 | 移动联通推荐-hy2
+      - 🇯🇵日本东京7 | 移动联通推荐-hy2
+      - 🇯🇵日本东京8 | 移动联通推荐-hy2
+      - 🇬🇧英国-0.1倍 | 高速专线-hy2
+      - 🇺🇸美国阿什本01-0.1倍
+      - 🇺🇸美国阿什本02-0.1倍
+      - 🇺🇸美国阿什本03-0.1倍
+      - 🇰🇷韩国首尔01
+      - 🇹🇼台湾 | 避免晚高峰使用
+      - 🇹🇼台湾2 | 避免晚高峰使用
+      - 🇹🇼台湾3 | 避免晚高峰使用
+      - 🇯🇵日本高速01-0.1倍
+      - 🇮🇳印度01-0.1倍
+      - 🇺🇸美国洛杉矶01-0.1倍
+      - 🇺🇸美国洛杉矶02-0.1倍
+      - 🇺🇸美国洛杉矶03-0.1倍
+      - 🇺🇸美国洛杉矶04-0.1倍
+      - 🇺🇸美国洛杉矶05-0.1倍
+      - 🇺🇸美国01 | 合适下载使用-0.01倍
+      - 🇺🇸美国02 | 合适下载使用-0.01倍
+      - 🇺🇸美国03 | 合适下载使用-0.01倍
+      - 🇺🇸美国04 | 合适下载使用-0.01倍
+      - 🇺🇸美国05 | 合适下载使用-0.01倍
+      - 🇯🇵日本东京01 | 高速专线推荐
+      - 🇯🇵日本东京02 | 高速专线推荐
+      - 🇯🇵日本东京03 | 高速专线推荐
+      - 🇯🇵日本东京04 | 高速专线推荐
+      - 🇯🇵日本东京05 | 高速专线推荐
+      - 🇯🇵日本东京06 | 高速专线推荐
+rule-providers:
+  LocalAreaNetwork:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+    path: ./rules/providers/LocalAreaNetwork.list
+    interval: 86400
+  BanAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+    path: ./rules/providers/BanAD.list
+    interval: 86400
+  BanProgramAD:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+    path: ./rules/providers/BanProgramAD.list
+    interval: 86400
+  GoogleCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+    path: ./rules/providers/GoogleCN.list
+    interval: 86400
+  SteamCN:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+    path: ./rules/providers/SteamCN.list
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+    path: ./rules/providers/Telegram.list
+    interval: 86400
+  ProxyMedia:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+    path: ./rules/providers/ProxyMedia.list
+    interval: 86400
+  ProxyLite:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+    path: ./rules/providers/ProxyLite.list
+    interval: 86400
+  ChinaDomain:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+    path: ./rules/providers/ChinaDomain.list
+    interval: 86400
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+    path: ./rules/providers/ChinaCompanyIp.list
+    interval: 86400
+
+rules:
+  - RULE-SET,LocalAreaNetwork,🎯 全球直连
+  - RULE-SET,BanAD,🛑 全球拦截
+  - RULE-SET,BanProgramAD,🛑 全球拦截
+  - RULE-SET,GoogleCN,🎯 全球直连
+  - RULE-SET,SteamCN,🎯 全球直连
+  - RULE-SET,Telegram,🚀 节点选择
+  - RULE-SET,ProxyMedia,🚀 节点选择
+  - RULE-SET,ProxyLite,🚀 节点选择
+  - RULE-SET,ChinaDomain,🎯 全球直连
+  - RULE-SET,ChinaCompanyIp,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
