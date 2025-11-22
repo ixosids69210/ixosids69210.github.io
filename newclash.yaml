@@ -98,17 +98,33 @@ proxies:
       short-id: 0123456789abcdef
     client-fingerprint: chrome
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 日本1
-    server: iij.mggl.wang
-    port: 35789
-    password: c3-ab32-4009-b366-07db9bcce7db
-    sni: iij.mggl.wang
+  - type: vless
+    name: As·台灣·Hinet家寬-新北
+    server: tw1000.duboji.vip
+    port: 52009
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: tcp
+    servername: addons.mozilla.org
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
   - type: vmess
-    name: 🇯🇵 日本7-Ver.2
-    server: jhmjw-g01.jp07-sh-vm0.entry.fr0528.art
-    port: 28783
+    name: 🇯🇵 日本4-Ver.8
+    server: p92ny-g01.jp04-1d-vm0.entry.fr0528.art
+    port: 444
     uuid: 104e23cc-4beb-3278-9620-6c53b40d43a4
+    alterId: 1
+    network: tcp
+    cipher: auto
+  - type: vmess
+    name: 🇯🇵 日本4-Ver.8_1
+    server: po6m8-g01.jp04-1d-vm0.entry.fr0528.art
+    port: 444
+    uuid: ac1c2449-bbcc-37a6-8f1b-60b9d46276cd
     alterId: 1
     network: tcp
     cipher: auto
@@ -122,28 +138,6 @@ proxies:
     cipher: auto
     tls: true
   - type: vmess
-    name: 🇯🇵 日本4-Ver.8
-    server: po6m8-g01.jp04-1d-vm0.entry.fr0528.art
-    port: 444
-    uuid: ac1c2449-bbcc-37a6-8f1b-60b9d46276cd
-    alterId: 1
-    network: tcp
-    cipher: auto
-  - type: hysteria2
-    name: 🇸🇬 新加坡5
-    server: starlink-sg5.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: hysteria2
-    name: 🇯🇵 日本2
-    server: starlink-jp2.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: vmess
     name: 🇯🇵 日本6-Ver.8_1
     server: pusyd-g01.jp06-jz-vm0.entry.fr0528.art
     port: 28783
@@ -153,101 +147,6 @@ proxies:
     cipher: auto
     tls: true
   - type: vmess
-    name: 🇯🇵 日本4-Ver.8_1
-    server: p92ny-g01.jp04-1d-vm0.entry.fr0528.art
-    port: 444
-    uuid: 104e23cc-4beb-3278-9620-6c53b40d43a4
-    alterId: 1
-    network: tcp
-    cipher: auto
-  - type: hysteria2
-    name: 🇸🇬 新加坡6
-    server: starlink-sg6.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: hysteria2
-    name: 🇯🇵 日本3
-    server: starlink-jp3.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: hysteria2
-    name: 🇸🇬 新加坡4
-    server: starlink-sg4.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: trojan
-    name: 🇨🇳 台湾9 家宽
-    server: starlink-tw4.2513142.xyz
-    port: 22101
-    password: 0l1ysOwtpVmKgZAIGrB2obN9
-    network: tcp
-    sni: www.cloudflare.com
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: hysteria2
-    name: 🇯🇵 日本6
-    server: starlink-jp6.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: hysteria2
-    name: 🇰🇷 韩国2
-    server: starlink-sol2.2513142.xyz
-    port: 443
-    password: wtpVmKgZAIGrB2obN9
-    skip-cert-verify: true
-    sni: www.cloudflare.com
-  - type: vless
-    name: JP 02 普通
-    server: jp02.duffy.baby
-    port: 24678
-    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
-    network: tcp
-    servername: www.samsung.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: X6943R2qhLSwQeQC3RvLz123339On-rOOvtuOQPC2wk
-      short-id: a31c4611
-    client-fingerprint: safari
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 🇯🇵日本 4
-    server: jp4.892622.xyz
-    port: 26702
-    password: b3-c991-450d-be1e-17f947784d3d
-    sni: jp4.892622.xyz
-  - type: vless
-    name: Asc·香港·ac1
-    server: optimize-hk1.168829.xyz
-    port: 443
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: ws
-    servername: media-hk1.168829.xyz
-    tls: true
-    encryption: none
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-hk1.168829.xyz
-    client-fingerprint: firefox
-  - type: hysteria2
-    name: 越南Hy01
-    server: 103.137.185.211
-    port: 38690
-    password: ef-4bfd-4509-aae7-6d2b24abae28
-    obfs: salamander
-    obfs-password: MGM1ZjRjYmYzMWY0MjY5YQ==
-    sni: 360dsb.online
-  - type: vmess
     name: 🇯🇵 日本2-Ver.8
     server: 5lrlu-g01.jp02-e3-vm0.entry.fr0528.art
     port: 11773
@@ -255,112 +154,64 @@ proxies:
     alterId: 1
     network: tcp
     cipher: auto
-  - type: hysteria2
-    name: 新加坡hy2-3
-    server: sg3.dnscloudcloud.top
-    port: 36225
-    ports: 36000-37000
-    password: c6-c238-4e78-8c83-7fb86d7cd99e
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: hysteria2
-    name: 日本hy2-2-z
-    server: jp1.dnscloudcloud.top
-    port: 36522
-    ports: 36000-37000
-    password: c6-c238-4e78-8c83-7fb86d7cd99e
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: hysteria2
-    name: United States 2083
-    server: us2083.yydzx.xyz
-    port: 13820
-    password: e8-0f12-4769-bae5-939528108ad0
-    sni: us2083.yydzx.xyz
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H02"
-    server: 198.23.130.211
-    port: 25000
-    password: 7d-620c-43df-84ef-3eea5b132e32
-    skip-cert-verify: true
-    sni: api.push.apple.com
-  - type: hysteria2
-    name: 1🇺🇸美国
-    server: speedtest.mg1.mutoujs.top
-    port: 20001
-    password: e2-48a6-49da-a8ea-56afd96b4a3b
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: 6kPLf70EFW46gWIC
-    sni: "null"
-  - type: hysteria2
-    name: 2🇺🇸美国
-    server: mgspeedtest1.jiasujd.top
-    port: 25000
-    password: e2-48a6-49da-a8ea-56afd96b4a3b
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZFz509ggpRRkhanq
-    sni: "null"
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H02_1"
-    server: 198.23.130.211
-    port: 25000
-    password: 29-a467-4dfa-9e89-48e0f26c844b
-    skip-cert-verify: true
-    sni: api.push.apple.com
-  - type: hysteria2
-    name: 日本hy2-1
-    server: jp1.dnscloudcloud.top
-    port: 36722
-    ports: 36000-37000
-    password: c6-c238-4e78-8c83-7fb86d7cd99e
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H01"
-    server: 107.173.127.166
-    port: 25000
-    password: 29-a467-4dfa-9e89-48e0f26c844b
-    skip-cert-verify: true
-    sni: www.apple.com
-  - type: hysteria2
-    name: 新加坡hy2-3_1
-    server: sg3.dnscloudcloud.top
-    port: 36100
-    ports: 36000-37000
-    password: a9-6e05-4e97-9372-178be5084061
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
+  - type: vmess
+    name: 🇯🇵 日本7-Ver.2
+    server: jhmjw-g01.jp07-sh-vm0.entry.fr0528.art
+    port: 28783
+    uuid: 104e23cc-4beb-3278-9620-6c53b40d43a4
+    alterId: 1
+    network: tcp
+    cipher: auto
   - type: vless
-    name: 美国-洛杉矶-2Gbps·2
-    server: 173.224.219.224
+    name: 🇯🇵日本3-移动联通
+    server: jp3.fulitech.top
+    port: 8443
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    network: tcp
+    servername: music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
+      short-id: 9709f5aa
+      spider-x: /
+    client-fingerprint: ios
+    flow: xtls-rprx-vision
+  - type: vless
+    name: Asc·香港·ac2
+    server: optimize-hk2.168829.xyz
+    port: 443
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: ws
+    servername: media-hk2.168829.xyz
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /search
+      headers:
+        Host: media-hk2.168829.xyz
+    client-fingerprint: firefox
+  - type: vless
+    name: 美国vless-do2
+    server: us2do.dnscloudcloud.top
+    port: 10002
+    uuid: aa306fa9-6e05-4e97-9372-178be5084061
+    network: tcp
+    servername: addons.mozilla.org
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
+      short-id: ad081079
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 美国-洛杉矶-2Gbps·1
+    server: 173.224.219.79
     port: 18829
     uuid: 480ba890-07f0-4dcf-8dc1-f27aa38e1959
     network: tcp
-    servername: media-usil.521917.xyz
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 日本hy2-1_1
-    server: jp1.dnscloudcloud.top
-    port: 36479
-    ports: 36000-37000
-    password: a9-6e05-4e97-9372-178be5084061
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: vless
-    name: As·美国·ALL-CA·Multacc
-    server: 204.13.155.242
-    port: 52009
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: tcp
-    servername: www.autodesk.com
+    servername: media-tw01.521917.xyz
     tls: true
     encryption: none
     reality-opts:
@@ -369,8 +220,8 @@ proxies:
     client-fingerprint: firefox
     flow: xtls-rprx-vision
   - type: vless
-    name: 美国vless-do3
-    server: us3do.dnscloudcloud.top
+    name: 美国vless-do2_1
+    server: us2do.dnscloudcloud.top
     port: 10002
     uuid: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
     network: tcp
@@ -380,6 +231,20 @@ proxies:
     reality-opts:
       public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
       short-id: ad081079
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: As·美国·ALL-CAac-gpt/nf
+    server: 104.234.0.39
+    port: 52009
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: tcp
+    servername: www.autodesk.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
   - type: vless
@@ -410,16 +275,27 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
+  - type: hysteria2
+    name: 日本hy2-2-z
+    server: jp1.dnscloudcloud.top
+    port: 36522
+    ports: 36000-37000
+    password: c6-c238-4e78-8c83-7fb86d7cd99e
+    skip-cert-verify: true
+    sni: 1231231.1234567890spcloud.com
   - type: vless
-    name: United States 2086
-    server: usvless.yydzx.xyz
-    port: 17521
-    uuid: b7fa14e8-0f12-4769-bae5-939528108ad0
+    name: 美国-洛杉矶-2Gbps·2
+    server: 173.224.219.224
+    port: 18829
+    uuid: 480ba890-07f0-4dcf-8dc1-f27aa38e1959
     network: tcp
-    servername: usvless.yydzx.xyz
+    servername: media-usil.521917.xyz
     tls: true
     encryption: none
-    client-fingerprint: chrome
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
+    client-fingerprint: firefox
     flow: xtls-rprx-vision
   - type: vless
     name: As·美国·ALL-CAcs2-gpt
@@ -435,16 +311,6 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 美国Hy02
-    server: 142.171.108.4
-    port: 20000
-    ports: 20000-50000
-    password: 96-8953-4393-9f40-1269f569a2f7
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: d5acb9717336340d126c97f85678437d.mobgslb.tbcache.com
   - type: vless
     name: 美国-洛杉矶c2(电信联通优选)
     server: 107.172.231.66
@@ -459,83 +325,92 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 🇺🇸美国 1
-    server: us1.892622.xyz
-    port: 26702
-    password: b3-c991-450d-be1e-17f947784d3d
-    sni: us1.892622.xyz
-  - type: trojan
-    name: "[trojan]🇺🇸 美国 T02"
-    server: 69.84.182.18
-    port: 8443
-    password: 7680de7d-620c-43df-84ef-3eea5b132e32
-    network: ws
-    sni: cdn-node-oss-62.anycdn.de
-    fingerprint: chrome
+  - type: vless
+    name: 美国-洛杉矶cs
+    server: 192.3.232.245
+    port: 18829
+    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
+    network: tcp
+    servername: addons.mozilla.org
     tls: true
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
-  - type: trojan
-    name: "[trojan]🇺🇸 美国 T02_1"
-    server: 69.84.182.18
-    port: 8443
-    password: b870a9da-02b1-4110-88f0-ee40ce5372e8
-    network: ws
-    sni: cdn-node-oss-62.anycdn.de
-    fingerprint: chrome
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: As·美国·ALL-CA·Multacc
+    server: 204.13.155.242
+    port: 52009
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: tcp
+    servername: www.autodesk.com
     tls: true
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
-  - type: hysteria2
-    name: 美国Z
-    server: phoenix-011.684567.xyz
-    port: 8445
-    password: 0d-0239-46d4-a4e8-5022f44abc85
-    sni: phoenix-011.684567.xyz
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H02_2"
-    server: 198.23.130.211
-    port: 25000
-    password: da-02b1-4110-88f0-ee40ce5372e8
-    skip-cert-verify: true
-    sni: api.push.apple.com
-  - type: hysteria2
-    name: H-美国-CAcs1-hop
-    server: 23.94.180.61
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
-  - type: hysteria2
-    name: 香港专线
-    server: alhkfree.mggl.wang
-    port: 35789
-    password: c3-ab32-4009-b366-07db9bcce7db
-    sni: alhkfree.mggl.wang
-  - type: trojan
-    name: "[trojan]🇺🇸 美国 T02_2"
-    server: 69.84.182.18
-    port: 8443
-    password: a431c229-a467-4dfa-9e89-48e0f26c844b
-    network: ws
-    sni: cdn-node-oss-62.anycdn.de
-    fingerprint: chrome
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 美国vless-do3
+    server: us3do.dnscloudcloud.top
+    port: 10002
+    uuid: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
+    network: tcp
+    servername: addons.mozilla.org
     tls: true
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
+    encryption: none
+    reality-opts:
+      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
+      short-id: ad081079
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: "[V1]US-2-三网CU2优化"
+    server: 154.40.37.165
+    port: 17843
+    uuid: ae0835bc-6ee8-3108-81e0-88179ca5a262
+    network: tcp
+    servername: www.bing.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: United States 2086
+    server: usvless.yydzx.xyz
+    port: 17521
+    uuid: b7fa14e8-0f12-4769-bae5-939528108ad0
+    network: tcp
+    servername: usvless.yydzx.xyz
+    tls: true
+    encryption: none
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇺🇸美国4-三网可用
+    server: sl1.fulitech.top
+    port: 8443
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    network: tcp
+    servername: music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
+      short-id: "95248866"
+      spider-x: /
+    client-fingerprint: qq
+    flow: xtls-rprx-vision
   - type: vless
     name: 🇺🇸美国2-三网可用
     server: us2.fulitech.top
     port: 8443
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
+    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
     network: tcp
     servername: music.apple.com
     tls: true
@@ -559,9 +434,22 @@ proxies:
       short-id: "95248866"
     client-fingerprint: safari
     flow: xtls-rprx-vision
+  - type: trojan
+    name: "[trojan]🇺🇸 美国 T02"
+    server: 69.84.182.18
+    port: 8443
+    password: 7680de7d-620c-43df-84ef-3eea5b132e32
+    network: ws
+    sni: cdn-node-oss-62.anycdn.de
+    fingerprint: chrome
+    tls: true
+    ws-opts:
+      path: /profile/us2
+      headers:
+        Host: cdn-node-oss-62.anycdn.de
   - type: vless
-    name: 🇺🇸美国1-三网可用
-    server: us1.fulitech.top
+    name: 🇺🇸美国2-三网可用_1
+    server: us2.fulitech.top
     port: 8443
     uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     network: tcp
@@ -571,165 +459,26 @@ proxies:
     reality-opts:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: "95248866"
-    client-fingerprint: safari
-    flow: xtls-rprx-vision
-  - type: vless
-    name: As·美国·ALL-CAac-gpt/nf
-    server: 104.234.0.39
-    port: 52009
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: tcp
-    servername: www.autodesk.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: ss
-    name: 前海QHIX快线-05
-    server: noded.niceex.cc
-    port: 5087
-    cipher: chacha20-ietf-poly1305
-    password: c491b7d6-8a62-4ea7-b0f3-91626285147d
-  - type: hysteria2
-    name: A美国
-    server: phoenix-011.684567.xyz
-    port: 8445
-    password: 37-2f4c-4d61-b3fb-0348866fe117
-    sni: phoenix-011.684567.xyz
-  - type: hysteria2
-    name: 德国高速hy2
-    server: bagedg.xiaoqi888.online
-    port: 45000
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H01_1"
-    server: 107.173.127.166
-    port: 25000
-    password: 31-7255-479b-9058-ea9282bbc303
-    skip-cert-verify: true
-    sni: www.apple.com
-  - type: vless
-    name: "[V1]US-2-三网CU2优化"
-    server: 154.40.37.165
-    port: 17843
-    uuid: ae0835bc-6ee8-3108-81e0-88179ca5a262
-    network: tcp
-    servername: www.bing.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
   - type: trojan
-    name: "[trojan]🇺🇸 美国 T01"
-    server: 69.84.182.108
+    name: "[trojan]🇺🇸 美国 T02_1"
+    server: 69.84.182.18
     port: 8443
     password: a431c229-a467-4dfa-9e89-48e0f26c844b
     network: ws
-    sni: cdn-node-oss-61.anycdn.de
+    sni: cdn-node-oss-62.anycdn.de
     fingerprint: chrome
     tls: true
     ws-opts:
-      path: /profile/us1
+      path: /profile/us2
       headers:
-        Host: cdn-node-oss-61.anycdn.de
-  - type: hysteria2
-    name: H-美国-CAcs-hop
-    server: 192.3.232.245
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
-  - type: hysteria2
-    name: H-美国-CAcs2-hop
-    server: 107.172.231.66
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
+        Host: cdn-node-oss-62.anycdn.de
   - type: vless
-    name: 🇸🇬新加坡1-移动联通
-    server: sg1.fulitech.top
-    port: 8443
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: vless
-    name: 🇺🇸美国2-三网可用_1
-    server: us2.fulitech.top
-    port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: "95248866"
-      spider-x: /
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-  - type: ss
-    name: 前海试验-05
-    server: noded.niceex.cc
-    port: 5087
-    cipher: chacha20-ietf-poly1305
-    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
-  - type: hysteria2
-    name: 德国Z
-    server: germany-011.684567.xyz
-    port: 8443
-    password: 0d-0239-46d4-a4e8-5022f44abc85
-    sni: germany-011.684567.xyz
-  - type: vless
-    name: 🇺🇸美国2-三网可用_2
-    server: us2.fulitech.top
-    port: 8443
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: "95248866"
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: "[Hy2]🇺🇸 美国 H01_2"
-    server: 107.173.127.166
-    port: 25000
-    password: 7d-620c-43df-84ef-3eea5b132e32
-    skip-cert-verify: true
-    sni: www.apple.com
-  - type: hysteria2
-    name: 日本hy2-1-z
-    server: jp1.dnscloudcloud.top
-    port: 36821
-    ports: 36000-37000
-    password: c6-c238-4e78-8c83-7fb86d7cd99e
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: vless
-    name: 🇺🇸美国1-三网可用_1
+    name: 🇺🇸美国1-三网可用
     server: us1.fulitech.top
     port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
     network: tcp
     servername: music.apple.com
     tls: true
@@ -737,17 +486,14 @@ proxies:
     reality-opts:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: "95248866"
-      spider-x: /
-    client-fingerprint: chrome
+    client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: vmess
-    name: 广港国际优化-08
-    server: nodef.niceex.cc
-    port: 5090
-    uuid: c491b7d6-8a62-4ea7-b0f3-91626285147d
-    alterId: 0
-    network: tcp
-    cipher: auto
+  - type: ss
+    name: 美国一
+    server: mg.xmgy.dpdns.org
+    port: 46554
+    cipher: chacha20-ietf-poly1305
+    password: 5cf6aa5d-f412-43a6-a8fe-e87d92cefbbf
   - type: vless
     name: 🇸🇬新加坡2-移动联通
     server: sg3.fulitech.top
@@ -764,24 +510,25 @@ proxies:
     client-fingerprint: safari
     flow: xtls-rprx-vision
   - type: vless
-    name: 美国-洛杉矶-2Gbps·1
-    server: 173.224.219.79
-    port: 18829
-    uuid: 480ba890-07f0-4dcf-8dc1-f27aa38e1959
+    name: 🇸🇬新加坡1-移动联通
+    server: sg1.fulitech.top
+    port: 8443
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
     network: tcp
-    servername: media-tw01.521917.xyz
+    servername: music.apple.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
+      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
+      short-id: 9709f5aa
+      spider-x: /
+    client-fingerprint: chrome
     flow: xtls-rprx-vision
   - type: vless
-    name: 🇺🇸美国1-三网可用_2
+    name: 🇺🇸美国1-三网可用_1
     server: us1.fulitech.top
     port: 8443
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
     network: tcp
     servername: music.apple.com
     tls: true
@@ -789,16 +536,9 @@ proxies:
     reality-opts:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: "95248866"
-    client-fingerprint: firefox
+      spider-x: /
+    client-fingerprint: chrome
     flow: xtls-rprx-vision
-  - type: vmess
-    name: 广港国际优化-07
-    server: nodef.niceex.cc
-    port: 5089
-    uuid: c491b7d6-8a62-4ea7-b0f3-91626285147d
-    alterId: 0
-    network: tcp
-    cipher: auto
   - type: vless
     name: 🇺🇸美国3-电信联通
     server: us3.fulitech.top
@@ -814,31 +554,17 @@ proxies:
       spider-x: /
     client-fingerprint: edge
     flow: xtls-rprx-vision
-  - type: vless
-    name: 美国vless-do2
-    server: us2do.dnscloudcloud.top
-    port: 10002
-    uuid: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    network: tcp
-    servername: addons.mozilla.org
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
   - type: ss
-    name: 美国一
-    server: mg.xmgy.dpdns.org
-    port: 46554
+    name: 罗马尼亚
+    server: lmly.xmgy.dpdns.org
+    port: 30022
     cipher: chacha20-ietf-poly1305
     password: 5cf6aa5d-f412-43a6-a8fe-e87d92cefbbf
   - type: vless
-    name: 🇺🇸美国4-三网可用
-    server: sl1.fulitech.top
+    name: 🇺🇸美国1-三网可用_2
+    server: us1.fulitech.top
     port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     network: tcp
     servername: music.apple.com
     tls: true
@@ -846,16 +572,51 @@ proxies:
     reality-opts:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: "95248866"
-      spider-x: /
-    client-fingerprint: qq
+    client-fingerprint: safari
     flow: xtls-rprx-vision
   - type: vless
-    name: 美国-洛杉矶cs
-    server: 192.3.232.245
+    name: 🇸🇬新加坡1-移动联通_1
+    server: sg1.fulitech.top
+    port: 8443
+    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
+    network: tcp
+    servername: music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
+      short-id: 9709f5aa
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vmess
+    name: 广港国际优化-07
+    server: nodef.niceex.cc
+    port: 5089
+    uuid: c491b7d6-8a62-4ea7-b0f3-91626285147d
+    alterId: 0
+    network: tcp
+    cipher: auto
+  - type: vless
+    name: Asc·法国·ALL-VOH
+    server: optimize-fr.168829.xyz
+    port: 443
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: ws
+    servername: media-frv6.168829.xyz
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /search
+      headers:
+        Host: media-frv6.168829.xyz
+    client-fingerprint: firefox
+  - type: vless
+    name: 新加坡-1
+    server: 185.151.146.228
     port: 18829
     uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
     network: tcp
-    servername: addons.mozilla.org
+    servername: media-hk02.521917.xyz
     tls: true
     encryption: none
     reality-opts:
@@ -863,42 +624,20 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 日本hy2-1-z_1
-    server: jp1.dnscloudcloud.top
-    port: 36664
-    ports: 36000-37000
-    password: a9-6e05-4e97-9372-178be5084061
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
-  - type: hysteria2
-    name: 日本hy2-2-z_1
-    server: jp1.dnscloudcloud.top
-    port: 36465
-    ports: 36000-37000
-    password: a9-6e05-4e97-9372-178be5084061
-    skip-cert-verify: true
-    sni: 1231231.1234567890spcloud.com
   - type: vless
-    name: 美国vless-do2_1
-    server: us2do.dnscloudcloud.top
-    port: 10002
-    uuid: aa306fa9-6e05-4e97-9372-178be5084061
+    name: 加拿大-多伦多
+    server: 155.94.236.237
+    port: 18829
+    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
     network: tcp
-    servername: addons.mozilla.org
+    servername: cdn-ca1.268829.xyz
     tls: true
     encryption: none
     reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: ss
-    name: 深港BGP中转-03
-    server: noded.niceex.cc
-    port: 5085
-    cipher: chacha20-ietf-poly1305
-    password: c491b7d6-8a62-4ea7-b0f3-91626285147d
   - type: vless
     name: 美国-芝加哥·rl
     server: 66.63.182.152
@@ -913,32 +652,6 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: ss
-    name: 深港BGP中转-04
-    server: noded.niceex.cc
-    port: 5086
-    cipher: chacha20-ietf-poly1305
-    password: c491b7d6-8a62-4ea7-b0f3-91626285147d
-  - type: vless
-    name: 美国-芝加哥·rl_1
-    server: 66.63.182.152
-    port: 18829
-    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
-    network: tcp
-    servername: addons.mozilla.org
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: ss
-    name: 深港中转-03
-    server: noded.niceex.cc
-    port: 5085
-    cipher: chacha20-ietf-poly1305
-    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
   - type: vless
     name: As-美国·ALL-ILcs-gpt
     server: 66.63.182.152
@@ -946,6 +659,20 @@ proxies:
     uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
     network: tcp
     servername: www.autodesk.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 美国-芝加哥·rl_1
+    server: 66.63.182.152
+    port: 18829
+    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
+    network: tcp
+    servername: addons.mozilla.org
     tls: true
     encryption: none
     reality-opts:
@@ -967,141 +694,21 @@ proxies:
       short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: H-美国-ILcs-hop
-    server: 66.63.182.152
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
-  - type: hysteria2
-    name: A新加坡
-    server: singapore-053.cloudtop.live
-    port: 8445
-    password: 37-2f4c-4d61-b3fb-0348866fe117
-    sni: singapore-053.cloudtop.live
-  - type: hysteria2
-    name: 🇬🇧 英国 LE.
-    server: mf-ukle.sw8.pw
-    port: 20001
-    password: 60-5bc9-4dfd-8275-321d499aa4f0
-    skip-cert-verify: true
-    sni: xy120x234x18x233xy.mcdn.bilivideo.cn
   - type: vless
-    name: 🇸🇬新加坡1-电信联通
-    server: sg1.fulitech.top
+    name: 🇺🇸美国2-三网可用_2
+    server: us2.fulitech.top
     port: 8443
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
     network: tcp
     servername: music.apple.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
-    client-fingerprint: edge
+      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
+      short-id: "95248866"
+      spider-x: /
+    client-fingerprint: chrome
     flow: xtls-rprx-vision
-  - type: vless
-    name: Asc·加拿大·ALL-VOH
-    server: optimize-ca.168829.xyz
-    port: 443
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: ws
-    servername: media-cav6.168829.xyz
-    tls: true
-    encryption: none
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-cav6.168829.xyz
-    client-fingerprint: firefox
-  - type: hysteria2
-    name: 荷兰
-    server: zhaji-hl.xiao666666.site
-    port: 50000
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: iosapps.itunes.apple.com
-  - type: hysteria2
-    name: 德国
-    server: zhaji-dg.xiao666666.site
-    port: 50000
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: vless
-    name: 加拿大-多伦多
-    server: 155.94.236.237
-    port: 18829
-    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
-    network: tcp
-    servername: cdn-ca1.268829.xyz
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 加拿大
-    server: wqjnd.wqtd.mom
-    port: 23520
-    ports: 23520-29999
-    password: cf-812f-4233-829c-f90d85755730
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: wqjnd.wqtd.mom
-  - type: ss
-    name: 罗马尼亚
-    server: lmly.xmgy.dpdns.org
-    port: 30022
-    cipher: chacha20-ietf-poly1305
-    password: 5cf6aa5d-f412-43a6-a8fe-e87d92cefbbf
-  - type: hysteria2
-    name: 以色列-hy2
-    server: yslhy2.412656.xyz
-    port: 50000
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 以色列-直连
-    server: yiselieamd.959555.xyz
-    port: 10000
-    password: 8f-b610-4873-b9a7-96f83f1fdf1d
-    skip-cert-verify: true
-    sni: yiselieamd.959555.xyz
-  - type: vless
-    name: As·美国·ALL-NYcs-gpt
-    server: 23.94.180.61
-    port: 52108
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: tcp
-    servername: www.autodesk.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: vless
-    name: Asc·加拿大·ALL·kw
-    server: optimize-ca1.168829.xyz
-    port: 443
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: ws
-    servername: media-ca1v6.168829.xyz
-    tls: true
-    encryption: none
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-ca1v6.168829.xyz
-    client-fingerprint: firefox
   - type: vless
     name: "[V1]JP-1-vless-xtls"
     server: 46.250.255.45
@@ -1115,20 +722,6 @@ proxies:
       public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
     client-fingerprint: chrome
     flow: xtls-rprx-vision
-  - type: vless
-    name: Asc·法国·ALL-VOH
-    server: optimize-fr.168829.xyz
-    port: 443
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: ws
-    servername: media-frv6.168829.xyz
-    tls: true
-    encryption: none
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-frv6.168829.xyz
-    client-fingerprint: firefox
   - type: vless
     name: "[V1]DE-1"
     server: 161.97.135.181
@@ -1152,132 +745,20 @@ proxies:
     obfs: salamander
     obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
     sni: wqels.wqtd.mom
-  - type: hysteria2
-    name: 🇬🇧 英国 LE._1
-    server: mf-ukle.sw8.pw
-    port: 20001
-    password: 53-a194-4fc9-adc1-8328e73a8474
-    skip-cert-verify: true
-    sni: xy120x234x18x233xy.mcdn.bilivideo.cn
   - type: vless
-    name: 🇮🇱以色列1-三网可用
-    server: us4.fulitech.top
-    port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    name: HK 03 移动优化
+    server: hk03.duffy.baby
+    port: 25194
+    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
     network: tcp
-    servername: music.apple.com
+    servername: www.samsung.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: "95248866"
-      spider-x: /
-    client-fingerprint: chrome
+      public-key: JJQ7zAk1EMfIkmRfM-Kv-6-KrGqLLpkOmonGlspI0CM
+      short-id: c64a8c86
+    client-fingerprint: qq
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 俄罗斯03
-    server: wqels.wqtd.mom
-    port: 35670
-    ports: 35670-54980
-    password: 2f-b1e9-45a2-879c-c2ccdfc12771
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: wqels.wqtd.mom
-  - type: hysteria2
-    name: A澳大利亚
-    server: free.684567.xyz
-    port: 8445
-    password: 37-2f4c-4d61-b3fb-0348866fe117
-    sni: free.684567.xyz
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港02丨直连
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: c5-de65-4496-8df1-83c636e5d913
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 澳大利亚Z
-    server: free.684567.xyz
-    port: 8445
-    password: 0d-0239-46d4-a4e8-5022f44abc85
-    sni: free.684567.xyz
-  - type: hysteria2
-    name: H-香港·AC·INTL-3-hop
-    server: 62.72.163.218
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
-  - type: hysteria2
-    name: 香港by
-    server: hkbycf.412656.xyz
-    port: 50001
-    password: a1-7647-4390-a935-d6eb9aca9042
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港01丨直连
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: d2-2036-452b-b55a-fc0f9491f049
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港01丨直连_1
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: c5-de65-4496-8df1-83c636e5d913
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港03丨直连
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: d2-2036-452b-b55a-fc0f9491f049
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: vless
-    name: Asc·香港·ac2
-    server: optimize-hk2.168829.xyz
-    port: 443
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: ws
-    servername: media-hk2.168829.xyz
-    tls: true
-    encryption: none
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-hk2.168829.xyz
-    client-fingerprint: firefox
-  - type: hysteria2
-    name: tw03
-    server: tw03.tehuicloud.top
-    port: 57338
-    password: 5f-2b30-4a17-b851-08487ad41ba1
-    skip-cert-verify: true
-    sni: tw03.tehuicloud.top
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港03丨直连_1
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: c5-de65-4496-8df1-83c636e5d913
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 🇭🇰香港 1
-    server: hk1.892622.xyz
-    port: 8080
-    password: b3-c991-450d-be1e-17f947784d3d
-    sni: hk1.892622.xyz
   - type: hysteria2
     name: 香港02
     server: wqxg.wqtd.mom
@@ -1288,52 +769,20 @@ proxies:
     obfs: salamander
     obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
     sni: wqxg.wqtd.mom
-  - type: hysteria2
-    name: 🇭🇰【亚洲】香港02丨直连_1
-    server: hk02.poke-mon.xyz
-    port: 20000
-    ports: 20000-50000
-    password: d2-2036-452b-b55a-fc0f9491f049
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: hysteria2
-    name: 日本04
-    server: wqrb.wqtd.mom
-    port: 22222
-    ports: 22222-51650
-    password: 2f-b1e9-45a2-879c-c2ccdfc12771
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: wqrb.wqtd.mom
-  - type: hysteria2
-    name: H-香港·AC·INTL-2-hop
-    server: 154.16.183.64
-    port: 52018
-    ports: 52018-62017
-    password: 26-05d4-427e-94ad-dc63f2ecbeb9
-    skip-cert-verify: true
-    sni: files.xjqxz.top
-  - type: ss
-    name: 澳大利亚
-    server: adly.xmgy.dpdns.org
-    port: 34422
-    cipher: chacha20-ietf-poly1305
-    password: 5cf6aa5d-f412-43a6-a8fe-e87d92cefbbf
-  - type: hysteria2
-    name: 台湾hy2
-    server: tw1.aifjj.asia
-    port: 61001
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.microsoft.com
-  - type: hysteria2
-    name: 🇮🇳印度hy2
-    server: yindu.xiao666666.site
-    port: 50000
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.bing.com
+  - type: vless
+    name: Asc·加拿大·ALL-VOH
+    server: optimize-ca.168829.xyz
+    port: 443
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: ws
+    servername: media-cav6.168829.xyz
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /search
+      headers:
+        Host: media-cav6.168829.xyz
+    client-fingerprint: firefox
   - type: vless
     name: Asc·荷兰·ALL·kw
     server: optimize-nl1.168829.xyz
@@ -1348,104 +797,8 @@ proxies:
       headers:
         Host: media-nlv6.168829.xyz
     client-fingerprint: firefox
-  - type: hysteria2
-    name: 香港
-    server: wqxg.wqtd.mom
-    port: 41200
-    ports: 41200-55000
-    password: cf-812f-4233-829c-f90d85755730
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: wqxg.wqtd.mom
-  - type: vless
-    name: As·香港·INTL-1
-    server: 154.16.183.133
-    port: 52009
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
-    network: tcp
-    servername: www.autodesk.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
   - type: trojan
     name: 瑞典直连
-    server: huawei.timiai.pro
-    port: 8443
-    password: 3dd32196-8953-4393-9f40-1269f569a2f7
-    network: tcp
-    sni: c6bcb9717335740d126c97f85678437d.mobgslb.tbcache.com
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: hysteria2
-    name: 印度Z
-    server: mumbai-011.cloudtop.live
-    port: 8443
-    password: 0d-0239-46d4-a4e8-5022f44abc85
-    sni: mumbai-011.cloudtop.live
-  - type: hysteria2
-    name: 香港by_1
-    server: hkbycf.412656.xyz
-    port: 50001
-    password: 8f-eb0f-4476-8d40-652b31ac6897
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: ss
-    name: 前海试验-06
-    server: nodef.niceex.cc
-    port: 5088
-    cipher: chacha20-ietf-poly1305
-    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
-  - type: hysteria2
-    name: 🇮🇳印度hy2_1
-    server: yindu.xiao666666.site
-    port: 50000
-    password: a1-7647-4390-a935-d6eb9aca9042
-    skip-cert-verify: true
-    sni: www.bing.com
-  - type: ss
-    name: 前海QHIX快线-06
-    server: nodef.niceex.cc
-    port: 5088
-    cipher: chacha20-ietf-poly1305
-    password: c491b7d6-8a62-4ea7-b0f3-91626285147d
-  - type: vless
-    name: HK 02 移动优化
-    server: hk02.duffy.baby
-    port: 25195
-    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
-    network: tcp
-    servername: www.samsung.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: c2R12wKoj3feR7aJMR4_ZCA48afORDJ56DxruYIUHjE
-      short-id: 5f8f333f
-    client-fingerprint: edge
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: A印度011
-    server: mumbai-011.cloudtop.live
-    port: 8443
-    password: 37-2f4c-4d61-b3fb-0348866fe117
-    sni: mumbai-011.cloudtop.live
-  - type: hysteria2
-    name: 日本
-    server: wqrb.wqtd.mom
-    port: 22222
-    ports: 22222-51650
-    password: cf-812f-4233-829c-f90d85755730
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-    sni: wqrb.wqtd.mom
-  - type: trojan
-    name: 瑞典直连_1
     server: huawei.timiai.pro
     port: 8443
     password: 9b95f4ef-4bfd-4509-aae7-6d2b24abae28
@@ -1454,6 +807,30 @@ proxies:
     skip-cert-verify: true
     fingerprint: chrome
     tls: true
+  - type: trojan
+    name: 瑞典直连_1
+    server: huawei.timiai.pro
+    port: 8443
+    password: 3dd32196-8953-4393-9f40-1269f569a2f7
+    network: tcp
+    sni: c6bcb9717335740d126c97f85678437d.mobgslb.tbcache.com
+    skip-cert-verify: true
+    fingerprint: chrome
+    tls: true
+  - type: vless
+    name: Asc·香港·ac1
+    server: optimize-hk1.168829.xyz
+    port: 443
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: ws
+    servername: media-hk1.168829.xyz
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /search
+      headers:
+        Host: media-hk1.168829.xyz
+    client-fingerprint: firefox
   - type: vmess
     name: "[vmess]俄罗斯-01"
     server: yx1.xn--11x.org
@@ -1468,18 +845,18 @@ proxies:
       headers:
         Host: 2112136940.online.video.downloader.0123456789ru.xn--11x.org
   - type: vless
-    name: As·台灣·Hinet家寬-新北
-    server: tw1000.duboji.vip
-    port: 52009
-    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    name: HK 02 移动优化
+    server: hk02.duffy.baby
+    port: 25195
+    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
     network: tcp
-    servername: addons.mozilla.org
+    servername: www.samsung.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
+      public-key: c2R12wKoj3feR7aJMR4_ZCA48afORDJ56DxruYIUHjE
+      short-id: 5f8f333f
+    client-fingerprint: edge
     flow: xtls-rprx-vision
   - type: vless
     name: As·新加坡·移动CMI·jh-gpt/nf
@@ -1493,26 +870,6 @@ proxies:
     reality-opts:
       public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
       short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 🇸🇬新加坡 1
-    server: sg1.892622.xyz
-    port: 8080
-    password: b3-c991-450d-be1e-17f947784d3d
-    sni: sg1.892622.xyz
-  - type: vless
-    name: 🇯🇵日本2(x0.5)-三网可用
-    server: ru1.fulitech.top
-    port: 8445
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
     client-fingerprint: firefox
     flow: xtls-rprx-vision
   - type: vless
@@ -1530,33 +887,48 @@ proxies:
     client-fingerprint: chrome
     flow: xtls-rprx-vision
   - type: vless
-    name: 🇼🇸台湾1-三网可用
+    name: 🇯🇵日本2(x0.5)-三网可用
     server: ru1.fulitech.top
-    port: 8444
+    port: 8445
     uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     network: tcp
-    servername: fastly.cdn.steampipe.steamcontent.com
+    servername: music.apple.com
     tls: true
     encryption: none
     reality-opts:
-      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
-      short-id: bcf94a63
-    client-fingerprint: edge
+      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
+      short-id: 9709f5aa
+    client-fingerprint: firefox
     flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 🇸🇬 新加坡 LE.
-    server: mf-sgle.sw8.pw
-    port: 20001
-    password: 60-5bc9-4dfd-8275-321d499aa4f0
-    skip-cert-verify: true
-    sni: xy120x234x18x233xy.mcdn.bilivideo.cn
-  - type: hysteria2
-    name: 🇸🇬 新加坡 LE._1
-    server: mf-sgle.sw8.pw
-    port: 20001
-    password: 53-a194-4fc9-adc1-8328e73a8474
-    skip-cert-verify: true
-    sni: xy120x234x18x233xy.mcdn.bilivideo.cn
+  - type: vless
+    name: 🇯🇵日本2-电信联通_1
+    server: ru1.fulitech.top
+    port: 8445
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    network: tcp
+    servername: music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
+      short-id: 9709f5aa
+      spider-x: /
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: JP 02 普通
+    server: jp02.duffy.baby
+    port: 24678
+    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
+    network: tcp
+    servername: www.samsung.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: X6943R2qhLSwQeQC3RvLz123339On-rOOvtuOQPC2wk
+      short-id: a31c4611
+    client-fingerprint: safari
+    flow: xtls-rprx-vision
   - type: vless
     name: 美国US 15
     server: 194.58.38.67
@@ -1574,28 +946,120 @@ proxies:
       grpc-service-name: jss
     client-fingerprint: firefox
   - type: hysteria2
-    name: 美国US 6
-    server: brazil.vosniehcihwocc.cfd
-    port: 443
-    password: b8-5d80-420c-bc39-aa14e82208ff
+    name: 日本hy2-1-z
+    server: jp1.dnscloudcloud.top
+    port: 36821
+    ports: 36000-37000
+    password: c6-c238-4e78-8c83-7fb86d7cd99e
     skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZHr54lKcQTD6kFQh
-    sni: brazil.vosniehcihwocc.cfd
-  - type: hysteria2
-    name: 美国US 7
-    server: brazil.vosniehcihwocc.cfd
-    port: 45156
-    password: b8-5d80-420c-bc39-aa14e82208ff
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: bb42TZnHPbKte6c5
-    sni: brazil.vosniehcihwocc.cfd
+    sni: 1231231.1234567890spcloud.com
   - type: vless
-    name: 🇯🇵日本2-电信联通_1
+    name: 🇼🇸台湾1-电信联通
     server: ru1.fulitech.top
-    port: 8445
+    port: 8444
     uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    network: tcp
+    servername: fastly.cdn.steampipe.steamcontent.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
+      short-id: bcf94a63
+      spider-x: /
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇼🇸台湾1-电信联通_1
+    server: ru1.fulitech.top
+    port: 8444
+    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
+    network: tcp
+    servername: fastly.cdn.steampipe.steamcontent.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
+      short-id: bcf94a63
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: 🇼🇸台湾1-三网可用
+    server: ru1.fulitech.top
+    port: 8444
+    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
+    network: tcp
+    servername: fastly.cdn.steampipe.steamcontent.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
+      short-id: bcf94a63
+    client-fingerprint: edge
+    flow: xtls-rprx-vision
+  - type: trojan
+    name: "[trojan]🇺🇸 美国 T01"
+    server: 69.84.182.108
+    port: 8443
+    password: 7680de7d-620c-43df-84ef-3eea5b132e32
+    network: ws
+    sni: cdn-node-oss-61.anycdn.de
+    fingerprint: chrome
+    tls: true
+    ws-opts:
+      path: /profile/us1
+      headers:
+        Host: cdn-node-oss-61.anycdn.de
+  - type: ss
+    name: 深港中转-03
+    server: noded.niceex.cc
+    port: 5085
+    cipher: chacha20-ietf-poly1305
+    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
+  - type: vless
+    name: Asc·加拿大·ALL·kw
+    server: optimize-ca1.168829.xyz
+    port: 443
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: ws
+    servername: media-ca1v6.168829.xyz
+    tls: true
+    encryption: none
+    ws-opts:
+      path: /search
+      headers:
+        Host: media-ca1v6.168829.xyz
+    client-fingerprint: firefox
+  - type: trojan
+    name: "[trojan]🇺🇸 美国 T02_2"
+    server: 69.84.182.18
+    port: 8443
+    password: b870a9da-02b1-4110-88f0-ee40ce5372e8
+    network: ws
+    sni: cdn-node-oss-62.anycdn.de
+    fingerprint: chrome
+    tls: true
+    ws-opts:
+      path: /profile/us2
+      headers:
+        Host: cdn-node-oss-62.anycdn.de
+  - type: trojan
+    name: "[trojan]🇺🇸 美国 T01_1"
+    server: 69.84.182.108
+    port: 8443
+    password: a431c229-a467-4dfa-9e89-48e0f26c844b
+    network: ws
+    sni: cdn-node-oss-61.anycdn.de
+    fingerprint: chrome
+    tls: true
+    ws-opts:
+      path: /profile/us1
+      headers:
+        Host: cdn-node-oss-61.anycdn.de
+  - type: vless
+    name: 🇸🇬新加坡1-电信联通
+    server: sg1.fulitech.top
+    port: 8443
+    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     network: tcp
     servername: music.apple.com
     tls: true
@@ -1603,9 +1067,49 @@ proxies:
     reality-opts:
       public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
       short-id: 9709f5aa
+    client-fingerprint: edge
+    flow: xtls-rprx-vision
+  - type: ss
+    name: 前海试验-05
+    server: noded.niceex.cc
+    port: 5087
+    cipher: chacha20-ietf-poly1305
+    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
+  - type: vless
+    name: 🇮🇱以色列1-三网可用
+    server: us4.fulitech.top
+    port: 8443
+    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
+    network: tcp
+    servername: music.apple.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
+      short-id: "95248866"
       spider-x: /
+    client-fingerprint: chrome
+    flow: xtls-rprx-vision
+  - type: vless
+    name: As·美国·ALL-NYcs-gpt
+    server: 23.94.180.61
+    port: 52108
+    uuid: 2152ab26-05d4-427e-94ad-dc63f2ecbeb9
+    network: tcp
+    servername: www.autodesk.com
+    tls: true
+    encryption: none
+    reality-opts:
+      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
+      short-id: 24b05fcf3723e6af
     client-fingerprint: firefox
     flow: xtls-rprx-vision
+  - type: ss
+    name: 澳大利亚
+    server: adly.xmgy.dpdns.org
+    port: 34422
+    cipher: chacha20-ietf-poly1305
+    password: 5cf6aa5d-f412-43a6-a8fe-e87d92cefbbf
   - type: vless
     name: 美国US 11
     server: 194.58.38.67
@@ -1622,141 +1126,6 @@ proxies:
     grpc-opts:
       grpc-service-name: jss
     client-fingerprint: ios
-  - type: hysteria2
-    name: 美国US 8
-    server: brazil.vosniehcihwocc.cfd
-    port: 55156
-    password: b8-5d80-420c-bc39-aa14e82208ff
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: bb42TZnHPbKte6c5
-    sni: brazil.vosniehcihwocc.cfd
-  - type: vless
-    name: 🇯🇵日本3-移动联通
-    server: jp3.fulitech.top
-    port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
-      spider-x: /
-    client-fingerprint: ios
-    flow: xtls-rprx-vision
-  - type: vless
-    name: 🇼🇸台湾1-电信联通
-    server: ru1.fulitech.top
-    port: 8444
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
-    network: tcp
-    servername: fastly.cdn.steampipe.steamcontent.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
-      short-id: bcf94a63
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-  - type: vless
-    name: 🇼🇸台湾1-电信联通_1
-    server: ru1.fulitech.top
-    port: 8444
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
-    network: tcp
-    servername: fastly.cdn.steampipe.steamcontent.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
-      short-id: bcf94a63
-      spider-x: /
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: hysteria2
-    name: 新加坡Z
-    server: singapore-053.cloudtop.live
-    port: 8445
-    password: 0d-0239-46d4-a4e8-5022f44abc85
-    sni: singapore-053.cloudtop.live
-  - type: trojan
-    name: "[trojan]🇺🇸 美国 T01_1"
-    server: 69.84.182.108
-    port: 8443
-    password: 7680de7d-620c-43df-84ef-3eea5b132e32
-    network: ws
-    sni: cdn-node-oss-61.anycdn.de
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /profile/us1
-      headers:
-        Host: cdn-node-oss-61.anycdn.de
-  - type: hysteria2
-    name: 荷兰_1
-    server: zhaji-hl.xiao666666.site
-    port: 50000
-    password: a1-7647-4390-a935-d6eb9aca9042
-    skip-cert-verify: true
-    sni: iosapps.itunes.apple.com
-  - type: hysteria2
-    name: 🇯🇵 日本 LE.
-    server: mf-jple.sw8.pw
-    port: 20001
-    password: 60-5bc9-4dfd-8275-321d499aa4f0
-    skip-cert-verify: true
-    sni: xy120x234x18x233xy.mcdn.bilivideo.cn
-  - type: vless
-    name: 🇸🇬新加坡1-移动联通_1
-    server: sg1.fulitech.top
-    port: 8443
-    uuid: 4d29a8d2-4449-4fe7-942e-b57133233029
-    network: tcp
-    servername: music.apple.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
-      spider-x: /
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-  - type: vless
-    name: 新加坡-1
-    server: 185.151.146.228
-    port: 18829
-    uuid: fcc8d2ea-c9cf-4743-867d-ea0f46f4891c
-    network: tcp
-    servername: media-hk02.521917.xyz
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-  - type: ss
-    name: 深港中转-04
-    server: noded.niceex.cc
-    port: 5086
-    cipher: chacha20-ietf-poly1305
-    password: db94a537-0e97-422f-9586-ab7d0e5ddea3
-  - type: vless
-    name: HK 03 移动优化
-    server: hk03.duffy.baby
-    port: 25194
-    uuid: 5201bc42-0260-4f99-8f37-b260d00ff4f2
-    network: tcp
-    servername: www.samsung.com
-    tls: true
-    encryption: none
-    reality-opts:
-      public-key: JJQ7zAk1EMfIkmRfM-Kv-6-KrGqLLpkOmonGlspI0CM
-      short-id: c64a8c86
-    client-fingerprint: qq
-    flow: xtls-rprx-vision
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -1766,344 +1135,174 @@ proxy-groups:
       - ⚠️每次使用前请先更新订阅！
       - 🌈官网:jd.222260.xyz
       - 香港|备用节点
-      - 日本1
-      - 🇯🇵 日本7-Ver.2
-      - 🇯🇵 日本6-Ver.8
+      - As·台灣·Hinet家寬-新北
       - 🇯🇵 日本4-Ver.8
-      - 🇸🇬 新加坡5
-      - 🇯🇵 日本2
-      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本4-Ver.8_1
-      - 🇸🇬 新加坡6
-      - 🇯🇵 日本3
-      - 🇸🇬 新加坡4
-      - 🇨🇳 台湾9 家宽
-      - 🇯🇵 日本6
-      - 🇰🇷 韩国2
-      - JP 02 普通
-      - 🇯🇵日本 4
-      - Asc·香港·ac1
-      - 越南Hy01
+      - 🇯🇵 日本6-Ver.8
+      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本2-Ver.8
-      - 新加坡hy2-3
-      - 日本hy2-2-z
-      - United States 2083
-      - "[Hy2]🇺🇸 美国 H02"
-      - 1🇺🇸美国
-      - 2🇺🇸美国
-      - "[Hy2]🇺🇸 美国 H02_1"
-      - 日本hy2-1
-      - "[Hy2]🇺🇸 美国 H01"
-      - 新加坡hy2-3_1
-      - 美国-洛杉矶-2Gbps·2
-      - 日本hy2-1_1
-      - As·美国·ALL-CA·Multacc
-      - 美国vless-do3
+      - 🇯🇵 日本7-Ver.2
+      - 🇯🇵日本3-移动联通
+      - Asc·香港·ac2
+      - 美国vless-do2
+      - 美国-洛杉矶-2Gbps·1
+      - 美国vless-do2_1
+      - As·美国·ALL-CAac-gpt/nf
       - As·美国·ALL·CAPsy·2-2Gbps
       - As·美国·ALL·CAPsy·1-2Gbps
-      - United States 2086
+      - 日本hy2-2-z
+      - 美国-洛杉矶-2Gbps·2
       - As·美国·ALL-CAcs2-gpt
-      - 美国Hy02
       - 美国-洛杉矶c2(电信联通优选)
-      - 🇺🇸美国 1
-      - "[trojan]🇺🇸 美国 T02"
-      - "[trojan]🇺🇸 美国 T02_1"
-      - 美国Z
-      - "[Hy2]🇺🇸 美国 H02_2"
-      - H-美国-CAcs1-hop
-      - 香港专线
-      - "[trojan]🇺🇸 美国 T02_2"
+      - 美国-洛杉矶cs
+      - As·美国·ALL-CA·Multacc
+      - 美国vless-do3
+      - "[V1]US-2-三网CU2优化"
+      - United States 2086
+      - 🇺🇸美国4-三网可用
       - 🇺🇸美国2-三网可用
       - 🇬🇧英国1-三网可用
-      - 🇺🇸美国1-三网可用
-      - As·美国·ALL-CAac-gpt/nf
-      - 前海QHIX快线-05
-      - A美国
-      - 德国高速hy2
-      - "[Hy2]🇺🇸 美国 H01_1"
-      - "[V1]US-2-三网CU2优化"
-      - "[trojan]🇺🇸 美国 T01"
-      - H-美国-CAcs-hop
-      - H-美国-CAcs2-hop
-      - 🇸🇬新加坡1-移动联通
+      - "[trojan]🇺🇸 美国 T02"
       - 🇺🇸美国2-三网可用_1
-      - 前海试验-05
-      - 德国Z
-      - 🇺🇸美国2-三网可用_2
-      - "[Hy2]🇺🇸 美国 H01_2"
-      - 日本hy2-1-z
-      - 🇺🇸美国1-三网可用_1
-      - 广港国际优化-08
-      - 🇸🇬新加坡2-移动联通
-      - 美国-洛杉矶-2Gbps·1
-      - 🇺🇸美国1-三网可用_2
-      - 广港国际优化-07
-      - 🇺🇸美国3-电信联通
-      - 美国vless-do2
+      - "[trojan]🇺🇸 美国 T02_1"
+      - 🇺🇸美国1-三网可用
       - 美国一
-      - 🇺🇸美国4-三网可用
-      - 美国-洛杉矶cs
-      - 日本hy2-1-z_1
-      - 日本hy2-2-z_1
-      - 美国vless-do2_1
-      - 深港BGP中转-03
-      - 美国-芝加哥·rl
-      - 深港BGP中转-04
-      - 美国-芝加哥·rl_1
-      - 深港中转-03
-      - As-美国·ALL-ILcs-gpt
-      - 美国-纽约·rl
-      - H-美国-ILcs-hop
-      - A新加坡
-      - 🇬🇧 英国 LE.
-      - 🇸🇬新加坡1-电信联通
-      - Asc·加拿大·ALL-VOH
-      - 荷兰
-      - 德国
-      - 加拿大-多伦多
-      - 加拿大
+      - 🇸🇬新加坡2-移动联通
+      - 🇸🇬新加坡1-移动联通
+      - 🇺🇸美国1-三网可用_1
+      - 🇺🇸美国3-电信联通
       - 罗马尼亚
-      - 以色列-hy2
-      - 以色列-直连
-      - As·美国·ALL-NYcs-gpt
-      - Asc·加拿大·ALL·kw
-      - "[V1]JP-1-vless-xtls"
+      - 🇺🇸美国1-三网可用_2
+      - 🇸🇬新加坡1-移动联通_1
+      - 广港国际优化-07
       - Asc·法国·ALL-VOH
+      - 新加坡-1
+      - 加拿大-多伦多
+      - 美国-芝加哥·rl
+      - As-美国·ALL-ILcs-gpt
+      - 美国-芝加哥·rl_1
+      - 美国-纽约·rl
+      - 🇺🇸美国2-三网可用_2
+      - "[V1]JP-1-vless-xtls"
       - "[V1]DE-1"
       - 俄罗斯
-      - 🇬🇧 英国 LE._1
-      - 🇮🇱以色列1-三网可用
-      - 俄罗斯03
-      - A澳大利亚
-      - 🇭🇰【亚洲】香港02丨直连
-      - 澳大利亚Z
-      - H-香港·AC·INTL-3-hop
-      - 香港by
-      - 🇭🇰【亚洲】香港01丨直连
-      - 🇭🇰【亚洲】香港01丨直连_1
-      - 🇭🇰【亚洲】香港03丨直连
-      - Asc·香港·ac2
-      - tw03
-      - 🇭🇰【亚洲】香港03丨直连_1
-      - 🇭🇰香港 1
+      - HK 03 移动优化
       - 香港02
-      - 🇭🇰【亚洲】香港02丨直连_1
-      - 日本04
-      - H-香港·AC·INTL-2-hop
-      - 澳大利亚
-      - 台湾hy2
-      - 🇮🇳印度hy2
+      - Asc·加拿大·ALL-VOH
       - Asc·荷兰·ALL·kw
-      - 香港
-      - As·香港·INTL-1
       - 瑞典直连
-      - 印度Z
-      - 香港by_1
-      - 前海试验-06
-      - 🇮🇳印度hy2_1
-      - 前海QHIX快线-06
-      - HK 02 移动优化
-      - A印度011
-      - 日本
       - 瑞典直连_1
+      - Asc·香港·ac1
       - "[vmess]俄罗斯-01"
-      - As·台灣·Hinet家寬-新北
+      - HK 02 移动优化
       - As·新加坡·移动CMI·jh-gpt/nf
-      - 🇸🇬新加坡 1
-      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通
-      - 🇼🇸台湾1-三网可用
-      - 🇸🇬 新加坡 LE.
-      - 🇸🇬 新加坡 LE._1
-      - 美国US 15
-      - 美国US 6
-      - 美国US 7
+      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通_1
-      - 美国US 11
-      - 美国US 8
-      - 🇯🇵日本3-移动联通
+      - JP 02 普通
+      - 美国US 15
+      - 日本hy2-1-z
       - 🇼🇸台湾1-电信联通
       - 🇼🇸台湾1-电信联通_1
-      - 新加坡Z
+      - 🇼🇸台湾1-三网可用
+      - "[trojan]🇺🇸 美国 T01"
+      - 深港中转-03
+      - Asc·加拿大·ALL·kw
+      - "[trojan]🇺🇸 美国 T02_2"
       - "[trojan]🇺🇸 美国 T01_1"
-      - 荷兰_1
-      - 🇯🇵 日本 LE.
-      - 🇸🇬新加坡1-移动联通_1
-      - 新加坡-1
-      - 深港中转-04
-      - HK 03 移动优化
+      - 🇸🇬新加坡1-电信联通
+      - 前海试验-05
+      - 🇮🇱以色列1-三网可用
+      - As·美国·ALL-NYcs-gpt
+      - 澳大利亚
+      - 美国US 11
   - name: ♻️ 自动选择
     type: url-test
     proxies:
       - ⚠️每次使用前请先更新订阅！
       - 🌈官网:jd.222260.xyz
       - 香港|备用节点
-      - 日本1
-      - 🇯🇵 日本7-Ver.2
-      - 🇯🇵 日本6-Ver.8
+      - As·台灣·Hinet家寬-新北
       - 🇯🇵 日本4-Ver.8
-      - 🇸🇬 新加坡5
-      - 🇯🇵 日本2
-      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本4-Ver.8_1
-      - 🇸🇬 新加坡6
-      - 🇯🇵 日本3
-      - 🇸🇬 新加坡4
-      - 🇨🇳 台湾9 家宽
-      - 🇯🇵 日本6
-      - 🇰🇷 韩国2
-      - JP 02 普通
-      - 🇯🇵日本 4
-      - Asc·香港·ac1
-      - 越南Hy01
+      - 🇯🇵 日本6-Ver.8
+      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本2-Ver.8
-      - 新加坡hy2-3
-      - 日本hy2-2-z
-      - United States 2083
-      - "[Hy2]🇺🇸 美国 H02"
-      - 1🇺🇸美国
-      - 2🇺🇸美国
-      - "[Hy2]🇺🇸 美国 H02_1"
-      - 日本hy2-1
-      - "[Hy2]🇺🇸 美国 H01"
-      - 新加坡hy2-3_1
-      - 美国-洛杉矶-2Gbps·2
-      - 日本hy2-1_1
-      - As·美国·ALL-CA·Multacc
-      - 美国vless-do3
+      - 🇯🇵 日本7-Ver.2
+      - 🇯🇵日本3-移动联通
+      - Asc·香港·ac2
+      - 美国vless-do2
+      - 美国-洛杉矶-2Gbps·1
+      - 美国vless-do2_1
+      - As·美国·ALL-CAac-gpt/nf
       - As·美国·ALL·CAPsy·2-2Gbps
       - As·美国·ALL·CAPsy·1-2Gbps
-      - United States 2086
+      - 日本hy2-2-z
+      - 美国-洛杉矶-2Gbps·2
       - As·美国·ALL-CAcs2-gpt
-      - 美国Hy02
       - 美国-洛杉矶c2(电信联通优选)
-      - 🇺🇸美国 1
-      - "[trojan]🇺🇸 美国 T02"
-      - "[trojan]🇺🇸 美国 T02_1"
-      - 美国Z
-      - "[Hy2]🇺🇸 美国 H02_2"
-      - H-美国-CAcs1-hop
-      - 香港专线
-      - "[trojan]🇺🇸 美国 T02_2"
+      - 美国-洛杉矶cs
+      - As·美国·ALL-CA·Multacc
+      - 美国vless-do3
+      - "[V1]US-2-三网CU2优化"
+      - United States 2086
+      - 🇺🇸美国4-三网可用
       - 🇺🇸美国2-三网可用
       - 🇬🇧英国1-三网可用
-      - 🇺🇸美国1-三网可用
-      - As·美国·ALL-CAac-gpt/nf
-      - 前海QHIX快线-05
-      - A美国
-      - 德国高速hy2
-      - "[Hy2]🇺🇸 美国 H01_1"
-      - "[V1]US-2-三网CU2优化"
-      - "[trojan]🇺🇸 美国 T01"
-      - H-美国-CAcs-hop
-      - H-美国-CAcs2-hop
-      - 🇸🇬新加坡1-移动联通
+      - "[trojan]🇺🇸 美国 T02"
       - 🇺🇸美国2-三网可用_1
-      - 前海试验-05
-      - 德国Z
-      - 🇺🇸美国2-三网可用_2
-      - "[Hy2]🇺🇸 美国 H01_2"
-      - 日本hy2-1-z
-      - 🇺🇸美国1-三网可用_1
-      - 广港国际优化-08
-      - 🇸🇬新加坡2-移动联通
-      - 美国-洛杉矶-2Gbps·1
-      - 🇺🇸美国1-三网可用_2
-      - 广港国际优化-07
-      - 🇺🇸美国3-电信联通
-      - 美国vless-do2
+      - "[trojan]🇺🇸 美国 T02_1"
+      - 🇺🇸美国1-三网可用
       - 美国一
-      - 🇺🇸美国4-三网可用
-      - 美国-洛杉矶cs
-      - 日本hy2-1-z_1
-      - 日本hy2-2-z_1
-      - 美国vless-do2_1
-      - 深港BGP中转-03
-      - 美国-芝加哥·rl
-      - 深港BGP中转-04
-      - 美国-芝加哥·rl_1
-      - 深港中转-03
-      - As-美国·ALL-ILcs-gpt
-      - 美国-纽约·rl
-      - H-美国-ILcs-hop
-      - A新加坡
-      - 🇬🇧 英国 LE.
-      - 🇸🇬新加坡1-电信联通
-      - Asc·加拿大·ALL-VOH
-      - 荷兰
-      - 德国
-      - 加拿大-多伦多
-      - 加拿大
+      - 🇸🇬新加坡2-移动联通
+      - 🇸🇬新加坡1-移动联通
+      - 🇺🇸美国1-三网可用_1
+      - 🇺🇸美国3-电信联通
       - 罗马尼亚
-      - 以色列-hy2
-      - 以色列-直连
-      - As·美国·ALL-NYcs-gpt
-      - Asc·加拿大·ALL·kw
-      - "[V1]JP-1-vless-xtls"
+      - 🇺🇸美国1-三网可用_2
+      - 🇸🇬新加坡1-移动联通_1
+      - 广港国际优化-07
       - Asc·法国·ALL-VOH
+      - 新加坡-1
+      - 加拿大-多伦多
+      - 美国-芝加哥·rl
+      - As-美国·ALL-ILcs-gpt
+      - 美国-芝加哥·rl_1
+      - 美国-纽约·rl
+      - 🇺🇸美国2-三网可用_2
+      - "[V1]JP-1-vless-xtls"
       - "[V1]DE-1"
       - 俄罗斯
-      - 🇬🇧 英国 LE._1
-      - 🇮🇱以色列1-三网可用
-      - 俄罗斯03
-      - A澳大利亚
-      - 🇭🇰【亚洲】香港02丨直连
-      - 澳大利亚Z
-      - H-香港·AC·INTL-3-hop
-      - 香港by
-      - 🇭🇰【亚洲】香港01丨直连
-      - 🇭🇰【亚洲】香港01丨直连_1
-      - 🇭🇰【亚洲】香港03丨直连
-      - Asc·香港·ac2
-      - tw03
-      - 🇭🇰【亚洲】香港03丨直连_1
-      - 🇭🇰香港 1
+      - HK 03 移动优化
       - 香港02
-      - 🇭🇰【亚洲】香港02丨直连_1
-      - 日本04
-      - H-香港·AC·INTL-2-hop
-      - 澳大利亚
-      - 台湾hy2
-      - 🇮🇳印度hy2
+      - Asc·加拿大·ALL-VOH
       - Asc·荷兰·ALL·kw
-      - 香港
-      - As·香港·INTL-1
       - 瑞典直连
-      - 印度Z
-      - 香港by_1
-      - 前海试验-06
-      - 🇮🇳印度hy2_1
-      - 前海QHIX快线-06
-      - HK 02 移动优化
-      - A印度011
-      - 日本
       - 瑞典直连_1
+      - Asc·香港·ac1
       - "[vmess]俄罗斯-01"
-      - As·台灣·Hinet家寬-新北
+      - HK 02 移动优化
       - As·新加坡·移动CMI·jh-gpt/nf
-      - 🇸🇬新加坡 1
-      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通
-      - 🇼🇸台湾1-三网可用
-      - 🇸🇬 新加坡 LE.
-      - 🇸🇬 新加坡 LE._1
-      - 美国US 15
-      - 美国US 6
-      - 美国US 7
+      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通_1
-      - 美国US 11
-      - 美国US 8
-      - 🇯🇵日本3-移动联通
+      - JP 02 普通
+      - 美国US 15
+      - 日本hy2-1-z
       - 🇼🇸台湾1-电信联通
       - 🇼🇸台湾1-电信联通_1
-      - 新加坡Z
+      - 🇼🇸台湾1-三网可用
+      - "[trojan]🇺🇸 美国 T01"
+      - 深港中转-03
+      - Asc·加拿大·ALL·kw
+      - "[trojan]🇺🇸 美国 T02_2"
       - "[trojan]🇺🇸 美国 T01_1"
-      - 荷兰_1
-      - 🇯🇵 日本 LE.
-      - 🇸🇬新加坡1-移动联通_1
-      - 新加坡-1
-      - 深港中转-04
-      - HK 03 移动优化
+      - 🇸🇬新加坡1-电信联通
+      - 前海试验-05
+      - 🇮🇱以色列1-三网可用
+      - As·美国·ALL-NYcs-gpt
+      - 澳大利亚
+      - 美国US 11
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 🎯 全球直连
@@ -2126,172 +1325,87 @@ proxy-groups:
       - ⚠️每次使用前请先更新订阅！
       - 🌈官网:jd.222260.xyz
       - 香港|备用节点
-      - 日本1
-      - 🇯🇵 日本7-Ver.2
-      - 🇯🇵 日本6-Ver.8
+      - As·台灣·Hinet家寬-新北
       - 🇯🇵 日本4-Ver.8
-      - 🇸🇬 新加坡5
-      - 🇯🇵 日本2
-      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本4-Ver.8_1
-      - 🇸🇬 新加坡6
-      - 🇯🇵 日本3
-      - 🇸🇬 新加坡4
-      - 🇨🇳 台湾9 家宽
-      - 🇯🇵 日本6
-      - 🇰🇷 韩国2
-      - JP 02 普通
-      - 🇯🇵日本 4
-      - Asc·香港·ac1
-      - 越南Hy01
+      - 🇯🇵 日本6-Ver.8
+      - 🇯🇵 日本6-Ver.8_1
       - 🇯🇵 日本2-Ver.8
-      - 新加坡hy2-3
-      - 日本hy2-2-z
-      - United States 2083
-      - "[Hy2]🇺🇸 美国 H02"
-      - 1🇺🇸美国
-      - 2🇺🇸美国
-      - "[Hy2]🇺🇸 美国 H02_1"
-      - 日本hy2-1
-      - "[Hy2]🇺🇸 美国 H01"
-      - 新加坡hy2-3_1
-      - 美国-洛杉矶-2Gbps·2
-      - 日本hy2-1_1
-      - As·美国·ALL-CA·Multacc
-      - 美国vless-do3
+      - 🇯🇵 日本7-Ver.2
+      - 🇯🇵日本3-移动联通
+      - Asc·香港·ac2
+      - 美国vless-do2
+      - 美国-洛杉矶-2Gbps·1
+      - 美国vless-do2_1
+      - As·美国·ALL-CAac-gpt/nf
       - As·美国·ALL·CAPsy·2-2Gbps
       - As·美国·ALL·CAPsy·1-2Gbps
-      - United States 2086
+      - 日本hy2-2-z
+      - 美国-洛杉矶-2Gbps·2
       - As·美国·ALL-CAcs2-gpt
-      - 美国Hy02
       - 美国-洛杉矶c2(电信联通优选)
-      - 🇺🇸美国 1
-      - "[trojan]🇺🇸 美国 T02"
-      - "[trojan]🇺🇸 美国 T02_1"
-      - 美国Z
-      - "[Hy2]🇺🇸 美国 H02_2"
-      - H-美国-CAcs1-hop
-      - 香港专线
-      - "[trojan]🇺🇸 美国 T02_2"
+      - 美国-洛杉矶cs
+      - As·美国·ALL-CA·Multacc
+      - 美国vless-do3
+      - "[V1]US-2-三网CU2优化"
+      - United States 2086
+      - 🇺🇸美国4-三网可用
       - 🇺🇸美国2-三网可用
       - 🇬🇧英国1-三网可用
-      - 🇺🇸美国1-三网可用
-      - As·美国·ALL-CAac-gpt/nf
-      - 前海QHIX快线-05
-      - A美国
-      - 德国高速hy2
-      - "[Hy2]🇺🇸 美国 H01_1"
-      - "[V1]US-2-三网CU2优化"
-      - "[trojan]🇺🇸 美国 T01"
-      - H-美国-CAcs-hop
-      - H-美国-CAcs2-hop
-      - 🇸🇬新加坡1-移动联通
+      - "[trojan]🇺🇸 美国 T02"
       - 🇺🇸美国2-三网可用_1
-      - 前海试验-05
-      - 德国Z
-      - 🇺🇸美国2-三网可用_2
-      - "[Hy2]🇺🇸 美国 H01_2"
-      - 日本hy2-1-z
-      - 🇺🇸美国1-三网可用_1
-      - 广港国际优化-08
-      - 🇸🇬新加坡2-移动联通
-      - 美国-洛杉矶-2Gbps·1
-      - 🇺🇸美国1-三网可用_2
-      - 广港国际优化-07
-      - 🇺🇸美国3-电信联通
-      - 美国vless-do2
+      - "[trojan]🇺🇸 美国 T02_1"
+      - 🇺🇸美国1-三网可用
       - 美国一
-      - 🇺🇸美国4-三网可用
-      - 美国-洛杉矶cs
-      - 日本hy2-1-z_1
-      - 日本hy2-2-z_1
-      - 美国vless-do2_1
-      - 深港BGP中转-03
-      - 美国-芝加哥·rl
-      - 深港BGP中转-04
-      - 美国-芝加哥·rl_1
-      - 深港中转-03
-      - As-美国·ALL-ILcs-gpt
-      - 美国-纽约·rl
-      - H-美国-ILcs-hop
-      - A新加坡
-      - 🇬🇧 英国 LE.
-      - 🇸🇬新加坡1-电信联通
-      - Asc·加拿大·ALL-VOH
-      - 荷兰
-      - 德国
-      - 加拿大-多伦多
-      - 加拿大
+      - 🇸🇬新加坡2-移动联通
+      - 🇸🇬新加坡1-移动联通
+      - 🇺🇸美国1-三网可用_1
+      - 🇺🇸美国3-电信联通
       - 罗马尼亚
-      - 以色列-hy2
-      - 以色列-直连
-      - As·美国·ALL-NYcs-gpt
-      - Asc·加拿大·ALL·kw
-      - "[V1]JP-1-vless-xtls"
+      - 🇺🇸美国1-三网可用_2
+      - 🇸🇬新加坡1-移动联通_1
+      - 广港国际优化-07
       - Asc·法国·ALL-VOH
+      - 新加坡-1
+      - 加拿大-多伦多
+      - 美国-芝加哥·rl
+      - As-美国·ALL-ILcs-gpt
+      - 美国-芝加哥·rl_1
+      - 美国-纽约·rl
+      - 🇺🇸美国2-三网可用_2
+      - "[V1]JP-1-vless-xtls"
       - "[V1]DE-1"
       - 俄罗斯
-      - 🇬🇧 英国 LE._1
-      - 🇮🇱以色列1-三网可用
-      - 俄罗斯03
-      - A澳大利亚
-      - 🇭🇰【亚洲】香港02丨直连
-      - 澳大利亚Z
-      - H-香港·AC·INTL-3-hop
-      - 香港by
-      - 🇭🇰【亚洲】香港01丨直连
-      - 🇭🇰【亚洲】香港01丨直连_1
-      - 🇭🇰【亚洲】香港03丨直连
-      - Asc·香港·ac2
-      - tw03
-      - 🇭🇰【亚洲】香港03丨直连_1
-      - 🇭🇰香港 1
+      - HK 03 移动优化
       - 香港02
-      - 🇭🇰【亚洲】香港02丨直连_1
-      - 日本04
-      - H-香港·AC·INTL-2-hop
-      - 澳大利亚
-      - 台湾hy2
-      - 🇮🇳印度hy2
+      - Asc·加拿大·ALL-VOH
       - Asc·荷兰·ALL·kw
-      - 香港
-      - As·香港·INTL-1
       - 瑞典直连
-      - 印度Z
-      - 香港by_1
-      - 前海试验-06
-      - 🇮🇳印度hy2_1
-      - 前海QHIX快线-06
-      - HK 02 移动优化
-      - A印度011
-      - 日本
       - 瑞典直连_1
+      - Asc·香港·ac1
       - "[vmess]俄罗斯-01"
-      - As·台灣·Hinet家寬-新北
+      - HK 02 移动优化
       - As·新加坡·移动CMI·jh-gpt/nf
-      - 🇸🇬新加坡 1
-      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通
-      - 🇼🇸台湾1-三网可用
-      - 🇸🇬 新加坡 LE.
-      - 🇸🇬 新加坡 LE._1
-      - 美国US 15
-      - 美国US 6
-      - 美国US 7
+      - 🇯🇵日本2(x0.5)-三网可用
       - 🇯🇵日本2-电信联通_1
-      - 美国US 11
-      - 美国US 8
-      - 🇯🇵日本3-移动联通
+      - JP 02 普通
+      - 美国US 15
+      - 日本hy2-1-z
       - 🇼🇸台湾1-电信联通
       - 🇼🇸台湾1-电信联通_1
-      - 新加坡Z
+      - 🇼🇸台湾1-三网可用
+      - "[trojan]🇺🇸 美国 T01"
+      - 深港中转-03
+      - Asc·加拿大·ALL·kw
+      - "[trojan]🇺🇸 美国 T02_2"
       - "[trojan]🇺🇸 美国 T01_1"
-      - 荷兰_1
-      - 🇯🇵 日本 LE.
-      - 🇸🇬新加坡1-移动联通_1
-      - 新加坡-1
-      - 深港中转-04
-      - HK 03 移动优化
+      - 🇸🇬新加坡1-电信联通
+      - 前海试验-05
+      - 🇮🇱以色列1-三网可用
+      - As·美国·ALL-NYcs-gpt
+      - 澳大利亚
+      - 美国US 11
 rule-providers:
   LocalAreaNetwork:
     type: http
