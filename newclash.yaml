@@ -69,6 +69,19 @@ proxies:
     reality-opts:
       public-key: E_shv34FH2gd70EMyMqogqpq-nY7tFHFLs7hJnUjpGU
     network: tcp
+  - name: HongKong VIP
+    server: 216.250.97.79
+    port: 13145
+    type: vless
+    uuid: 57ae2b6b-0358-4875-81aa-4d932b5796fd
+    tls: true
+    udp: true
+    servername: www.iij.ad.jp
+    client-fingerprint: firefox
+    flow: xtls-rprx-vision
+    reality-opts:
+      public-key: gUaVVVmympWeQywl4VDO7izXKB5-yzST_RgkoDBSIg8
+    network: tcp
   - name: 香港九龙 1
     server: alhkfree.mggl.wang
     port: 35789
@@ -76,398 +89,6 @@ proxies:
     password: 451cece2-fbb1-4706-abea-899c658933bc
     sni: alhkfree.mggl.wang
     udp: true
-  - name: 日本大阪4-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: au6z6l.speed.jpsacibnd.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: au6z6l.speed.jpsacibnd.cccp.cctvalipay.cn
-  - name: Asc·香港·ac1
-    server: optimize-hk1.168829.xyz
-    port: 443
-    type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
-    tls: true
-    udp: true
-    servername: media-hk1.168829.xyz
-    client-fingerprint: firefox
-    flow: ''
-    network: ws
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-hk1.168829.xyz
-  - name: 美国vless-do6
-    server: us3do.dnscloudcloud.top
-    port: 10002
-    type: vless
-    uuid: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    tls: true
-    udp: true
-    servername: addons.mozilla.org
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
-    network: tcp
-  - name: 日本hy2-1
-    server: jp1.dnscloudcloud.top
-    port: 36846
-    type: hysteria2
-    password: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 印度尼西亚4-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 3nn38kwi.speed.ydnxyd.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 3nn38kwi.speed.ydnxyd.cccp.cctvalipay.cn
-  - name: 美国vless-do2
-    server: us2do.dnscloudcloud.top
-    port: 10002
-    type: vless
-    uuid: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    tls: true
-    udp: true
-    servername: addons.mozilla.org
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
-    network: tcp
-  - name: Asc·香港·ac2
-    server: optimize-hk2.168829.xyz
-    port: 443
-    type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
-    tls: true
-    udp: true
-    servername: media-hk2.168829.xyz
-    client-fingerprint: firefox
-    flow: ''
-    network: ws
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-hk2.168829.xyz
-  - name: 日本hy2-4-z
-    server: jp1.dnscloudcloud.top
-    port: 36814
-    type: hysteria2
-    password: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 日本hy2-3-z
-    server: jp1.dnscloudcloud.top
-    port: 36402
-    type: hysteria2
-    password: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 日本hy2-1-z
-    server: jp1.dnscloudcloud.top
-    port: 36821
-    type: hysteria2
-    password: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 美国西部洛杉矶2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 6z5k3ht.speed.lssaasda.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 6z5k3ht.speed.lssaasda.cccp.cctvalipay.cn
-  - name: 美国vless-do3
-    server: us3do.dnscloudcloud.top
-    port: 10002
-    type: vless
-    uuid: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    tls: true
-    udp: true
-    servername: addons.mozilla.org
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
-    network: tcp
-  - name: '[Hy2]🇺🇸 美国 C02'
-    server: 107.173.127.166
-    port: 25000
-    type: hysteria2
-    password: 9ac48531-7255-479b-9058-ea9282bbc303
-    sni: www.apple.com
-    udp: true
-    skip-cert-verify: true
-  - name: '[Hy2]🇺🇸 美国 H03'
-    server: 198.23.130.211
-    port: 25000
-    type: hysteria2
-    password: a431c229-a467-4dfa-9e89-48e0f26c844b
-    sni: api.push.apple.com
-    udp: true
-    skip-cert-verify: true
-  - name: 新加坡hy2-3
-    server: sg3.dnscloudcloud.top
-    port: 36225
-    type: hysteria2
-    password: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 美国vless-do4
-    server: us2do.dnscloudcloud.top
-    port: 10002
-    type: vless
-    uuid: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    tls: true
-    udp: true
-    servername: addons.mozilla.org
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xnzUvDQZ4B45lUi40lFKOLWiJdPQW8LzhGsGandvvlc
-      short-id: ad081079
-    network: tcp
-  - name: 新加坡hy2-5
-    server: sg3.dnscloudcloud.top
-    port: 36036
-    type: hysteria2
-    password: 6340e9e8-a619-4c8b-89ad-3381f80b8411
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 🇺🇸美国 Ver.4
-    server: us-phxplus-ddns.xn--4gqza090la383cba657a9rw23a362bz35amu9c.link
-    port: 12053
-    type: vless
-    uuid: ace8aee5-a5ea-4cdd-81c0-d0b185c6f12f
-    tls: true
-    udp: true
-    servername: gw.alicdn.com
-    client-fingerprint: edge
-    skip-cert-verify: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: uy8bi1ijbVLqcq1YWMzddY5dU88HkmU9rE4LP7kX9xc
-      short-id: 95c96a2a
-    network: tcp
-  - name: 美国直连
-    server: phoenix-011.684567.xyz
-    port: 8445
-    type: hysteria2
-    password: 6e518816-652c-43c6-aa45-41eb458aa3eb
-    sni: phoenix-011.684567.xyz
-    udp: true
-  - name: 日本hy2-1-x
-    server: jp1.dnscloudcloud.top
-    port: 36722
-    type: hysteria2
-    password: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 🇭🇰香港1
-    server: speedhk1.jiasujd.top
-    port: 24955
-    type: hysteria2
-    password: 9e251d18-4b72-4345-8b49-536882de189b
-    sni: 'null'
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: Ey8WkRLz34SadllK
-  - name: '[trojan]🇺🇸 美国 B02'
-    server: 69.84.182.18
-    port: 8443
-    type: trojan
-    password: b870a9da-02b1-4110-88f0-ee40ce5372e8
-    sni: cdn-node-oss-62.anycdn.de
-    udp: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
-  - name: 🇺🇸美国2-三网可用
-    server: us2.fulitech.top
-    port: 8443
-    type: vless
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
-    tls: true
-    udp: true
-    servername: music.apple.com
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: '95248866'
-    network: tcp
-  - name: 印度尼西亚2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: fau4s9phz6.speed.ydnxyb.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: fau4s9phz6.speed.ydnxyb.cccp.cctvalipay.cn
-  - name: '[trojan]🇺🇸 美国 D02'
-    server: 69.84.182.18
-    port: 8443
-    type: trojan
-    password: b1fec179-3d5a-4ec5-bf3c-e10668543b4b
-    sni: cdn-node-oss-62.anycdn.de
-    udp: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
-  - name: '[Hy2]🇺🇸 美国 H02'
-    server: 198.23.130.211
-    port: 25000
-    type: hysteria2
-    password: b870a9da-02b1-4110-88f0-ee40ce5372e8
-    sni: api.push.apple.com
-    udp: true
-    skip-cert-verify: true
-  - name: 🇺🇸美国 Ver.5
-    server: us-phxplus-ddns.xn--4gqza090la383cba657a9rw23a362bz35amu9c.link
-    port: 12053
-    type: vless
-    uuid: ace8aee5-a5ea-4cdd-81c0-d0b185c6f12f
-    tls: true
-    udp: true
-    servername: gw.alicdn.com
-    client-fingerprint: edge
-    skip-cert-verify: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: uy8bi1ijbVLqcq1YWMzddY5dU88HkmU9rE4LP7kX9xc
-      short-id: 95c96a2a
-    network: tcp
-  - name: 美国Z
-    server: phoenix-011.684567.xyz
-    port: 8445
-    type: hysteria2
-    password: e258500d-0239-46d4-a4e8-5022f44abc85
-    sni: phoenix-011.684567.xyz
-    udp: true
-  - name: '[Hy2]🇺🇸 美国 H05'
-    server: 107.173.127.166
-    port: 25000
-    type: hysteria2
-    password: a431c229-a467-4dfa-9e89-48e0f26c844b
-    sni: www.apple.com
-    udp: true
-    skip-cert-verify: true
-  - name: 美国中部芝加哥8-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 1ut9m3.speed.zjgsadubh.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 1ut9m3.speed.zjgsadubh.cccp.cctvalipay.cn
-  - name: 美国中部芝加哥6-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 95r1oxco2.speed.zjgsadubf.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 95r1oxco2.speed.zjgsadubf.cccp.cctvalipay.cn
-  - name: 美国-洛杉矶-2Gbps·1
-    server: 173.224.219.79
-    port: 18829
-    type: vless
-    uuid: e0cbd246-78fe-448e-a193-b56870d1d0cb
-    tls: true
-    udp: true
-    servername: media-tw01.521917.xyz
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
-    network: tcp
-  - name: 香港高速2
-    server: hka2.xiaoqi777.store
-    port: 50000
-    type: hysteria2
-    password: 7c82ce58-2e2b-4b04-a424-d15849e89cd8
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
   - name: 🇺🇸美国6-三网可用
     server: us2.fulitech.top
     port: 8443
@@ -482,19 +103,19 @@ proxies:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: '95248866'
     network: tcp
-  - name: As·美国·ALL·CAPsy·1-2Gbps
-    server: 173.224.219.79
-    port: 52009
+  - name: 🇺🇸美国1-三网可用
+    server: us1.fulitech.top
+    port: 8443
     type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
+    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     tls: true
     udp: true
-    servername: addons.mozilla.org
-    client-fingerprint: firefox
+    servername: music.apple.com
+    client-fingerprint: safari
     flow: xtls-rprx-vision
     reality-opts:
-      public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
-      short-id: 24b05fcf3723e6af
+      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
+      short-id: '95248866'
     network: tcp
   - name: 🇺🇸美国z-三网可用
     server: us1.fulitech.top
@@ -510,171 +131,20 @@ proxies:
       public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
       short-id: '95248866'
     network: tcp
-  - name: 香港高速1
-    server: hka1.xiaoqi777.store
-    port: 50000
-    type: hysteria2
-    password: 7c82ce58-2e2b-4b04-a424-d15849e89cd8
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
-  - name: 墨西哥1-蒙特雷-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 4z814b.speed.maxmxga.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 4z814b.speed.maxmxga.cccp.cctvalipay.cn
-  - name: 日本hy2-2-z
-    server: jp1.dnscloudcloud.top
-    port: 36522
-    type: hysteria2
-    password: 5e19bac6-c238-4e78-8c83-7fb86d7cd99e
-    sni: 1231231.1234567890spcloud.com
-    udp: true
-    skip-cert-verify: true
-  - name: 美国中部芝加哥3-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: mckhhprh.speed.zjgsadubc.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: mckhhprh.speed.zjgsadubc.cccp.cctvalipay.cn
-  - name: Asc·荷兰·ALL·kw
-    server: optimize-nl1.168829.xyz
-    port: 443
+  - name: 🇺🇸美国2-三网可用
+    server: us2.fulitech.top
+    port: 8443
     type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
+    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
     tls: true
     udp: true
-    servername: media-nlv6.168829.xyz
+    servername: music.apple.com
     client-fingerprint: firefox
-    flow: ''
-    network: ws
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-nlv6.168829.xyz
-  - name: 印度-海得拉巴4-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: x6qw05.speed.ydinddd.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: x6qw05.speed.ydinddd.cccp.cctvalipay.cn
-  - name: 美国中部芝加哥5-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: yu5wqoye.speed.zjgsadube.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: yu5wqoye.speed.zjgsadube.cccp.cctvalipay.cn
-  - name: 德国011直连
-    server: germany-011.684567.xyz
-    port: 8443
-    type: hysteria2
-    password: 6e518816-652c-43c6-aa45-41eb458aa3eb
-    sni: germany-011.684567.xyz
-    udp: true
-  - name: 德国Z
-    server: germany-011.684567.xyz
-    port: 8443
-    type: hysteria2
-    password: e258500d-0239-46d4-a4e8-5022f44abc85
-    sni: germany-011.684567.xyz
-    udp: true
-  - name: 香港高速3
-    server: hka3.xiaoqi777.store
-    port: 50000
-    type: hysteria2
-    password: 7c82ce58-2e2b-4b04-a424-d15849e89cd8
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
-  - name: 香港高速5
-    server: hka5.xiaoqi777.store
-    port: 50000
-    type: hysteria2
-    password: 7c82ce58-2e2b-4b04-a424-d15849e89cd8
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
-  - name: '[V1]DE-1'
-    server: 161.97.135.181
-    port: 2443
-    type: vless
-    uuid: f03255b6-e1f8-3615-837c-a6ca08d33727
-    tls: true
-    udp: true
-    servername: www.bing.com
-    client-fingerprint: chrome
     flow: xtls-rprx-vision
     reality-opts:
-      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
+      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
+      short-id: '95248866'
     network: tcp
-  - name: Asc·法国·ALL-VOH
-    server: optimize-fr.168829.xyz
-    port: 443
-    type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
-    tls: true
-    udp: true
-    servername: media-frv6.168829.xyz
-    client-fingerprint: firefox
-    flow: ''
-    network: ws
-    ws-opts:
-      path: /search
-      headers:
-        Host: media-frv6.168829.xyz
-  - name: 以色列-直连
-    server: yiselieamd.959555.xyz
-    port: 10000
-    type: hysteria2
-    password: 0c61a98f-b610-4873-b9a7-96f83f1fdf1d
-    sni: yiselieamd.959555.xyz
-    udp: true
-    skip-cert-verify: true
   - name: 越南-河内(移动优化)
     server: 103.77.215.181
     port: 18829
@@ -689,490 +159,273 @@ proxies:
       public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
       short-id: 24b05fcf3723e6af
     network: tcp
-  - name: 俄罗斯03
-    server: wqels.wqtd.mom
-    port: 35670
-    type: hysteria2
-    password: 79abec2c-24ae-4e88-bc6f-e80410b4e151
-    sni: wqels.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: As·越南-CMI-VH
-    server: 103.77.215.181
-    port: 52009
+  - name: 美国-洛杉矶-2Gbps·1
+    server: 173.224.219.79
+    port: 18829
     type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
+    uuid: e0cbd246-78fe-448e-a193-b56870d1d0cb
     tls: true
     udp: true
-    servername: addons.mozilla.org
+    servername: media-tw01.521917.xyz
     client-fingerprint: firefox
     flow: xtls-rprx-vision
     reality-opts:
       public-key: a9uk_ZJLsVC_MY4CIa-d1aP5bagweyHUPR6O932-dC8
       short-id: 24b05fcf3723e6af
     network: tcp
-  - name: 澳大利亚Z
-    server: free.684567.xyz
-    port: 8445
-    type: hysteria2
-    password: e258500d-0239-46d4-a4e8-5022f44abc85
-    sni: free.684567.xyz
-    udp: true
-  - name: '[vmess]俄罗斯-01高速'
-    server: yx1.xn--11x.org
-    port: 2052
-    type: vmess
-    uuid: 7451edf9-bb10-470f-ab64-846d5a0814a7
-    alterId: 0
-    cipher: auto
-    tls: false
-    udp: true
-    servername: 2112176225.online.video.downloader.0123456789ru.xn--11x.org
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 2112176225.online.video.downloader.0123456789ru.xn--11x.org
-  - name: 英国伦敦高性能-10Gbps-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: x5psk6.speed.gbaosidha.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: x5psk6.speed.gbaosidha.cccp.cctvalipay.cn
-  - name: 澳大利亚直连
-    server: free.684567.xyz
-    port: 8445
-    type: hysteria2
-    password: 6e518816-652c-43c6-aa45-41eb458aa3eb
-    sni: free.684567.xyz
-    udp: true
-  - name: 香港
-    server: wqxg.wqtd.mom
-    port: 41200
-    type: hysteria2
-    password: c458e5cf-812f-4233-829c-f90d85755730
-    sni: wqxg.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: '[vmess]俄罗斯-01'
-    server: yx1.xn--11x.org
-    port: 2052
-    type: vmess
-    uuid: 705a4b47-c2d7-4c0e-8963-e52a18a4070b
-    alterId: 0
-    cipher: auto
-    tls: false
-    udp: true
-    servername: 2112136940.online.video.downloader.0123456789ru.xn--11x.org
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 2112136940.online.video.downloader.0123456789ru.xn--11x.org
-  - name: 俄罗斯
-    server: wqels.wqtd.mom
-    port: 35670
-    type: hysteria2
-    password: c458e5cf-812f-4233-829c-f90d85755730
-    sni: wqels.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: '[trojan]🇺🇸 美国 T02'
-    server: 69.84.182.18
-    port: 8443
-    type: trojan
-    password: a431c229-a467-4dfa-9e89-48e0f26c844b
-    sni: cdn-node-oss-62.anycdn.de
-    udp: true
-    client-fingerprint: chrome
-    network: ws
-    ws-opts:
-      path: /profile/us2
-      headers:
-        Host: cdn-node-oss-62.anycdn.de
-  - name: 新加坡直连
-    server: singapore-053.cloudtop.live
-    port: 8445
-    type: hysteria2
-    password: 6e518816-652c-43c6-aa45-41eb458aa3eb
-    sni: singapore-053.cloudtop.live
-    udp: true
-  - name: 新加坡Z
-    server: singapore-053.cloudtop.live
-    port: 8445
-    type: hysteria2
-    password: e258500d-0239-46d4-a4e8-5022f44abc85
-    sni: singapore-053.cloudtop.live
-    udp: true
-  - name: 印度011直连
-    server: mumbai-011.cloudtop.live
-    port: 8443
-    type: hysteria2
-    password: 6e518816-652c-43c6-aa45-41eb458aa3eb
-    sni: mumbai-011.cloudtop.live
-    udp: true
-  - name: Asc·加拿大·ALL-VOH
-    server: optimize-ca.168829.xyz
+  - name: 香港 LI 01
+    server: cf01.m5vip.net
     port: 443
     type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: media-cav6.168829.xyz
-    client-fingerprint: firefox
+    servername: ''
+    client-fingerprint: chrome
     flow: ''
     network: ws
     ws-opts:
-      path: /search
+      path: /violet?ed=2560
       headers:
-        Host: media-cav6.168829.xyz
-  - name: 香港01
-    server: wqxg.wqtd.mom
-    port: 41200
-    type: hysteria2
-    password: 79abec2c-24ae-4e88-bc6f-e80410b4e151
-    sni: wqxg.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: 日本无忧中转
-    server: wyddns1.5653111.xyz
-    port: 20592
-    type: vless
-    uuid: 7c82ce58-2e2b-4b04-a424-d15849e89cd8
-    tls: true
-    udp: true
-    servername: iosapps.itunes.apple.com
-    client-fingerprint: firefox
-    skip-cert-verify: true
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: 05vVzrvk9WMW8EOEKFovCuw-4Zm5BWuDqFckvMHXASo
-      short-id: 86a715
-    network: tcp
-  - name: 印度Z
-    server: mumbai-011.cloudtop.live
-    port: 8443
-    type: hysteria2
-    password: e258500d-0239-46d4-a4e8-5022f44abc85
-    sni: mumbai-011.cloudtop.live
-    udp: true
-  - name: Asc·加拿大·ALL·kw
-    server: optimize-ca1.168829.xyz
+        Host: hkli01.m5vip.net
+  - name: 香港 LI 02
+    server: cf02.m5vip.net
     port: 443
     type: vless
-    uuid: 94932560-eee1-4a52-bf9c-06ed69f1d0cb
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: media-ca1v6.168829.xyz
-    client-fingerprint: firefox
+    servername: ''
+    client-fingerprint: chrome
     flow: ''
     network: ws
     ws-opts:
-      path: /search
+      path: /violet?ed=2560
       headers:
-        Host: media-ca1v6.168829.xyz
-  - name: 巴西维涅社1-CDN
-    server: 1764751641.tencentapp.cn
+        Host: hkli01.m5vip.net
+  - name: 香港 LI 03
+    server: cf03.m5vip.net
     port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: f59kqq59l.speed.baxafbasd.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: f59kqq59l.speed.baxafbasd.cccp.cctvalipay.cn
-  - name: 沙特阿拉伯-吉达1-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: hvm5pshufe.speed.shatealba.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: hvm5pshufe.speed.shatealba.cccp.cctvalipay.cn
-  - name: 土耳其无分流直出-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: jxqotuip.speed.iaugsuitrya.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: jxqotuip.speed.iaugsuitrya.cccp.cctvalipay.cn
-  - name: 巴西圣保罗2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 3vrvwm.speed.baxafbasb.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 3vrvwm.speed.baxafbasb.cccp.cctvalipay.cn
-  - name: 日本
-    server: wqrb.wqtd.mom
-    port: 22222
-    type: hysteria2
-    password: c458e5cf-812f-4233-829c-f90d85755730
-    sni: wqrb.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: 智利2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 9ph1gu.speed.ziabsndib.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 9ph1gu.speed.ziabsndib.cccp.cctvalipay.cn
-  - name: 荷兰2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: ss8m14.speed.nlsadadvsb.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: ss8m14.speed.nlsadadvsb.cccp.cctvalipay.cn
-  - name: 南非约翰内斯堡2-CDN
-    server: 1764751641.tencentapp.cn
-    port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
-    tls: true
-    udp: true
-    servername: 5nid2y8.speed.nfyhnsbab.cccp.cctvalipay.cn
-    client-fingerprint: chrome
-    skip-cert-verify: true
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: 5nid2y8.speed.nfyhnsbab.cccp.cctvalipay.cn
-  - name: 🇼🇸台湾2-电信联通
-    server: ru1.fulitech.top
-    port: 8444
     type: vless
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: fastly.cdn.steampipe.steamcontent.com
+    servername: ''
     client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
-      short-id: bcf94a63
-    network: tcp
-  - name: 尼日利亚1双ISP无分流直出-CDN
-    server: 1764751641.tencentapp.cn
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: hkli01.m5vip.net
+  - name: 香港 LI 04
+    server: cf04.m5vip.net
     port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: sy3eca6qtn.speed.nrlyacaca.cccp.cctvalipay.cn
+    servername: ''
     client-fingerprint: chrome
-    skip-cert-verify: true
+    flow: ''
     network: ws
     ws-opts:
-      path: /
+      path: /violet?ed=2560
       headers:
-        Host: sy3eca6qtn.speed.nrlyacaca.cccp.cctvalipay.cn
-  - name: 哥伦比亚-波哥大2-CDN
-    server: 1764751641.tencentapp.cn
+        Host: hkli01.m5vip.net
+  - name: 香港 BA 01
+    server: cf01.m5vip.net
     port: 443
-    type: vmess
-    uuid: 17b9505b-f7f0-4765-bb4f-52bfe19cac56
-    alterId: 0
-    cipher: auto
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: qvud2vv.speed.bomdautb.cccp.cctvalipay.cn
+    servername: ''
     client-fingerprint: chrome
-    skip-cert-verify: true
+    flow: ''
     network: ws
     ws-opts:
-      path: /
+      path: /violet?ed=2560
       headers:
-        Host: qvud2vv.speed.bomdautb.cccp.cctvalipay.cn
-  - name: '[trojan]🇺🇸 美国 A02'
-    server: 69.84.182.108
-    port: 8443
-    type: trojan
-    password: b1fec179-3d5a-4ec5-bf3c-e10668543b4b
-    sni: cdn-node-oss-61.anycdn.de
+        Host: hkba02.m5vip.net
+  - name: 香港 BA 02
+    server: cf02.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
     udp: true
+    servername: ''
     client-fingerprint: chrome
+    flow: ''
     network: ws
     ws-opts:
-      path: /profile/us1
+      path: /violet?ed=2560
       headers:
-        Host: cdn-node-oss-61.anycdn.de
-  - name: '[trojan]🇺🇸 美国 T03'
-    server: 69.84.182.108
-    port: 8443
-    type: trojan
-    password: a431c229-a467-4dfa-9e89-48e0f26c844b
-    sni: cdn-node-oss-61.anycdn.de
+        Host: hkba02.m5vip.net
+  - name: 香港 BA 03
+    server: cf03.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
     udp: true
+    servername: ''
     client-fingerprint: chrome
+    flow: ''
     network: ws
     ws-opts:
-      path: /profile/us1
+      path: /violet?ed=2560
       headers:
-        Host: cdn-node-oss-61.anycdn.de
-  - name: 🇺🇸美国1-三网可用
-    server: us1.fulitech.top
-    port: 8443
+        Host: hkba02.m5vip.net
+  - name: 香港 BA 04
+    server: cf04.m5vip.net
+    port: 443
     type: vless
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: music.apple.com
-    client-fingerprint: safari
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: '95248866'
-    network: tcp
-  - name: 🇬🇧英国1-三网可用
-    server: sl1.fulitech.top
-    port: 8443
-    type: vless
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
-    tls: true
-    udp: true
-    servername: music.apple.com
-    client-fingerprint: safari
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: xGJkxBkIWinkCG_5gBYUhlCsNgF2ZP6ZQLw2NAJf2Ss
-      short-id: '95248866'
-    network: tcp
-  - name: 🇭🇰【亚洲】香港01丨直连
-    server: hk02.poke-mon.xyz
-    port: 20000
-    type: hysteria2
-    password: 36c149d2-2036-452b-b55a-fc0f9491f049
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
-  - name: '[V1]SG-2'
-    server: 46.250.231.142
-    port: 24143
-    type: vless
-    uuid: f03255b6-e1f8-3615-837c-a6ca08d33727
-    tls: true
-    udp: true
-    servername: www.samsung.com
+    servername: ''
     client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: ufosBStTtlYTLOn4Bf5x1k_do9sOK1jFkuVlHKE0MV8
-      short-id: 0123456789abcdef
-    network: tcp
-  - name: 🇯🇵日本3-电信联通
-    server: ru1.fulitech.top
-    port: 8445
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: hkba02.m5vip.net
+  - name: 日本 AW 01
+    server: jpaw01.m5vip.net
+    port: 443
     type: vless
-    uuid: b7cbbbe2-17e8-4342-98cc-8b11903bdbbe
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: music.apple.com
+    servername: ''
     client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: OIBBYP6CEshp9ewNsFUHfHngkPXIlt_h1cN0qmwqHyQ
-      short-id: 9709f5aa
-    network: tcp
-  - name: 🇼🇸台湾1-三网可用
-    server: ru1.fulitech.top
-    port: 8444
+    flow: ''
+    network: grpc
+    grpc-opts:
+      grpc-service-name: violet
+  - name: 美国 SH 01
+    server: cf01.m5vip.net
+    port: 443
     type: vless
-    uuid: ca947bfa-1a0e-4e95-952a-61455948473c
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
     tls: true
     udp: true
-    servername: fastly.cdn.steampipe.steamcontent.com
-    client-fingerprint: edge
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: N84KEqhuVb6MFs6jg3F74Y-1qc63KTtInzgdiyiXWik
-      short-id: bcf94a63
-    network: tcp
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: ussh01.m5vip.net
+  - name: 美国 SH 02
+    server: cf02.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: ussh01.m5vip.net
+  - name: 美国 SH 03
+    server: cf03.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: ussh01.m5vip.net
+  - name: 美国 SH 04
+    server: cf04.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: ussh01.m5vip.net
+  - name: 印度 AZ 01
+    server: cf01.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: inaz01.m5vip.net
+  - name: 印度 AZ 02
+    server: cf02.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: inaz01.m5vip.net
+  - name: 印度 AZ 03
+    server: cf03.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: inaz01.m5vip.net
+  - name: 印度 AZ 04
+    server: cf04.m5vip.net
+    port: 443
+    type: vless
+    uuid: 4a997629-04d8-4072-9267-1a8c7c4b625a
+    tls: true
+    udp: true
+    servername: ''
+    client-fingerprint: chrome
+    flow: ''
+    network: ws
+    ws-opts:
+      path: /violet?ed=2560
+      headers:
+        Host: inaz01.m5vip.net
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -1183,95 +436,31 @@ proxy-groups:
       - 🌈官网:jd.222260.xyz
       - 香港|备用节点
       - 美国|备用节点
+      - HongKong VIP
       - 香港九龙 1
-      - 日本大阪4-CDN
-      - Asc·香港·ac1
-      - 美国vless-do6
-      - 日本hy2-1
-      - 印度尼西亚4-CDN
-      - 美国vless-do2
-      - Asc·香港·ac2
-      - 日本hy2-4-z
-      - 日本hy2-3-z
-      - 日本hy2-1-z
-      - 美国西部洛杉矶2-CDN
-      - 美国vless-do3
-      - '[Hy2]🇺🇸 美国 C02'
-      - '[Hy2]🇺🇸 美国 H03'
-      - 新加坡hy2-3
-      - 美国vless-do4
-      - 新加坡hy2-5
-      - 🇺🇸美国 Ver.4
-      - 美国直连
-      - 日本hy2-1-x
-      - 🇭🇰香港1
-      - '[trojan]🇺🇸 美国 B02'
-      - 🇺🇸美国2-三网可用
-      - 印度尼西亚2-CDN
-      - '[trojan]🇺🇸 美国 D02'
-      - '[Hy2]🇺🇸 美国 H02'
-      - 🇺🇸美国 Ver.5
-      - 美国Z
-      - '[Hy2]🇺🇸 美国 H05'
-      - 美国中部芝加哥8-CDN
-      - 美国中部芝加哥6-CDN
-      - 美国-洛杉矶-2Gbps·1
-      - 香港高速2
       - 🇺🇸美国6-三网可用
-      - As·美国·ALL·CAPsy·1-2Gbps
-      - 🇺🇸美国z-三网可用
-      - 香港高速1
-      - 墨西哥1-蒙特雷-CDN
-      - 日本hy2-2-z
-      - 美国中部芝加哥3-CDN
-      - Asc·荷兰·ALL·kw
-      - 印度-海得拉巴4-CDN
-      - 美国中部芝加哥5-CDN
-      - 德国011直连
-      - 德国Z
-      - 香港高速3
-      - 香港高速5
-      - '[V1]DE-1'
-      - Asc·法国·ALL-VOH
-      - 以色列-直连
-      - 越南-河内(移动优化)
-      - 俄罗斯03
-      - As·越南-CMI-VH
-      - 澳大利亚Z
-      - '[vmess]俄罗斯-01高速'
-      - 英国伦敦高性能-10Gbps-CDN
-      - 澳大利亚直连
-      - 香港
-      - '[vmess]俄罗斯-01'
-      - 俄罗斯
-      - '[trojan]🇺🇸 美国 T02'
-      - 新加坡直连
-      - 新加坡Z
-      - 印度011直连
-      - Asc·加拿大·ALL-VOH
-      - 香港01
-      - 日本无忧中转
-      - 印度Z
-      - Asc·加拿大·ALL·kw
-      - 巴西维涅社1-CDN
-      - 沙特阿拉伯-吉达1-CDN
-      - 土耳其无分流直出-CDN
-      - 巴西圣保罗2-CDN
-      - 日本
-      - 智利2-CDN
-      - 荷兰2-CDN
-      - 南非约翰内斯堡2-CDN
-      - 🇼🇸台湾2-电信联通
-      - 尼日利亚1双ISP无分流直出-CDN
-      - 哥伦比亚-波哥大2-CDN
-      - '[trojan]🇺🇸 美国 A02'
-      - '[trojan]🇺🇸 美国 T03'
       - 🇺🇸美国1-三网可用
-      - 🇬🇧英国1-三网可用
-      - 🇭🇰【亚洲】香港01丨直连
-      - '[V1]SG-2'
-      - 🇯🇵日本3-电信联通
-      - 🇼🇸台湾1-三网可用
+      - 🇺🇸美国z-三网可用
+      - 🇺🇸美国2-三网可用
+      - 越南-河内(移动优化)
+      - 美国-洛杉矶-2Gbps·1
+      - 香港 LI 01
+      - 香港 LI 02
+      - 香港 LI 03
+      - 香港 LI 04
+      - 香港 BA 01
+      - 香港 BA 02
+      - 香港 BA 03
+      - 香港 BA 04
+      - 日本 AW 01
+      - 美国 SH 01
+      - 美国 SH 02
+      - 美国 SH 03
+      - 美国 SH 04
+      - 印度 AZ 01
+      - 印度 AZ 02
+      - 印度 AZ 03
+      - 印度 AZ 04
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -1281,95 +470,31 @@ proxy-groups:
       - 🌈官网:jd.222260.xyz
       - 香港|备用节点
       - 美国|备用节点
+      - HongKong VIP
       - 香港九龙 1
-      - 日本大阪4-CDN
-      - Asc·香港·ac1
-      - 美国vless-do6
-      - 日本hy2-1
-      - 印度尼西亚4-CDN
-      - 美国vless-do2
-      - Asc·香港·ac2
-      - 日本hy2-4-z
-      - 日本hy2-3-z
-      - 日本hy2-1-z
-      - 美国西部洛杉矶2-CDN
-      - 美国vless-do3
-      - '[Hy2]🇺🇸 美国 C02'
-      - '[Hy2]🇺🇸 美国 H03'
-      - 新加坡hy2-3
-      - 美国vless-do4
-      - 新加坡hy2-5
-      - 🇺🇸美国 Ver.4
-      - 美国直连
-      - 日本hy2-1-x
-      - 🇭🇰香港1
-      - '[trojan]🇺🇸 美国 B02'
-      - 🇺🇸美国2-三网可用
-      - 印度尼西亚2-CDN
-      - '[trojan]🇺🇸 美国 D02'
-      - '[Hy2]🇺🇸 美国 H02'
-      - 🇺🇸美国 Ver.5
-      - 美国Z
-      - '[Hy2]🇺🇸 美国 H05'
-      - 美国中部芝加哥8-CDN
-      - 美国中部芝加哥6-CDN
-      - 美国-洛杉矶-2Gbps·1
-      - 香港高速2
       - 🇺🇸美国6-三网可用
-      - As·美国·ALL·CAPsy·1-2Gbps
-      - 🇺🇸美国z-三网可用
-      - 香港高速1
-      - 墨西哥1-蒙特雷-CDN
-      - 日本hy2-2-z
-      - 美国中部芝加哥3-CDN
-      - Asc·荷兰·ALL·kw
-      - 印度-海得拉巴4-CDN
-      - 美国中部芝加哥5-CDN
-      - 德国011直连
-      - 德国Z
-      - 香港高速3
-      - 香港高速5
-      - '[V1]DE-1'
-      - Asc·法国·ALL-VOH
-      - 以色列-直连
-      - 越南-河内(移动优化)
-      - 俄罗斯03
-      - As·越南-CMI-VH
-      - 澳大利亚Z
-      - '[vmess]俄罗斯-01高速'
-      - 英国伦敦高性能-10Gbps-CDN
-      - 澳大利亚直连
-      - 香港
-      - '[vmess]俄罗斯-01'
-      - 俄罗斯
-      - '[trojan]🇺🇸 美国 T02'
-      - 新加坡直连
-      - 新加坡Z
-      - 印度011直连
-      - Asc·加拿大·ALL-VOH
-      - 香港01
-      - 日本无忧中转
-      - 印度Z
-      - Asc·加拿大·ALL·kw
-      - 巴西维涅社1-CDN
-      - 沙特阿拉伯-吉达1-CDN
-      - 土耳其无分流直出-CDN
-      - 巴西圣保罗2-CDN
-      - 日本
-      - 智利2-CDN
-      - 荷兰2-CDN
-      - 南非约翰内斯堡2-CDN
-      - 🇼🇸台湾2-电信联通
-      - 尼日利亚1双ISP无分流直出-CDN
-      - 哥伦比亚-波哥大2-CDN
-      - '[trojan]🇺🇸 美国 A02'
-      - '[trojan]🇺🇸 美国 T03'
       - 🇺🇸美国1-三网可用
-      - 🇬🇧英国1-三网可用
-      - 🇭🇰【亚洲】香港01丨直连
-      - '[V1]SG-2'
-      - 🇯🇵日本3-电信联通
-      - 🇼🇸台湾1-三网可用
+      - 🇺🇸美国z-三网可用
+      - 🇺🇸美国2-三网可用
+      - 越南-河内(移动优化)
+      - 美国-洛杉矶-2Gbps·1
+      - 香港 LI 01
+      - 香港 LI 02
+      - 香港 LI 03
+      - 香港 LI 04
+      - 香港 BA 01
+      - 香港 BA 02
+      - 香港 BA 03
+      - 香港 BA 04
+      - 日本 AW 01
+      - 美国 SH 01
+      - 美国 SH 02
+      - 美国 SH 03
+      - 美国 SH 04
+      - 印度 AZ 01
+      - 印度 AZ 02
+      - 印度 AZ 03
+      - 印度 AZ 04
   - name: 🎯 全球直连
     type: select
     proxies:
