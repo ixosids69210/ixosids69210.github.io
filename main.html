@@ -1,198 +1,424 @@
-mixed-port: 7890
-allow-lan: false
-mode: rule
-log-level: info
-external-controller: 0.0.0.0:9090
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  ipv6: false
-  default-nameserver:
-    - 223.5.5.5
-    - 114.114.114.114
-  nameserver:
-    - 223.5.5.5
-    - 114.114.114.114
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-proxies:
-  - name: ⚠️每次使用前请先更新订阅！
-    server: 127.0.0.1
-    port: 1080
-    type: ss
-    cipher: aes-128-gcm
-    password: 9a889d43-d8b7-460a-9b19-2ef1ecd6fddf
-    udp: true
-  - name: 🌈官网:jd.222260.xyz
-    server: 127.0.0.1
-    port: 1080
-    type: ss
-    cipher: aes-128-gcm
-    password: 9a889d43-d8b7-460a-9b19-2ef1ecd6fddf
-    udp: true
-  - name: 香港|备用节点
-    server: 23.139.252.128
-    port: 21412
-    type: hysteria2
-    password: 1e77a5e1-3fca-472f-bb3d-4cf31649772c
-    sni: www.bing.com
-    udp: true
-    skip-cert-verify: true
-  - name: 美国|备用节点
-    server: 45.41.204.122
-    port: 16823
-    type: vless
-    uuid: ccd725e6-38fb-4a37-be0b-830533c4242f
-    tls: true
-    udp: true
-    servername: www.iij.ad.jp
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: E_shv34FH2gd70EMyMqogqpq-nY7tFHFLs7hJnUjpGU
-    network: tcp
-  - name: HongKong VIP
-    server: 216.250.97.79
-    port: 13145
-    type: vless
-    uuid: 57ae2b6b-0358-4875-81aa-4d932b5796fd
-    tls: true
-    udp: true
-    servername: www.iij.ad.jp
-    client-fingerprint: firefox
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: gUaVVVmympWeQywl4VDO7izXKB5-yzST_RgkoDBSIg8
-    network: tcp
-  - name: 香港专线Z
-    server: alhkfree.mggl.wang
-    port: 35789
-    type: hysteria2
-    password: 2516574f-8598-44a4-90ff-a9348c53f5c3
-    sni: alhkfree.mggl.wang
-    udp: true
-  - name: '[V1]UK-1-vless-xtls'
-    server: 149.102.158.81
-    port: 1443
-    type: vless
-    uuid: 0f160f2c-367b-3be4-870c-495252c6c7b9
-    tls: true
-    udp: true
-    servername: amazon.com
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
-      short-id: 0123456789abcdef
-    network: tcp
-  - name: '[V1]JP-1-vless-xtls'
-    server: 46.250.255.45
-    port: 19885
-    type: vless
-    uuid: 0f160f2c-367b-3be4-870c-495252c6c7b9
-    tls: true
-    udp: true
-    servername: www.apple.com
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
-    network: tcp
-  - name: 俄罗斯C 4
-    server: wqels.wqtd.mom
-    port: 35670
-    type: hysteria2
-    password: 167bc60a-dcfd-4f67-ad59-fcb6cc4ad886
-    sni: wqels.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: 香港C 2
-    server: wqxg.wqtd.mom
-    port: 41200
-    type: hysteria2
-    password: 167bc60a-dcfd-4f67-ad59-fcb6cc4ad886
-    sni: wqxg.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: 日本C 5
-    server: wqrb.wqtd.mom
-    port: 22222
-    type: hysteria2
-    password: 167bc60a-dcfd-4f67-ad59-fcb6cc4ad886
-    sni: wqrb.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: 加拿大C 3
-    server: wqjnd.wqtd.mom
-    port: 23520
-    type: hysteria2
-    password: 167bc60a-dcfd-4f67-ad59-fcb6cc4ad886
-    sni: wqjnd.wqtd.mom
-    udp: true
-    skip-cert-verify: true
-    obfs: salamander
-    obfs-password: ZDQxZDhjZDk4ZjAwYjIwNA==
-  - name: '[V1]DE-1'
-    server: 161.97.135.181
-    port: 2443
-    type: vless
-    uuid: 0f160f2c-367b-3be4-870c-495252c6c7b9
-    tls: true
-    udp: true
-    servername: www.bing.com
-    client-fingerprint: chrome
-    flow: xtls-rprx-vision
-    reality-opts:
-      public-key: oFXphxwdjztp0BbyrFlt8wIRGwtHYQ0RcVLm90A5kXA
-      short-id: 0123456789abcdef
-    network: tcp
-proxy-groups:
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - ♻️ 自动选择
-      - DIRECT
-      - ⚠️每次使用前请先更新订阅！
-      - 🌈官网:jd.222260.xyz
-      - 香港|备用节点
-      - 美国|备用节点
-      - HongKong VIP
-      - 香港专线Z
-      - '[V1]UK-1-vless-xtls'
-      - '[V1]JP-1-vless-xtls'
-      - 俄罗斯C 4
-      - 香港C 2
-      - 日本C 5
-      - 加拿大C 3
-      - '[V1]DE-1'
-  - name: ♻️ 自动选择
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    proxies:
-      - ⚠️每次使用前请先更新订阅！
-      - 🌈官网:jd.222260.xyz
-      - 香港|备用节点
-      - 美国|备用节点
-      - HongKong VIP
-      - 香港专线Z
-      - '[V1]UK-1-vless-xtls'
-      - '[V1]JP-1-vless-xtls'
-      - 俄罗斯C 4
-      - 香港C 2
-      - 日本C 5
-      - 加拿大C 3
-      - '[V1]DE-1'
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-rules:
-  - GEOIP,CN,🎯 全球直连
-  - MATCH,🚀 节点选择
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>群友专享节点</title>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="all.min.css">
+<link href="css2.css" rel="stylesheet">
+<style>
+/* 加载动画样式 */
+.loading-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #fff;
+z-index: 9999;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.loading-spinner {
+width: 50px;
+height: 50px;
+border: 3px solid #f3f3f3;
+border-top: 3px solid var(--primary-color);
+border-radius: 50%;
+animation: spin 1s linear infinite;
+}
+
+.loading-progress {
+margin-top: 20px;
+width: 200px;
+height: 4px;
+background: #f3f3f3;
+border-radius: 2px;
+overflow: hidden;
+}
+
+.progress-bar {
+width: 0%;
+height: 100%;
+background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+transition: width 0.3s ease;
+}
+
+.loading-text {
+margin-top: 15px;
+color: #666;
+font-size: 14px;
+}
+
+@keyframes spin {
+0% {
+transform: rotate(0deg);
+}
+
+100% {
+transform: rotate(360deg);
+}
+}
+</style>
+<script>
+// 檢查登錄狀態
+(function() {
+// 從localStorage獲取登錄狀態
+const isLoggedIn = localStorage.getItem('isLoggedIn');
+const loginTimestamp = localStorage.getItem('loginTimestamp');
+const currentTime = Date.now();
+
+// 如果未登錄或登錄已超過24小時，重定向到登錄頁面
+if (!isLoggedIn || !loginTimestamp || (currentTime - parseInt(loginTimestamp)) > 24 * 60 * 60 * 1000) {
+window.location.href = 'login.html';
+}
+})();
+</script>
+</head>
+
+<body>
+<!-- 加载动画 -->
+<div class="loading-overlay" id="loadingOverlay">
+<div class="loading-spinner"></div>
+<div class="loading-progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+<div class="loading-text" id="loadingText">正在加载资源...</div>
+</div>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+<div class="container">
+<div class="logo">
+<a href="#"><i class="fas fa-network-wired"></i> 群友专享节点</a>
+</div>
+<div class="menu-toggle">
+<i class="fas fa-bars"></i>
+</div>
+<ul class="nav-menu">
+<li><a href="#home">首页</a></li>
+<li><a href="#subscribe">订阅</a></li>
+<li><a href="#download">下载</a></li>
+<li><a href="#tutorial">教程</a></li>
+<li><a href="#notices">注意事项</a></li>
+<li><a href="javascript:void(0);" onclick="logout()">退出登录</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- 首屏Banner -->
+<section id="home" class="banner">
+<div class="container">
+<div class="banner-content">
+<h1>群友专享节点</h1>
+<p>最后更新时间：<span class="update-time">
+                        2025年12月17日00:21:37
+                        2025年12月19日14:06:53
+</span></p>
+<div class="notice-container">
+<p class="notice-text">如发现所有节点都无法使用，请及时联系我们处理。</p>
+<div class="contact-card">
+<div class="contact-item">
+<i class="fab fa-qq"></i>
+<span>站长QQ：1287766992</span>
+<button onclick="copyToClipboard('1287766992')" class="copy-btn">
+<i class="fas fa-copy"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-decoration">
+<div class="cloud cloud-1"></div>
+<div class="cloud cloud-2"></div>
+<div class="cloud cloud-3"></div>
+</div>
+</div>
+</section>
+
+<!-- 推荐区域 -->
+<section id="recommend" class="recommend-section">
+<div class="container">
+<div class="recommend-card">
+<div class="recommend-badge">
+<i class="fas fa-bolt"></i> 付费推荐
+</div>
+<div class="recommend-content">
+<div class="recommend-header">
+<h3>Kepa云 <i class="fas fa-bolt"></i></h3>
+</div>
+<div class="recommend-features">
+<div class="feature-item">
+<i class="fas fa-rocket"></i>
+<span>高速稳定不卡顿</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-database"></i>
+<span>100G大流量</span>
+</div>
+<div class="feature-item">
+<i class="fas fa-tag"></i>
+<span>低至9.9元</span>
+</div>
+</div>
+<a target="_blank" href="https://kpyun.xyz" class="recommend-btn">
+立即体验 <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 订阅区域 -->
+<section id="subscribe" class="subscribe-section">
+<div class="container">
+<h2>
+<span>节点订阅</span>
+<div class="title-decoration"></div>
+</h2>
+<div class="subscribe-cards">
+<!-- 小火箭订阅 -->
+<div class="subscribe-card">
+<div class="card-icon">
+<img src="xhj.svg" alt="小火箭">
+</div>
+<h3>小火箭订阅</h3>
+<div class="subscription-link">
+<a href="https://wuwu.live/e3vo6" target="_blank">https://wuwu.live/e3vo6</a>
+</div>
+<div class="button-group">
+<button onclick="copyToClipboard('https://wuwu.live/e3vo6')" class="btn btn-copy">
+<i class="fas fa-copy"></i> 复制链接
+</button>
+<button class="btn btn-import"
+onclick="window.location.href='shadowrocket://add/sub://aHR0cHM6Ly93dXd1LmxpdmUvZTN2bzY?remark=%5B%E9%AD%94%E6%B3%95%E5%92%96%5D%E7%BE%A4%E5%8F%8B%E4%B8%93%E4%BA%AB'">
+<i class="fas fa-download"></i> 一键导入
+</button>
+</div>
+</div>
+
+<!-- Clash订阅 -->
+<div class="subscribe-card">
+<div class="card-icon">
+<img src="clash.svg" alt="Clash">
+</div>
+<h3>Clash订阅</h3>
+<div class="subscription-link">
+<a href="https://wuwu.live/e4vo6" target="_blank">https://wuwu.live/e4vo6</a>
+</div>
+<div class="button-group">
+<button onclick="copyToClipboard('https://wuwu.live/e4vo6')" class="btn btn-copy">
+<i class="fas fa-copy"></i> 复制链接
+</button>
+<button class="btn btn-import"
+onclick="window.location.href='clash://install-config?url=https%3A%2F%2Fwuwu.live%2Fe4vo6'">
+<i class="fas fa-download"></i> 一键导入
+</button>
+</div>
+</div>
+
+<!-- Hiddify订阅 -->
+<div class="subscribe-card">
+<div class="card-icon">
+<img src="Hiddify.svg" alt="Hiddify">
+</div>
+<h3>Hiddify订阅 <span class="recommend-tag">萌新推荐</span></h3>
+<div class="subscription-link">
+<a href="https://wuwu.live/e4vo6" target="_blank">https://wuwu.live/e4vo6</a>
+</div>
+<div class="button-group">
+<button onclick="copyToClipboard('https://wuwu.live/e4vo6')" class="btn btn-copy">
+<i class="fas fa-copy"></i> 复制链接
+</button>
+<button class="btn btn-import"
+onclick="window.location.href='hiddify://import/https://wuwu.live/e4vo6'">
+<i class="fas fa-download"></i> 一键导入
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 客户端下载区 -->
+<section id="download" class="download-section">
+<div class="container">
+<h2>
+<span>下载客户端</span>
+<div class="title-decoration"></div>
+</h2>
+<div style="text-align: center; padding: 40px 0;">
+<a href="https://pan.101079.xyz" class="recommend-btn" target="_blank" style="font-size: 1.2rem; padding: 15px 30px;">
+点击此处前往网盘 <i class="fas fa-external-link-alt"></i>
+</a>
+</div>
+</div>
+</section>
+
+<!-- 使用教程 -->
+<section id="tutorial" class="tutorial-section">
+<div class="container">
+<h2>
+<span>使用教程</span>
+<div class="title-decoration"></div>
+</h2>
+<div class="accordion">
+<div class="accordion-item active">
+<div class="accordion-header">
+<h3>小火箭使用教程</h3>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="accordion-content">
+<div class="tutorial-content">
+<div class="step-highlight">
+<p><strong>第一步：复制订阅链接 🔗</strong></p>
+<p>• 在本页面上方找到「小火箭订阅」卡片，点击「复制链接」按钮。</p>
+</div>
+
+<div class="step-highlight">
+<p><strong>第二步：导入订阅 🚀</strong></p>
+<p>• 打开 Shadowrocket 应用，点击软件右上角的「+」号。</p>
+<p>• 在新页面中，将「类型」选择为「Subscribe」。</p>
+<p>• 在「URL」一栏粘贴您刚刚复制的订阅链接。</p>
+</div>
+
+<div class="step-highlight">
+<p><strong>第三步：保存并使用 ✨</strong></p>
+<p>• 点击页面右上角的「保存」按钮。</p>
+<p>• 应用会自动更新节点，更新完成后即可选择节点开始使用。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header">
+<h3>Clash使用教程</h3>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="accordion-content">
+<div class="tutorial-content">
+<div class="step-highlight">
+<p><strong>电脑版</strong></p>
+<p>1. 打开软件，在左侧菜单点击「Profiles」或「配置」。</p>
+<p>2. 将复制的订阅链接粘贴到顶部的输入栏，点击「Download」或「下载」。</p>
+<p>3. 下载成功后，选中新的配置使其生效。</p>
+<p>4. 前往「Proxies」或「代理」页面选择节点。</p>
+<p>5. 最后回到「General」或「常规」页面，打开「System Proxy」或「系统代理」开关即可。</p>
+</div>
+
+<div class="step-highlight">
+<p><strong>手机版</strong></p>
+<p>1. 打开软件，点击底部「配置」，再点击右上角「+」号，选择「从URL导入」。</p>
+<p>2. 「名称」随意填写，将订阅链接粘贴到「URL」栏。</p>
+<p>3. 「自动更新」建议填写 1440 (分钟)，即24小时更新一次。</p>
+<p>4. 点击右上角保存，然后在配置列表中选中刚导入的配置。</p>
+<p>5. 返回主页，点击「已停止」按钮启动即可。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header">
+<h3>Hiddify使用教程</h3>
+<i class="fas fa-chevron-down"></i>
+</div>
+<div class="accordion-content">
+<div class="tutorial-content">
+<div class="step-highlight">
+<p><strong>通用教程</strong></p>
+<p>1. 打开 Hiddify 软件后，点击右上角的「+」号。</p>
+<p>2. 在弹出菜单中选择「手动输入」。</p>
+<p>3. 「名称」可随意填写，将复制的订阅链接粘贴到「网址」一栏。</p>
+<p>4. 「自动更新」建议填写 24 (小时)。</p>
+<p>5. 点击右上角「保存」，返回主界面后点击「连接」按钮即可启动。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 注意事项 -->
+<section id="notices" class="notices-section">
+<div class="container">
+<h2>
+<span>注意事项</span>
+<div class="title-decoration"></div>
+</h2>
+<div class="warning-box">
+<div class="warning-header">
+<i class="fas fa-exclamation-triangle"></i>
+<h3>使用须知</h3>
+</div>
+<div class="warning-content">
+<ul>
+<li>请勿使用本工具进行<span class="highlight">任何违反当地法律法规的活动</span></li>
+<li>定期更新订阅链接以获得最佳性能和安全保障</li>
+<li>建议使用<span class="highlight">稳定的网络环境</span>连接</li>
+<li>遇到连接问题时，请尝试切换不同节点</li>
+<li>使用过程中遇到问题，请通过下方QQ群联系我们</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="copyright">
+<p>🎁 防迷路群：<a
+href="https://qm.qq.com/cgi-bin/qm/qr?k=UP4bzwoZNvx1Ztwf5PjAqAbyoV-bZYv-&jump_from=webapi&authKey=ncqJbgXwKl78TeWw4/2rKyWMWZtsW2b4IqIOatHV88mKoVyBmh7HXq34PibN38hZ"
+target="_blank">291577638</a></p>
+</div>
+<a href="#home" class="back-to-top">
+<i class="fas fa-arrow-up"></i>
+</a>
+</div>
+</div>
+</footer>
+
+<!-- 添加弹出式公告模态框 -->
+<div class="announcement-modal" id="announcementModal">
+<div class="announcement-modal-content">
+<span class="close-announcement">&times;</span>
+<div class="announcement-header">
+<i class="fas fa-bullhorn"></i>
+<h3>重要公告</h3>
+<span class="announcement-date">2025年7月9日</span>
+</div>
+<div class="announcement-content">
+<p>本站节点全面升级，请各位及时<span class="highlight">更新客户端</span>，避免无法导入节点。</p>
+<p class="free-notice">
+<i class="fas fa-gift"></i>
+<span>我们<span class="highlight">永久免费</span>，如果您是付费购买的，说明您被骗了！</span>
+</p>
+</div>
+</div>
+</div>
+
+<script src="script.js"></script>
+<script>
+// 登出功能
+function logout() {
+// 清除登錄信息
+localStorage.removeItem('isLoggedIn');
+localStorage.removeItem('loginTimestamp');
+
+// 跳轉到登錄頁面
+window.location.href = 'login.html';
+}
+</script>
+</body>
+
+</html>
