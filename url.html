@@ -1,1267 +1,517 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>链接精简器 | 极简短链</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    
+    <!-- 引入 Bootstrap 和 图标库 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 引用原来的样式文件 (为了兼容可能存在的特定类名，虽然大部分已被覆盖) -->
+    <link rel="stylesheet" href="https://crazypeace.github.io/Url-Shorten-Worker/styles.css">
 
     <style>
-      /* =========================================
-         第一部分：通用的 style.css 样式
-         ========================================= */
-      :root {
-        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --bg-color: #f0f2f5;
-        --glass-bg: rgba(255, 255, 255, 0.75);
-        --glass-border: rgba(255, 255, 255, 0.5);
-        --text-main: #2d3748;
-        --text-sub: #718096;
-        --accent-color: #764ba2;
-        --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      body {
-        font-family: "Poppins", "Noto Sans SC", sans-serif;
-        background: var(--bg-color);
-        color: var(--text-main);
-        min-height: 100vh;
-        overflow-x: hidden;
-        position: relative;
-      }
-
-      /* 背景装饰 */
-      .bg-decoration {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-      }
-
-      .blob {
-        position: absolute;
-        filter: blur(80px);
-        opacity: 0.6;
-        animation: float 10s infinite ease-in-out;
-      }
-
-      .blob-1 {
-        top: -10%;
-        left: -10%;
-        width: 50vw;
-        height: 50vw;
-        background: #a18cd1;
-        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-      }
-
-      .blob-2 {
-        bottom: -10%;
-        right: -10%;
-        width: 60vw;
-        height: 60vw;
-        background: #fbc2eb;
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        animation-delay: -5s;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        50% {
-          transform: translate(30px, 50px) rotate(10deg);
-        }
-      }
-
-      /* 布局 */
-      .hidden-section {
-        display: none !important;
-      }
-      .active-section {
-        display: flex;
-      }
-
-      .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        box-shadow: var(--shadow);
-      }
-
-      .container {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 80px 20px 40px;
-      }
-
-      /* 登录页 */
-      #login-section {
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
-
-      .login-card {
-        width: 100%;
-        max-width: 400px;
-        padding: 40px 30px;
-        text-align: center;
-      }
-
-      .login-header .logo-icon {
-        font-size: 3rem;
-        background: var(--primary-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 10px;
-      }
-
-      .login-header h1 {
-        font-size: 1.8rem;
-        margin-bottom: 5px;
-      }
-      .login-header p {
-        color: var(--text-sub);
-        font-size: 0.9rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .login-form {
-        margin-top: 30px;
-      }
-
-      .input-group {
-        position: relative;
-        margin-bottom: 20px;
-      }
-      .input-group i {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--text-sub);
-      }
-      .input-group input {
-        width: 100%;
-        padding: 15px 15px 15px 45px;
-        border: 2px solid transparent;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.5);
-        font-size: 1rem;
-        outline: none;
-        transition: all 0.3s;
-      }
-      .input-group input:focus {
-        background: #fff;
-        border-color: #a18cd1;
-        box-shadow: 0 0 0 4px rgba(161, 140, 209, 0.2);
-      }
-
-      .btn-primary {
-        width: 100%;
-        padding: 15px;
-        border: none;
-        border-radius: 12px;
-        background: var(--primary-gradient);
-        color: white;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        transition: transform 0.2s;
-      }
-      .btn-primary:active {
-        transform: scale(0.98);
-      }
-
-      .error-text {
-        color: #ff4757;
-        font-size: 0.85rem;
-        margin-top: 10px;
-        display: none;
-      }
-      .qrcode-mini {
-        margin-top: 30px;
-        font-size: 0.9rem;
-        color: var(--text-sub);
-      }
-      .qr-trigger {
-        margin-top: 8px;
-        color: var(--accent-color);
-        cursor: pointer;
-        font-weight: 600;
-      }
-
-      /* 主页 */
-      .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 100;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .nav-brand {
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--accent-color);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .logout-btn {
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        color: var(--text-sub);
-        cursor: pointer;
-      }
-
-      .hero-card {
-        padding: 30px;
-        margin-bottom: 30px;
-        position: relative;
-        overflow: hidden;
-      }
-      .status-badge {
-        display: inline-block;
-        padding: 4px 12px;
-        background: #d4edda;
-        color: #155724;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 15px;
-      }
-      .hero-card h2 {
-        margin-bottom: 5px;
-      }
-      .update-time {
-        color: var(--text-sub);
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-      }
-      .notice-box {
-        background: rgba(255, 243, 205, 0.6);
-        border: 1px solid #ffeeba;
-        padding: 12px;
-        border-radius: 12px;
-        color: #856404;
-        font-size: 0.9rem;
-        display: flex;
-        gap: 10px;
-        align-items: start;
-      }
-
-      .section-title {
-        margin: 30px 0 15px;
-        font-size: 1.2rem;
-        padding-left: 10px;
-        border-left: 4px solid var(--accent-color);
-      }
-
-      /* 快捷操作按钮组 */
-      .quick-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin-bottom: 30px;
-      }
-
-      .action-btn {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        padding: 15px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        color: var(--text-main);
-        font-weight: 600;
-        transition: transform 0.2s;
-        cursor: pointer;
-        box-shadow: var(--shadow);
-        font-size: 1rem;
-        font-family: inherit;
-      }
-
-      .action-btn:hover {
-        transform: translateY(-3px);
-      }
-
-      .icon-box {
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 1.2rem;
-      }
-      .book-icon {
-        background: linear-gradient(135deg, #ff9a9e, #fecfef);
-      }
-      .cloud-icon {
-        background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-      }
-
-      /* 卡片 */
-      .grid-container {
-        display: grid;
-        gap: 15px;
-      }
-      .app-card {
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        transition: transform 0.2s;
-      }
-      .app-card:hover {
-        transform: translateY(-3px);
-      }
-
-      .app-icon {
-        width: 50px;
-        height: 50px;
-        border-radius: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-        color: white;
-      }
-      .shadow-rocket {
-        background: linear-gradient(135deg, #36d1dc, #5b86e5);
-      }
-      .clash {
-        background: linear-gradient(135deg, #11998e, #38ef7d);
-      }
-      .hiddify {
-        background: linear-gradient(135deg, #ff9966, #ff5e62);
-      }
-
-      .app-info {
-        flex: 1;
-      }
-      .app-info h4 {
-        font-size: 1rem;
-        margin-bottom: 2px;
-      }
-      .app-info p {
-        font-size: 0.8rem;
-        color: var(--text-sub);
-      }
-
-      .app-actions {
-        display: flex;
-        gap: 10px;
-      }
-      .btn-icon {
-        width: 36px;
-        height: 36px;
-        border: none;
-        border-radius: 10px;
-        background: rgba(0, 0, 0, 0.05);
-        color: var(--text-main);
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .btn-icon:hover {
-        background: rgba(0, 0, 0, 0.1);
-      }
-      .btn-sm {
-        padding: 8px 16px;
-        background: var(--primary-gradient);
-        color: white;
-        text-decoration: none;
-        border-radius: 10px;
-        font-size: 0.9rem;
-        font-weight: 500;
-      }
-
-      .footer {
-        text-align: center;
-        margin-top: 50px;
-        color: var(--text-sub);
-        font-size: 0.9rem;
-      }
-      .click-copy {
-        cursor: pointer;
-        margin-left: 5px;
-        color: var(--accent-color);
-      }
-
-      /* 弹窗与教程样式 */
-      .modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        backdrop-filter: blur(5px);
-        cursor: pointer;
-      }
-
-      .modal-content {
-        background: #fff;
-        padding: 30px;
-        text-align: center;
-        width: 90%;
-        max-width: 320px;
-        position: relative;
-        animation: zoomIn 0.3s ease;
-        border-radius: 20px;
-      }
-
-      .wide-modal {
-        max-width: 500px;
-        padding: 25px;
-        text-align: left;
-      }
-      .wide-modal h3 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-
-      .close-modal {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: #999;
-        z-index: 10;
-      }
-      .qr-img {
-        width: 100%;
-        border-radius: 10px;
-        margin-top: 15px;
-      }
-
-      /* 教程选项卡 */
-      .tabs-header {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 10px;
-        overflow-x: auto;
-      }
-      .tab-btn {
-        border: none;
-        background: none;
-        padding: 8px 15px;
-        font-size: 0.95rem;
-        color: var(--text-sub);
-        cursor: pointer;
-        border-radius: 8px;
-        white-space: nowrap;
-      }
-      .tab-btn.active {
-        background: var(--primary-gradient);
-        color: white;
-        font-weight: 600;
-      }
-
-      .tab-pane {
-        display: none;
-        animation: fadeIn 0.3s ease;
-      }
-      .tab-pane.active {
-        display: block;
-      }
-
-      .step-item {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 15px;
-        align-items: flex-start;
-      }
-      .step-num {
-        background: #e2e8f0;
-        color: var(--text-main);
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 0.8rem;
-        font-weight: bold;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-      .step-item p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        color: var(--text-main);
-        margin: 0;
-      }
-
-      /* Toast */
-      .toast {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%) translateY(-100px);
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        z-index: 2000;
-        transition: transform 0.3s ease;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-      .toast.show {
-        transform: translateX(-50%) translateY(0);
-      }
-
-      /* 动画 */
-      @keyframes zoomIn {
-        from {
-          transform: scale(0.9);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      .fade-in-up {
-        animation: fadeInUp 0.6s ease backwards;
-      }
-      .delay-1 {
-        animation-delay: 0.1s;
-      }
-      .delay-2 {
-        animation-delay: 0.2s;
-      }
-      .delay-3 {
-        animation-delay: 0.3s;
-      }
-      .delay-4 {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .container {
-          padding-top: 70px;
-        }
-        .hero-card {
-          padding: 20px;
-        }
-      }
-
-      /* VIP推荐卡片样式 */
-      .vip-card {
-        position: relative;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.95),
-          rgba(255, 248, 220, 0.9)
-        );
-        border: 1px solid rgba(255, 215, 0, 0.5);
-        margin-bottom: 30px;
-        overflow: hidden;
-        padding: 20px;
-        box-shadow: 0 10px 25px -5px rgba(255, 165, 0, 0.15),
-          0 8px 10px -6px rgba(255, 165, 0, 0.1);
-      }
-
-      .vip-badge {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-        color: #fff;
-        padding: 6px 16px;
-        border-bottom-left-radius: 16px;
-        font-size: 0.8rem;
-        font-weight: 700;
-        box-shadow: -2px 2px 10px rgba(253, 160, 133, 0.3);
-        z-index: 10;
-        letter-spacing: 1px;
-      }
-
-      .vip-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-        margin-top: 5px;
-      }
-
-      .vip-info {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .vip-info h3 {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: #d35400;
-        font-weight: 700;
-      }
-
-      .vip-features {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .feature-tag {
-        font-size: 0.8rem;
-        color: #8a6d3b;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        background: rgba(255, 255, 255, 0.6);
-        padding: 4px 10px;
-        border-radius: 8px;
-        border: 1px solid rgba(243, 156, 18, 0.2);
-      }
-
-      .feature-tag i {
-        color: #f39c12;
-        font-size: 0.9em;
-      }
-
-      .btn-vip {
-        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-        color: white;
-        text-decoration: none;
-        padding: 12px 24px;
-        border-radius: 14px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        white-space: nowrap;
-        box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        position: relative;
-        z-index: 5;
-      }
-
-      .btn-vip:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
-        filter: brightness(1.05);
-      }
-
-      .btn-vip:active {
-        transform: scale(0.98);
-      }
-
-      @media (max-width: 550px) {
-        .vip-content {
-          flex-direction: column;
-          align-items: flex-start;
-          margin-top: 15px;
+        /* ================= 全局变量与重置 ================= */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --text-main: #2d3748;
+            --text-sub: #718096;
+            --accent-color: #764ba2;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --radius: 16px;
         }
 
-        .vip-info {
-          width: 100%;
-          margin-bottom: 15px;
+        body {
+            font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+            background: #f0f2f5;
+            color: var(--text-main);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 50px;
         }
 
-        .vip-info h3 {
-          max-width: 80%;
+        /* ================= 动态背景 ================= */
+        .bg-decoration {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #fdfbfb; 
+        }
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 10s infinite ease-in-out;
+        }
+        .blob-1 {
+            top: -10%; left: -10%; width: 50vw; height: 50vw;
+            background: #a18cd1;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+        .blob-2 {
+            bottom: -10%; right: -10%; width: 60vw; height: 60vw;
+            background: #fbc2eb;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-delay: -5s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, 50px) rotate(10deg); }
         }
 
-        .btn-vip {
-          width: 100%;
-          justify-content: center;
+        /* ================= 卡片容器 ================= */
+        .main-container {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 0 15px;
         }
 
-        .vip-features {
-          gap: 6px;
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
         }
-      }
-
-      @media (min-width: 768px) {
-        .vip-badge {
-          display: none !important;
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
         }
-      }
 
-      /* =========================================
-         第二部分：url.html 页面特有样式
-         ========================================= */
-      .card-header-center {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-      .icon-box-lg {
-        width: 70px;
-        height: 70px;
-        background: var(--primary-gradient);
-        border-radius: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2rem;
-        color: white;
-        margin: 0 auto 15px;
-        box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
-      }
-
-      /* 表单布局：两列并排 */
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-      }
-
-      /* 历史记录卡片样式 */
-      .link-card {
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        border-radius: 16px;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        transition: transform 0.2s;
-        position: relative;
-        overflow: hidden;
-        margin-bottom: 15px;
-        box-shadow: var(--shadow);
-      }
-      .link-card:hover {
-        transform: translateY(-3px);
-      }
-
-      .link-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .short-url {
-        font-weight: 700;
-        color: var(--accent-color);
-        font-size: 1.1rem;
-      }
-
-      .original-url {
-        font-size: 0.8rem;
-        color: var(--text-sub);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        background: rgba(0, 0, 0, 0.03);
-        padding: 5px 10px;
-        border-radius: 8px;
-      }
-
-      .link-actions {
-        display: flex;
-        gap: 8px;
-        margin-top: 5px;
-      }
-
-      /* 小按钮样式 */
-      .action-btn-xs {
-        padding: 6px 12px;
-        border-radius: 8px;
-        border: none;
-        cursor: pointer;
-        font-size: 0.8rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: background 0.2s;
-      }
-      .btn-copy {
-        background: rgba(102, 126, 234, 0.1);
-        color: #667eea;
-      }
-      .btn-copy:hover {
-        background: rgba(102, 126, 234, 0.2);
-      }
-      .btn-del {
-        background: rgba(255, 71, 87, 0.1);
-        color: #ff4757;
-      }
-      .btn-del:hover {
-        background: rgba(255, 71, 87, 0.2);
-      }
-
-      /* 顶部操作小按钮 */
-      .action-btn-sm {
-        background: rgba(255, 255, 255, 0.5);
-        border: 1px solid var(--glass-border);
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        cursor: pointer;
-        color: var(--text-main);
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: all 0.2s;
-      }
-      .action-btn-sm.danger {
-        color: #ff4757;
-      }
-      .action-btn-sm:hover {
-        background: white;
-        transform: translateY(-2px);
-      }
-
-      /* 结果弹窗特有样式 */
-      .result-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin: 0 auto 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5rem;
-        color: white;
-      }
-      .result-icon.success {
-        background: #2ecc71;
-        box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-      }
-      .highlight-url {
-        background: #f0f2f5;
-        padding: 10px;
-        border-radius: 10px;
-        font-family: monospace;
-        margin: 15px 0;
-        word-break: break-all;
-        color: var(--accent-color);
-        font-weight: 600;
-      }
-
-      /* 加载动画 */
-      #loading-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 0.5s, visibility 0.5s;
-      }
-      .loader-content {
-        text-align: center;
-      }
-      .spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #667eea;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 10px;
-      }
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      @media (max-width: 480px) {
-        .form-row {
-          grid-template-columns: 1fr;
-          gap: 0;
+        .card-header-custom {
+            text-align: center;
+            margin-bottom: 30px;
         }
-      }
+
+        .icon-box-lg {
+            width: 70px; height: 70px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 15px;
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+        }
+
+        h2 { font-weight: 700; color: var(--text-main); margin-bottom: 5px; }
+        .subtitle { color: var(--text-sub); font-size: 0.95rem; }
+
+        /* ================= 表单控件 ================= */
+        .custom-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .custom-input-group i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-sub);
+            z-index: 10;
+        }
+
+        .form-control-custom {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .form-control-custom:focus {
+            background: #fff;
+            border-color: #a18cd1;
+            box-shadow: 0 0 0 4px rgba(161, 140, 209, 0.2);
+        }
+
+        .btn-gradient {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(118, 75, 162, 0.3);
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(118, 75, 162, 0.4);
+            color: white;
+        }
+        
+        .btn-gradient:active { transform: scale(0.98); }
+
+        /* ================= 列表区域 ================= */
+        .action-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-action {
+            flex: 1;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            color: white;
+            min-width: 120px;
+        }
+        
+        .btn-refresh { background: linear-gradient(135deg, #11998e, #38ef7d); }
+        .btn-clear { background: linear-gradient(135deg, #ff9966, #ff5e62); }
+        .btn-cloud { background: linear-gradient(135deg, #36d1dc, #5b86e5); }
+        
+        .btn-action:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* 列表项样式重写 */
+        .list-group-item {
+            background: rgba(255,255,255,0.5) !important;
+            border: 1px solid rgba(255,255,255,0.5) !important;
+            margin-bottom: 10px;
+            border-radius: 12px !important;
+            padding: 15px !important;
+            transition: all 0.3s;
+        }
+        
+        .list-group-item:hover {
+            background: white !important;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* 列表内部元素的微调 (适配原 JS 生成的 HTML) */
+        .list-group-item .input-group {
+            flex-wrap: nowrap;
+        }
+        .list-group-item .form-control {
+            background: transparent;
+            border: none;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        .list-group-item small {
+            display: block;
+            margin-top: 5px;
+            color: var(--text-sub);
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        /* ================= 模态框与加载动画 ================= */
+        .modal-content {
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            border: none;
+        }
+        .btn-close { filter: invert(1); }
+
+        /* 覆盖原有的 Loader 样式 */
+        .loader-container {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(5px);
+        }
+        .page-loader-circle {
+            border-top-color: #667eea;
+        }
+        .page-loader-circle:nth-child(2) {
+            border-top-color: #764ba2;
+        }
+        .progress-bar {
+            background: var(--primary-gradient);
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 576px) {
+            .container { padding-top: 20px; }
+            .list-group-item .input-group {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            .list-group-item .form-control {
+                width: 100%;
+                order: -1;
+                margin-bottom: 5px;
+                padding-left: 0;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <!-- 加载动画 -->
-    <div id="loading-screen">
-      <div class="loader-content">
-        <div class="spinner"></div>
-        <p>正在初始化...</p>
-      </div>
-    </div>
+</head>
 
-    <!-- 背景装饰 -->
+<body>
+    <!-- 背景动画 -->
     <div class="bg-decoration">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
     </div>
 
-    <!-- 顶部导航 -->
-    <nav class="navbar glass-nav">
-      <div class="nav-brand">
-        <i class="fas fa-bolt"></i>
-        <span>ShortLink</span>
-      </div>
-      <!-- 注意：这里 href="index.html" 如果你是要跳回主页，请确保主页文件名正确 -->
-      <a href="index.html" class="logout-btn"><i class="fas fa-home"></i></a>
-    </nav>
-
-    <div class="container">
-      <!-- 主功能区 -->
-      <div
-        class="glass-card fade-in-up"
-        style="padding: 30px; margin-bottom: 30px"
-      >
-        <div class="card-header-center">
-          <div class="icon-box-lg"><i class="fas fa-link"></i></div>
-          <h2>链接缩短</h2>
-          <p style="color: var(--text-sub)">让分享变得更简单</p>
+    <!-- 页面加载动画 (保留原逻辑) -->
+    <div id="pageLoadingContainer">
+        <div class="page-loader">
+            <div class="page-loader-circle"></div>
+            <div class="page-loader-circle"></div>
         </div>
+        <div class="page-loader-text">系统初始化中...</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="pageLoadingProgressBar"></div>
+        </div>
+        <div class="progress-text" id="pageLoadingProgressText">0%</div>
+    </div>
 
-        <div class="shorten-form">
-          <div class="input-group">
-            <i class="fas fa-globe"></i>
-            <input
-              type="text"
-              id="longURL"
-              placeholder="粘贴长链接 (例如 https://...)"
-              oninput="loadUrlList()"
-            />
-          </div>
-
-          <div class="form-row">
-            <div class="input-group">
-              <i class="fas fa-tag"></i>
-              <input
-                type="text"
-                id="keyPhrase"
-                placeholder="自定义后缀 (可选)"
-              />
+    <div class="main-container">
+        <!-- 核心功能卡片 -->
+        <div class="glass-card">
+            <div class="card-header-custom">
+                <div class="icon-box-lg">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h2>链接精简器</h2>
+                <p class="subtitle">极速生成 • 安全稳定 • 云端同步</p>
             </div>
-            <div class="input-group">
-              <i class="fas fa-key"></i>
-              <!-- 这里的 value 需要填你 Worker 的密码，如果没密码就留空 -->
-              <input
-                type="text"
-                id="passwordText"
-                placeholder="访问密码"
-                value="__PASSWORD__"
-              />
+
+            <div class="card-body">
+                <!-- 长链接输入 -->
+                <div class="custom-input-group">
+                    <i class="fas fa-link"></i>
+                    <input type="text" class="form-control-custom" id="longURL" 
+                        placeholder="在此粘贴长链接 (例如 https://...)" oninput="loadUrlList()">
+                </div>
+
+                <div class="row">
+                    <!-- 自定义后缀 -->
+                    <div class="col-md-6">
+                        <div class="custom-input-group">
+                            <i class="fas fa-tag"></i>
+                            <input type="text" class="form-control-custom" id="keyPhrase" 
+                                placeholder="自定义后缀 (可选)">
+                        </div>
+                    </div>
+                    <!-- 密码框 -->
+                    <div class="col-md-6">
+                        <div class="custom-input-group">
+                            <i class="fas fa-key"></i>
+                            <!-- 注意：这里的 value 需要填入你的密码 -->
+                            <input class="form-control-custom" type="text" value="__PASSWORD__" 
+                                id="passwordText" placeholder="访问密码">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-gradient" type="button" onclick='shorturl()' id="addBtn">
+                    <i class="fas fa-magic me-2"></i> 立即生成短链接
+                </button>
             </div>
-          </div>
-
-          <button id="shorten-btn" class="btn-primary" onclick="shorturl()">
-            <span>立即生成</span>
-            <i class="fas fa-magic"></i>
-          </button>
         </div>
-      </div>
 
-      <!-- 历史记录区 -->
-      <div
-        style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        "
-        class="fade-in-up delay-1"
-      >
-        <h3 class="section-title" style="margin: 0">我的短链</h3>
-        <div class="quick-actions" style="display: flex; gap: 10px; margin: 0">
-          <button class="action-btn-sm" onclick="loadUrlList()">
-            <i class="fas fa-sync-alt"></i> 刷新
-          </button>
-          <button class="action-btn-sm danger" onclick="clearLocalStorage()">
-            <i class="fas fa-trash-alt"></i> 清空
-          </button>
+        <!-- 历史记录卡片 -->
+        <div class="glass-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="m-0 fw-bold"><i class="fas fa-history me-2" style="color:var(--accent-color)"></i>我的短链</h5>
+            </div>
+            
+            <div class="action-bar">
+                <button class="btn-action btn-refresh" type="button" onclick='loadUrlList()' id="loadListBtn">
+                    <i class="fas fa-sync-alt"></i> 刷新列表
+                </button>
+                <button class="btn-action btn-cloud" type="button" onclick='loadKV()' id="loadKV2localStgBtn">
+                    <i class="fas fa-cloud-download-alt"></i> 云端获取
+                </button>
+                <button class="btn-action btn-clear" type="button" onclick='clearLocalStorage()' id="clearlocalStgBtn">
+                    <i class="fas fa-trash-alt"></i> 清空记录
+                </button>
+            </div>
+
+            <div id="urlList" class="list-group list-group-flush">
+                <!-- JS 会在这里插入内容 -->
+            </div>
         </div>
-      </div>
-
-      <!-- 短链列表 -->
-      <div id="urlList" class="fade-in-up delay-2"></div>
-
-      <footer class="footer">
-        <p>© 2025 Link Shortener Service</p>
-      </footer>
+        
+        <div class="text-center text-muted mb-4" style="font-size: 0.8rem;">
+            &copy; 2025 Link Shortener Service
+        </div>
     </div>
 
-    <!-- 结果弹窗 -->
-    <div id="result-modal" class="modal">
-      <div class="modal-content glass-card">
-        <span class="close-modal" onclick="toggleModal('result-modal')"
-          >&times;</span
-        >
-        <div class="result-icon success"><i class="fas fa-check"></i></div>
-        <h3>生成成功!</h3>
-        <p id="result-url" class="highlight-url">...</p>
-        <button class="btn-primary" onclick="copyResult()">
-          <i class="fas fa-copy"></i> 复制链接
-        </button>
-      </div>
+    <!-- 结果模态框 (保留 ID 以兼容 JS) -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-check-circle me-2"></i>生成成功</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4" id="result" style="font-size: 1.1rem; word-break: break-all; color: var(--accent-color); font-weight: 600;">
+                    暂无结果
+                </div>
+                <div class="modal-footer justify-content-center border-0 pb-4">
+                    <button type="button" class="btn btn-primary rounded-pill px-4" onclick='copyurl("result")' 
+                        data-bs-toggle="popover" data-bs-placement="top" data-bs-content="已复制!">
+                        <i class="fas fa-copy me-2"></i>复制链接
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Toast 提示 -->
-    <div id="toast" class="toast">
-      <i class="fas fa-check-circle"></i>
-      <span id="toast-msg">操作成功</span>
+    <!-- 操作加载动画 -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-circle"></div>
+            <div class="loader-text" style="color: var(--text-main)">处理中...</div>
+        </div>
     </div>
+
+    <!-- ================= 脚本引入 ================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/lrsjng/jquery-qrcode@0.18.0/dist/jquery-qrcode.min.js"></script>
+
+    <!-- 核心逻辑：这里保留了你原来使用的外部 JS，确保功能正常 -->
+    <script src="https://crazypeace.github.io/Url-Shorten-Worker/main.js" crossorigin="anonymous"></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // ============================================
-        // API 配置
-        // 默认留空字符串 ""，会自动使用当前网页的域名作为后台。
-        // 如果你在 GitHub Pages 上点生成没反应，请在这里填入你的 Worker 地址
-        // 例如: "https://short.你的域名.workers.dev"
-        const API_URL = "";
-        // ============================================
+        // ================= 页面交互逻辑 =================
+        
+        // 初始化 Bootstrap 提示框
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl, {
+            trigger: 'click',
+            delay: { "show": 500, "hide": 100 }
+        }))
 
-        const longUrlInput = document.getElementById("longURL");
-        const keyPhraseInput = document.getElementById("keyPhrase");
-        const passwordInput = document.getElementById("passwordText");
-        const urlListContainer = document.getElementById("urlList");
-        const loadingScreen = document.getElementById("loading-screen");
-        const resultModal = document.getElementById("result-modal");
-        const resultUrlText = document.getElementById("result-url");
+        document.querySelectorAll('[data-bs-toggle="popover"]').forEach(button => {
+            button.addEventListener('click', function () {
+                setTimeout(() => {
+                    const popover = bootstrap.Popover.getInstance(button)
+                    if (popover) {
+                        setTimeout(() => popover.hide(), 1000)
+                    }
+                }, 1000)
+            })
+        })
 
-        // 初始化加载
-        setTimeout(() => {
-          loadingScreen.style.opacity = "0";
-          loadingScreen.style.visibility = "hidden";
-          loadUrlList();
-        }, 500);
-
-        // 1. 生成短链核心逻辑
-        window.shorturl = async function () {
-          const longURL = longUrlInput.value.trim();
-          const keyPhrase = keyPhraseInput.value.trim();
-          const password = passwordInput.value.trim();
-
-          if (!longURL) {
-            showToast("请输入长链接 😅");
-            longUrlInput.focus();
-            return;
-          }
-
-          // 按钮加载状态
-          const btn = document.getElementById("shorten-btn");
-          const originalText = btn.innerHTML;
-          btn.innerHTML =
-            '<div class="spinner" style="width:20px;height:20px;border-width:2px;margin:0 auto"></div>';
-          btn.disabled = true;
-
-          try {
-            // 自动判断请求地址：如果有配置就用配置，没配置就用当前域名
-            const targetUrl = API_URL ? API_URL : window.location.origin;
-
-            const response = await fetch(targetUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                url: longURL,
-                slug: keyPhrase,
-                password: password,
-              }),
-            });
-
-            const data = await response.json();
-
-            // Worker 返回的格式通常是 {status:200, key: "...", slug: "..."} 或者 {shorturl: "..."}
-            // 这里做一些兼容处理
-            if (response.ok && (data.status === 200 || data.shorturl)) {
-              const shortUrl = data.shorturl || targetUrl + "/" + data.key;
-
-              saveToLocal(data.key || data.slug, longURL, shortUrl);
-
-              resultUrlText.textContent = shortUrl;
-              toggleModal("result-modal");
-              loadUrlList();
-
-              longUrlInput.value = "";
-              keyPhraseInput.value = "";
-            } else {
-              showToast(
-                "错误: " + (data.message || "生成失败，请检查密码或后缀")
-              );
-            }
-          } catch (error) {
-            console.error(error);
-            showToast("请求失败！如果您在GitHub Pages，请配置API地址");
-          } finally {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }
-        };
-
-        // 2. 本地存储逻辑
-        function saveToLocal(slug, longURL, shortURL) {
-          let list = JSON.parse(localStorage.getItem("short_urls")) || [];
-          list = list.filter((item) => item.slug !== slug);
-          list.unshift({ slug, longURL, shortURL, date: new Date().getTime() });
-          localStorage.setItem("short_urls", JSON.stringify(list));
+        // 加载动画控制
+        function showLoader(message = "正在处理...") {
+            const textEl = document.querySelector('.loader-text');
+            if(textEl) textEl.textContent = message;
+            document.getElementById('loaderContainer').classList.add('show');
         }
 
-        // 3. 渲染列表
+        function hideLoader() {
+            document.getElementById('loaderContainer').classList.remove('show');
+        }
+
+        // ================= 劫持并增强原有函数 =================
+        // 这里的目的是在调用外部 main.js 的功能时，增加我们自己的加载动画效果
+        
+        const originalShorturl = window.shorturl;
+        window.shorturl = function () {
+            showLoader("正在生成短链接...");
+            // 延时一点点以显示动画
+            setTimeout(() => {
+                if(typeof originalShorturl === 'function') {
+                    originalShorturl();
+                } else {
+                    // 如果外部JS还没加载完的备用处理
+                    console.warn('Main script not loaded yet');
+                }
+                hideLoader();
+            }, 300);
+        };
+
+        const originalLoadUrlList = window.loadUrlList;
         window.loadUrlList = function () {
-          const list = JSON.parse(localStorage.getItem("short_urls")) || [];
-          urlListContainer.innerHTML = "";
-
-          if (list.length === 0) {
-            urlListContainer.innerHTML = `
-                        <div style="text-align:center;color:#999;padding:40px;">
-                            <i class="fas fa-inbox" style="font-size:3rem;margin-bottom:15px;opacity:0.5;"></i>
-                            <p>暂无生成记录</p>
-                        </div>`;
-            return;
-          }
-
-          list.forEach((item) => {
-            const card = document.createElement("div");
-            card.className = "link-card fade-in-up";
-            card.innerHTML = `
-                        <div class="link-header">
-                            <span class="short-url">${item.shortURL}</span>
-                            <button class="action-btn-xs btn-del" onclick="deleteShortUrl('${item.slug}')">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                        <div class="original-url" title="${item.longURL}">${item.longURL}</div>
-                        <div class="link-actions">
-                            <button class="action-btn-xs btn-copy" onclick="copyText('${item.shortURL}')">
-                                <i class="fas fa-copy"></i> 复制
-                            </button>
-                            <a href="${item.shortURL}" target="_blank" class="action-btn-xs" style="background:rgba(0,0,0,0.05);color:#555;text-decoration:none;">
-                                <i class="fas fa-external-link-alt"></i> 访问
-                            </a>
-                        </div>
-                    `;
-            urlListContainer.appendChild(card);
-          });
+            // 列表加载通常很快，可以不显示全屏遮罩，或者显示轻量级提示
+            if(typeof originalLoadUrlList === 'function') originalLoadUrlList();
         };
 
-        // 4. 删除和清空
-        window.deleteShortUrl = function (slug) {
-          if (!confirm("删除此记录？")) return;
-          let list = JSON.parse(localStorage.getItem("short_urls")) || [];
-          list = list.filter((item) => item.slug !== slug);
-          localStorage.setItem("short_urls", JSON.stringify(list));
-          loadUrlList();
+        const originalLoadKV = window.loadKV;
+        window.loadKV = function () {
+            showLoader("正在同步云端数据...");
+            setTimeout(() => {
+                if(typeof originalLoadKV === 'function') originalLoadKV();
+                hideLoader();
+            }, 500);
         };
 
+        const originalClearLocalStorage = window.clearLocalStorage;
         window.clearLocalStorage = function () {
-          if (!confirm("清空所有记录？")) return;
-          localStorage.removeItem("short_urls");
-          loadUrlList();
+            if(confirm("确定要清空所有本地记录吗？")) {
+                showLoader("正在清理...");
+                setTimeout(() => {
+                    if(typeof originalClearLocalStorage === 'function') originalClearLocalStorage();
+                    hideLoader();
+                }, 300);
+            }
         };
 
-        // 5. 复制和弹窗
-        window.copyText = function (text) {
-          const textArea = document.createElement("textarea");
-          textArea.value = text;
-          textArea.style.position = "fixed";
-          textArea.style.left = "-9999px";
-          document.body.appendChild(textArea);
-          textArea.focus();
-          textArea.select();
-          try {
-            document.execCommand("copy");
-            showToast("复制成功！");
-          } catch (err) {
-            showToast("复制失败");
-          }
-          document.body.removeChild(textArea);
+        const originalDeleteShortUrl = window.deleteShortUrl;
+        window.deleteShortUrl = function (key) {
+            if(confirm("确定删除此链接？")) {
+                showLoader("正在删除...");
+                setTimeout(() => {
+                    if(typeof originalDeleteShortUrl === 'function') originalDeleteShortUrl(key);
+                    hideLoader();
+                }, 300);
+            }
         };
 
-        window.copyResult = function () {
-          copyText(resultUrlText.textContent);
-        };
+        // ================= 页面初始化动画 =================
+        document.addEventListener('DOMContentLoaded', function () {
+            let progress = 0;
+            const progressBar = document.getElementById('pageLoadingProgressBar');
+            const progressText = document.getElementById('pageLoadingProgressText');
+            const pageLoadingContainer = document.getElementById('pageLoadingContainer');
 
-        window.toggleModal = function (modalId) {
-          const modal = document.getElementById(modalId);
-          modal.style.display =
-            modal.style.display === "flex" ? "none" : "flex";
-        };
-
-        function showToast(msg) {
-          const toast = document.getElementById("toast");
-          const toastMsg = document.getElementById("toast-msg");
-          toastMsg.textContent = msg;
-          toast.classList.add("show");
-          setTimeout(() => toast.classList.remove("show"), 2000);
-        }
-
-        window.onclick = function (event) {
-          if (event.target.classList.contains("modal"))
-            event.target.style.display = "none";
-        };
-      });
+            const interval = setInterval(function () {
+                progress += Math.random() * 20;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(function () {
+                        pageLoadingContainer.classList.add('hide'); // 这里的 hide 类在原 CSS 中定义了
+                        pageLoadingContainer.style.opacity = 0;
+                        pageLoadingContainer.style.visibility = 'hidden';
+                    }, 500);
+                }
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+            }, 100);
+        });
     </script>
-  </body>
+</body>
 </html>
