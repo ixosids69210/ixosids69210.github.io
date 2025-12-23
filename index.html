@@ -8,7 +8,93 @@
     />
     <title>群友专享节点</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <!-- 保持使用 CDN，因为手动下载配置很麻烦，我们用加载动画来优化体验 -->
+
+    <!-- 1. 关键：把加载动画的样式直接写在这里，防止白屏 -->
+    <style>
+      /* 页面初始化时隐藏滚动条 */
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: #f0f2f5;
+        font-family: sans-serif;
+      }
+
+      /* 加载遮罩层 - 默认最高层级 */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f0f2f5;
+        z-index: 99999; /* 确保在最上层 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.6s ease, visibility 0.6s ease;
+      }
+
+      /* 动画隐藏时的类 */
+      #loading-screen.fade-out {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loader-content {
+        text-align: center;
+        width: 240px;
+      }
+
+      /* 旋转圆圈 */
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(118, 75, 162, 0.2);
+        border-top: 4px solid #764ba2;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        animation: spin 1s linear infinite;
+      }
+
+      .loader-content p {
+        color: #718096;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      /* 进度条背景 */
+      .progress-bar-bg {
+        width: 100%;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* 进度条填充 */
+      .progress-bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.1s linear; /* 更平滑的过渡 */
+        border-radius: 10px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- 外部资源放在后面加载 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,11 +106,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- 1. 加载动画遮罩 -->
+    <!-- 1. 加载动画遮罩 (结构保持不变) -->
     <div id="loading-screen">
       <div class="loader-content">
         <div class="spinner"></div>
-        <p>资源加载中...</p>
+        <p>资源加载中... <span id="progress-text">0%</span></p>
         <div class="progress-bar-bg">
           <div id="progress-bar" class="progress-bar-fill"></div>
         </div>
@@ -91,13 +177,14 @@
             <i class="fas fa-check-circle"></i> 运行正常
           </div>
           <h2>欢迎回来，群友</h2>
-          <p class="update-time">最后更新: 2025年12月23日15:31:07</p>
+          <p class="update-time">最后更新: 2025年12月23日</p>
           <div class="notice-box">
             <i class="fas fa-bullhorn"></i>
             <span>本站节点永久免费，如果你是付费购买的，说明被骗了！</span>
           </div>
         </div>
-        <!-- 插入的推荐区域 (类名已修改以防拦截) -->
+
+        <!-- 推荐区域 -->
         <div class="glass-card vip-card fade-in-up delay-1">
           <div class="vip-badge"><i class="fas fa-bolt"></i> 付费推荐</div>
 
@@ -131,7 +218,7 @@
         <div class="action-grid fade-in-up delay-2">
           <h3 class="section-title">快捷操作</h3>
           <div class="quick-actions">
-            <!-- 新增：教程按钮 -->
+            <!-- 教程按钮 -->
             <button class="action-btn" onclick="openTutorial()">
               <div class="icon-box book-icon">
                 <i class="fas fa-book-open"></i>
@@ -242,7 +329,7 @@
       </div>
     </div>
 
-    <!-- 2. 弹窗：使用教程 (新) -->
+    <!-- 教程弹窗 -->
     <div id="tutorial-modal" class="modal">
       <div class="modal-content glass-card wide-modal">
         <span class="close-modal" onclick="toggleModal('tutorial-modal')"
@@ -250,7 +337,6 @@
         >
         <h3>使用教程</h3>
 
-        <!-- 选项卡头部 -->
         <div class="tabs-header">
           <button class="tab-btn active" onclick="switchTab('tab-rocket')">
             小火箭
@@ -263,7 +349,6 @@
           </button>
         </div>
 
-        <!-- 选项卡内容 -->
         <div class="tabs-content">
           <!-- 小火箭教程 -->
           <div id="tab-rocket" class="tab-pane active">
