@@ -1,37 +1,347 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>群友专享节点</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!-- 保持使用 CDN，因为手动下载配置很麻烦，我们用加载动画来优化体验 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 1. 加载动画遮罩 -->
+    <div id="loading-screen">
+      <div class="loader-content">
+        <div class="spinner"></div>
+        <p>资源加载中...</p>
+        <div class="progress-bar-bg">
+          <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+      </div>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>正在加载...</title>
-    <script>
-        // 檢查登錄狀態並重定向
-        (function() {
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
-            const loginTimestamp = localStorage.getItem('loginTimestamp');
-            const currentTime = Date.now();
-            
-            if (isLoggedIn && loginTimestamp && (currentTime - parseInt(loginTimestamp)) <= 24 * 60 * 60 * 1000) {
-                window.location.href = 'main.html';
-            } else {
-                window.location.href = 'login.html';
-            }
-        })();
-    </script>
-    <style>
-        body {
-            font-family: 'Microsoft YaHei', sans-serif;
-            text-align: center;
-            padding-top: 30vh;
-            background: linear-gradient(135deg, #f6f8ff, #f0f3ff);
-            color: #666;
-        }
-    </style>
-</head>
+    <!-- 背景装饰 -->
+    <div class="bg-decoration">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
 
-<body>
-    <p>正在加载中，请稍候...</p>
-</body>
+    <!-- 登录界面 -->
+    <section id="login-section" class="active-section">
+      <div class="glass-card login-card">
+        <div class="login-header">
+          <div class="logo-icon"><i class="fas fa-rocket"></i></div>
+          <h1>群友专享</h1>
+          <p>Private Access</p>
+        </div>
 
+        <div class="login-form">
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              id="password-input"
+              placeholder="请输入群公告密码"
+              maxlength="20"
+            />
+          </div>
+          <button id="login-btn" class="btn-primary">
+            <span>立即进入</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <p id="error-msg" class="error-text">密码错误，请重试</p>
+        </div>
+
+        <div class="qrcode-mini">
+          <p>还没有密码？</p>
+          <div class="qr-trigger" onclick="toggleModal('qr-modal')">
+            <i class="fab fa-tiktok"></i> 扫码加群获取
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 主界面 -->
+    <section id="main-section" class="hidden-section">
+      <nav class="navbar glass-nav">
+        <div class="nav-brand">
+          <i class="fas fa-network-wired"></i>
+          <span>JieDian</span>
+        </div>
+        <button onclick="logout()" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+      </nav>
+
+      <div class="container">
+        <!-- 公告 -->
+        <div class="hero-card glass-card fade-in-up">
+          <div class="status-badge">
+            <i class="fas fa-check-circle"></i> 运行正常
+          </div>
+          <h2>欢迎回来，群友</h2>
+          <p class="update-time">最后更新: 2025年12月23日15:31:07</p>
+          <div class="notice-box">
+            <i class="fas fa-bullhorn"></i>
+            <span>本站节点永久免费，如果你是付费购买的，说明被骗了！</span>
+          </div>
+        </div>
+        <!-- 插入的推荐区域 (类名已修改以防拦截) -->
+        <div class="glass-card vip-card fade-in-up delay-1">
+          <div class="vip-badge"><i class="fas fa-bolt"></i> 付费推荐</div>
+
+          <div class="vip-content">
+            <div class="vip-info">
+              <h3>
+                Kepa云 <i class="fas fa-crown" style="font-size: 0.9rem"></i>
+              </h3>
+              <div class="vip-features">
+                <span class="feature-tag"
+                  ><i class="fas fa-rocket"></i> 高速稳定</span
+                >
+                <span class="feature-tag"
+                  ><i class="fas fa-database"></i> 100G流量</span
+                >
+                <span class="feature-tag"
+                  ><i class="fas fa-tag"></i> 9.9元起</span
+                >
+              </div>
+            </div>
+
+            <a href="https://kpyun.xyz" target="_blank" class="btn-vip">
+              <span>立即体验</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- 推荐区域结束 -->
+
+        <!-- 功能按钮区 -->
+        <div class="action-grid fade-in-up delay-2">
+          <h3 class="section-title">快捷操作</h3>
+          <div class="quick-actions">
+            <!-- 新增：教程按钮 -->
+            <button class="action-btn" onclick="openTutorial()">
+              <div class="icon-box book-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <span>使用教程</span>
+            </button>
+            <a href="https://pan.101079.xyz" target="_blank" class="action-btn">
+              <div class="icon-box cloud-icon">
+                <i class="fas fa-cloud-download-alt"></i>
+              </div>
+              <span>客户端下载</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 订阅区域 -->
+        <h3 class="section-title fade-in-up delay-3">一键订阅</h3>
+        <div class="grid-container">
+          <!-- Shadowrocket -->
+          <div class="app-card glass-card fade-in-up delay-3">
+            <div class="app-icon shadow-rocket">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="app-info">
+              <h4>Shadowrocket</h4>
+              <p>iOS 推荐</p>
+            </div>
+            <div class="app-actions">
+              <button
+                onclick="copyText('https://wuwu.live/ft1dv')"
+                class="btn-icon"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+              <a
+                href="shadowrocket://add/sub://aHR0cHM6Ly93dXd1LmxpdmUvZnQxZHY=?remark=群友专享"
+                class="btn-sm"
+                >导入</a
+              >
+            </div>
+          </div>
+
+          <!-- Clash -->
+          <div class="app-card glass-card fade-in-up delay-3">
+            <div class="app-icon clash"><i class="fas fa-cat"></i></div>
+            <div class="app-info">
+              <h4>Clash</h4>
+              <p>全平台通用</p>
+            </div>
+            <div class="app-actions">
+              <button
+                onclick="copyText('https://wuwu.live/ft2dv')"
+                class="btn-icon"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+              <a
+                href="clash://install-config?url=https%3A%2F%2Fwuwu.live%2Fft2dv"
+                class="btn-sm"
+                >导入</a
+              >
+            </div>
+          </div>
+
+          <!-- Hiddify -->
+          <div class="app-card glass-card fade-in-up delay-4">
+            <div class="app-icon hiddify"><i class="fas fa-ghost"></i></div>
+            <div class="app-info">
+              <h4>Hiddify</h4>
+              <p>萌新推荐</p>
+            </div>
+            <div class="app-actions">
+              <button
+                onclick="copyText('https://wuwu.live/ft2dv')"
+                class="btn-icon"
+              >
+                <i class="fas fa-copy"></i>
+              </button>
+              <a href="hiddify://import/https://wuwu.live/ft2dv" class="btn-sm"
+                >导入</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>
+            站长QQ: 1287766992
+            <i
+              class="fas fa-copy click-copy"
+              onclick="copyText('1287766992')"
+            ></i>
+          </p>
+          <p class="copyright">© 2025 群友专享节点</p>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 弹窗：二维码 -->
+    <div id="qr-modal" class="modal">
+      <div class="modal-content glass-card">
+        <span class="close-modal" onclick="toggleModal('qr-modal')"
+          >&times;</span
+        >
+        <h3>加入抖音群</h3>
+        <p>扫描下方二维码获取密码</p>
+        <img src="dy.jpg" alt="抖音群二维码" class="qr-img" />
+      </div>
+    </div>
+
+    <!-- 2. 弹窗：使用教程 (新) -->
+    <div id="tutorial-modal" class="modal">
+      <div class="modal-content glass-card wide-modal">
+        <span class="close-modal" onclick="toggleModal('tutorial-modal')"
+          >&times;</span
+        >
+        <h3>使用教程</h3>
+
+        <!-- 选项卡头部 -->
+        <div class="tabs-header">
+          <button class="tab-btn active" onclick="switchTab('tab-rocket')">
+            小火箭
+          </button>
+          <button class="tab-btn" onclick="switchTab('tab-clash')">
+            Clash
+          </button>
+          <button class="tab-btn" onclick="switchTab('tab-hiddify')">
+            Hiddify
+          </button>
+        </div>
+
+        <!-- 选项卡内容 -->
+        <div class="tabs-content">
+          <!-- 小火箭教程 -->
+          <div id="tab-rocket" class="tab-pane active">
+            <div class="step-item">
+              <span class="step-num">1</span>
+              <p>点击主页的 <i class="fas fa-copy"></i> 复制订阅链接。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">2</span>
+              <p>打开 Shadowrocket，会自动检测剪贴板，点击“确认”。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">3</span>
+              <p>
+                如果没有弹窗，点击右上角 <strong>+</strong> 号，类型选择
+                <strong>Subscribe</strong>，在 URL 处粘贴链接，点击保存。
+              </p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">4</span>
+              <p>打开连接开关即可。</p>
+            </div>
+          </div>
+
+          <!-- Clash教程 -->
+          <div id="tab-clash" class="tab-pane">
+            <div class="step-item">
+              <span class="step-num">1</span>
+              <p>
+                点击主页 Clash 卡片的
+                <strong>导入</strong> 按钮（如果没反应，请先复制链接）。
+              </p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">2</span>
+              <p>
+                打开 Clash 客户端，进入 <strong>配置 (Profiles)</strong> 页面。
+              </p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">3</span>
+              <p>粘贴链接到 URL 栏，点击 <strong>下载 (Download)</strong>。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">4</span>
+              <p>选中下载好的配置，返回主页开启代理。</p>
+            </div>
+          </div>
+
+          <!-- Hiddify教程 -->
+          <div id="tab-hiddify" class="tab-pane">
+            <div class="step-item">
+              <span class="step-num">1</span>
+              <p>复制订阅链接。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">2</span>
+              <p>打开 Hiddify，点击右上角的 <strong>+</strong> 号。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">3</span>
+              <p>选择 <strong>从剪贴板导入</strong>。</p>
+            </div>
+            <div class="step-item">
+              <span class="step-num">4</span>
+              <p>点击下方的大圆按钮连接。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast">
+      <i class="fas fa-check-circle"></i>
+      <span id="toast-msg">复制成功</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
