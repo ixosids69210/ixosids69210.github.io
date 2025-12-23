@@ -734,3 +734,11 @@ body {
     gap: 6px;
   }
 }
+
+/* --- 新增：电脑端隐藏 VIP 标签 --- */
+/* 当屏幕宽度大于 768px (通常是平板或电脑) 时隐藏该元素 */
+@media (min-width: 768px) {
+  .vip-badge {
+    display: none !important;
+  }
+}
