@@ -17,12 +17,748 @@
       rel="stylesheet"
     />
 
-    <!-- 引用通用的样式文件 -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- 本页面特有的样式 -->
     <style>
-      /* 顶部大图标区域 */
+      /* =========================================
+         第一部分：通用的 style.css 样式
+         ========================================= */
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --bg-color: #f0f2f5;
+        --glass-bg: rgba(255, 255, 255, 0.75);
+        --glass-border: rgba(255, 255, 255, 0.5);
+        --text-main: #2d3748;
+        --text-sub: #718096;
+        --accent-color: #764ba2;
+        --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        font-family: "Poppins", "Noto Sans SC", sans-serif;
+        background: var(--bg-color);
+        color: var(--text-main);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* 背景装饰 */
+      .bg-decoration {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .blob {
+        position: absolute;
+        filter: blur(80px);
+        opacity: 0.6;
+        animation: float 10s infinite ease-in-out;
+      }
+
+      .blob-1 {
+        top: -10%;
+        left: -10%;
+        width: 50vw;
+        height: 50vw;
+        background: #a18cd1;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      }
+
+      .blob-2 {
+        bottom: -10%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: #fbc2eb;
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: -5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          transform: translate(30px, 50px) rotate(10deg);
+        }
+      }
+
+      /* 布局 */
+      .hidden-section {
+        display: none !important;
+      }
+      .active-section {
+        display: flex;
+      }
+
+      .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 80px 20px 40px;
+      }
+
+      /* 登录页 */
+      #login-section {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .login-card {
+        width: 100%;
+        max-width: 400px;
+        padding: 40px 30px;
+        text-align: center;
+      }
+
+      .login-header .logo-icon {
+        font-size: 3rem;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+      }
+
+      .login-header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+      .login-header p {
+        color: var(--text-sub);
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .login-form {
+        margin-top: 30px;
+      }
+
+      .input-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+      .input-group i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-sub);
+      }
+      .input-group input {
+        width: 100%;
+        padding: 15px 15px 15px 45px;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s;
+      }
+      .input-group input:focus {
+        background: #fff;
+        border-color: #a18cd1;
+        box-shadow: 0 0 0 4px rgba(161, 140, 209, 0.2);
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 12px;
+        background: var(--primary-gradient);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.2s;
+      }
+      .btn-primary:active {
+        transform: scale(0.98);
+      }
+
+      .error-text {
+        color: #ff4757;
+        font-size: 0.85rem;
+        margin-top: 10px;
+        display: none;
+      }
+      .qrcode-mini {
+        margin-top: 30px;
+        font-size: 0.9rem;
+        color: var(--text-sub);
+      }
+      .qr-trigger {
+        margin-top: 8px;
+        color: var(--accent-color);
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      /* 主页 */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-brand {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logout-btn {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: var(--text-sub);
+        cursor: pointer;
+      }
+
+      .hero-card {
+        padding: 30px;
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .status-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        background: #d4edda;
+        color: #155724;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+      .hero-card h2 {
+        margin-bottom: 5px;
+      }
+      .update-time {
+        color: var(--text-sub);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+      .notice-box {
+        background: rgba(255, 243, 205, 0.6);
+        border: 1px solid #ffeeba;
+        padding: 12px;
+        border-radius: 12px;
+        color: #856404;
+        font-size: 0.9rem;
+        display: flex;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .section-title {
+        margin: 30px 0 15px;
+        font-size: 1.2rem;
+        padding-left: 10px;
+        border-left: 4px solid var(--accent-color);
+      }
+
+      /* 快捷操作按钮组 */
+      .quick-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .action-btn {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        padding: 15px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--text-main);
+        font-weight: 600;
+        transition: transform 0.2s;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        font-size: 1rem;
+        font-family: inherit;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.2rem;
+      }
+      .book-icon {
+        background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      }
+      .cloud-icon {
+        background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      }
+
+      /* 卡片 */
+      .grid-container {
+        display: grid;
+        gap: 15px;
+      }
+      .app-card {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.2s;
+      }
+      .app-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .app-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: white;
+      }
+      .shadow-rocket {
+        background: linear-gradient(135deg, #36d1dc, #5b86e5);
+      }
+      .clash {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+      }
+      .hiddify {
+        background: linear-gradient(135deg, #ff9966, #ff5e62);
+      }
+
+      .app-info {
+        flex: 1;
+      }
+      .app-info h4 {
+        font-size: 1rem;
+        margin-bottom: 2px;
+      }
+      .app-info p {
+        font-size: 0.8rem;
+        color: var(--text-sub);
+      }
+
+      .app-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .btn-icon {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--text-main);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .btn-icon:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .btn-sm {
+        padding: 8px 16px;
+        background: var(--primary-gradient);
+        color: white;
+        text-decoration: none;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        color: var(--text-sub);
+        font-size: 0.9rem;
+      }
+      .click-copy {
+        cursor: pointer;
+        margin-left: 5px;
+        color: var(--accent-color);
+      }
+
+      /* 弹窗与教程样式 */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+      }
+
+      .modal-content {
+        background: #fff;
+        padding: 30px;
+        text-align: center;
+        width: 90%;
+        max-width: 320px;
+        position: relative;
+        animation: zoomIn 0.3s ease;
+        border-radius: 20px;
+      }
+
+      .wide-modal {
+        max-width: 500px;
+        padding: 25px;
+        text-align: left;
+      }
+      .wide-modal h3 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #999;
+        z-index: 10;
+      }
+      .qr-img {
+        width: 100%;
+        border-radius: 10px;
+        margin-top: 15px;
+      }
+
+      /* 教程选项卡 */
+      .tabs-header {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+        overflow-x: auto;
+      }
+      .tab-btn {
+        border: none;
+        background: none;
+        padding: 8px 15px;
+        font-size: 0.95rem;
+        color: var(--text-sub);
+        cursor: pointer;
+        border-radius: 8px;
+        white-space: nowrap;
+      }
+      .tab-btn.active {
+        background: var(--primary-gradient);
+        color: white;
+        font-weight: 600;
+      }
+
+      .tab-pane {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+      .tab-pane.active {
+        display: block;
+      }
+
+      .step-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+      }
+      .step-num {
+        background: #e2e8f0;
+        color: var(--text-main);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .step-item p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--text-main);
+        margin: 0;
+      }
+
+      /* Toast */
+      .toast {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100px);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 2000;
+        transition: transform 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* 动画 */
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease backwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding-top: 70px;
+        }
+        .hero-card {
+          padding: 20px;
+        }
+      }
+
+      /* VIP推荐卡片样式 */
+      .vip-card {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(255, 248, 220, 0.9)
+        );
+        border: 1px solid rgba(255, 215, 0, 0.5);
+        margin-bottom: 30px;
+        overflow: hidden;
+        padding: 20px;
+        box-shadow: 0 10px 25px -5px rgba(255, 165, 0, 0.15),
+          0 8px 10px -6px rgba(255, 165, 0, 0.1);
+      }
+
+      .vip-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        color: #fff;
+        padding: 6px 16px;
+        border-bottom-left-radius: 16px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        box-shadow: -2px 2px 10px rgba(253, 160, 133, 0.3);
+        z-index: 10;
+        letter-spacing: 1px;
+      }
+
+      .vip-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-top: 5px;
+      }
+
+      .vip-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .vip-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #d35400;
+        font-weight: 700;
+      }
+
+      .vip-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .feature-tag {
+        font-size: 0.8rem;
+        color: #8a6d3b;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 4px 10px;
+        border-radius: 8px;
+        border: 1px solid rgba(243, 156, 18, 0.2);
+      }
+
+      .feature-tag i {
+        color: #f39c12;
+        font-size: 0.9em;
+      }
+
+      .btn-vip {
+        background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 14px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 5;
+      }
+
+      .btn-vip:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+        filter: brightness(1.05);
+      }
+
+      .btn-vip:active {
+        transform: scale(0.98);
+      }
+
+      @media (max-width: 550px) {
+        .vip-content {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 15px;
+        }
+
+        .vip-info {
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+        .vip-info h3 {
+          max-width: 80%;
+        }
+
+        .btn-vip {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .vip-features {
+          gap: 6px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .vip-badge {
+          display: none !important;
+        }
+      }
+
+      /* =========================================
+         第二部分：url.html 页面特有样式
+         ========================================= */
       .card-header-center {
         text-align: center;
         margin-bottom: 30px;
@@ -172,6 +908,37 @@
         font-weight: 600;
       }
 
+      /* 加载动画 */
+      #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s, visibility 0.5s;
+      }
+      .loader-content {
+        text-align: center;
+      }
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #667eea;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
       @media (max-width: 480px) {
         .form-row {
           grid-template-columns: 1fr;
@@ -201,6 +968,7 @@
         <i class="fas fa-bolt"></i>
         <span>ShortLink</span>
       </div>
+      <!-- 注意：这里 href="index.html" 如果你是要跳回主页，请确保主页文件名正确 -->
       <a href="index.html" class="logout-btn"><i class="fas fa-home"></i></a>
     </nav>
 
