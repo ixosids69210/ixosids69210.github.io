@@ -8,7 +8,7 @@
   if (!loadingScreen || !progressBar) return;
 
   // 2. 初始进度设置：从 10% 开始，让用户立马看到条子在动，而不是 0%
-  let width = 10; 
+  let width = 10;
   progressBar.style.width = width + "%";
   if (progressText) progressText.innerText = width + "%";
 
@@ -18,11 +18,11 @@
     if (width < 100) {
       // 随机增加进度
       let increment = Math.random() * 3; // 基础速度加快
-      
+
       // 进度越高，跑得越慢 (模拟真实感)
       if (width > 60) increment = Math.random() * 1;
       if (width > 80) increment = Math.random() * 0.3;
-      
+
       width += increment;
 
       // 关键点：如果页面还没加载完 (!window.pageLoaded)，死活卡在 95% 不许走
@@ -30,13 +30,13 @@
       if (width >= 95 && !window.pageLoaded) {
         width = 95;
       }
-      
+
       // 更新 UI
       // 限制最大显示 99% (100%留给加载完成事件)
-      let displayWidth = Math.min(width, 99); 
+      let displayWidth = Math.min(width, 99);
       progressBar.style.width = displayWidth + "%";
       if (progressText) progressText.innerText = Math.floor(displayWidth) + "%";
-    } 
+    }
     // B. 如果宽度已经达到或超过 100 (由 window.onload 触发)
     else {
       clearInterval(interval);
@@ -61,15 +61,15 @@
   window.addEventListener("load", () => {
     window.pageLoaded = true;
     // 关键修正：页面加载完了，直接拉满到 100%！不要慢慢跑了！
-    width = 100; 
+    width = 100;
   });
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
   // --- 2. 配置与密码逻辑 ---
   const CONFIG = {
-    // 密码: 0871
-    PASSWORD_B64: "MDg3MQ==", 
+    // 密码: 123456
+    PASSWORD_B64: "NDAxNw==",
     AUTH_KEY: "jiedian_auth_v2",
     EXPIRE_HOURS: 24,
   };
