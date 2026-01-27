@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 2. 配置与密码逻辑 ---
   const CONFIG = {
     // 密码: 123456
-    PASSWORD_B64: "NDAxNw==",
+    PASSWORD_B64: "ODU5Nw==",
     AUTH_KEY: "jiedian_auth_v2",
     EXPIRE_HOURS: 24,
   };
