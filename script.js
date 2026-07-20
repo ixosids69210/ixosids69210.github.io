@@ -46,7 +46,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const CONFIG = {
-    PASSWORD_B64: "ODYxMQ==",
+    PASSWORD_B64: "ODYxMQ=",
     AUTH_KEY: "jiedian_auth_v2",
     AUTH_COOKIE: "jiedian_auth_v2",
     EXPIRE_HOURS: 24,
